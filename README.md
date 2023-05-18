@@ -4,7 +4,7 @@ This repository contains code for SMITO data analysis.
 For SMITO computational pipeline, see [smito-pipeline](https://github.com/kimpenn/smito-pipeline).
 
 ## Author
-Youtao Lu<luyoutao@sas.upenn.edu>
+Youtao Lu <luyoutao@sas.upenn.edu>
 
 ## Copyright
 ```
