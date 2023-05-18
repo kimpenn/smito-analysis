@@ -17,4 +17,4 @@ Copyright (c) 2021-2023, David Issadore, Penn Engineering, University of Pennsyl
 Creative Commons Attribution License 4.0 (CC BY)
 
 ## Reference
-* Parnika S Kadam, Zijian Yang, Youtao Lu, Hua Zhu, Yasemin Atiyas, Nishal Shah, Stephen Fisher, Erik Nordgren, Junhyong Kim, David Issadore and James Eberwine, Large-Scale Single-Mitochondrion Sequencing Revealed Distinct Mutational Patterns and Hierarchical Distribution of Single-Nucleotide Heteroplasmy in Mouse Astrocytes and Neurons (*under review*)
+* Parnika S Kadam, Zijian Yang, Youtao Lu, Hua Zhu, Yasemin Atiyas, Nishal Shah, Stephen Fisher, Erik Nordgren, Junhyong Kim, David Issadore and James Eberwine, *Large-Scale Single-Mitochondrion Sequencing Revealed Distinct Mutational Patterns and Hierarchical Distribution of Single-Nucleotide Heteroplasmy in Mouse Astrocytes and Neurons* (under review)
