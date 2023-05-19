@@ -7,7 +7,7 @@
 ## 
 ## This Source Code is distributed under Creative Commons Attribution License 4.0 (CC BY).
 ###########################################################################
-source("Source/release/functions.R")
+source("Source/functions.R")
 library("data.table")
 
 mito_barcodes <- read.csv("Data/mito_barcodes.csv", as.is = TRUE)
@@ -21,27 +21,27 @@ chrmbases <- paste0(chrmbases, collapse = "")
 chrmbases <- strsplit(chrmbases, "")[[1]]
 nchrmbases <- length(chrmbases)
 
-MitoInfo <- fread(file = "Report/release/metadata/MitoInfo.csv")
+MitoInfo <- fread(file = "Report/metadata/MitoInfo.csv")
 
-basedifffreq_cutdemux_rerun_q30_unstranded <- read.csv("Report/release/SNVs/basedifffreq_cutdemux_rerun_sub500k_q30_unstranded.csv.gz", as.is = TRUE, check.names = FALSE)
+basedifffreq_cutdemux_rerun_q30_unstranded <- read.csv("Report/SNVs/basedifffreq_cutdemux_rerun_sub500k_q30_unstranded.csv.gz", as.is = TRUE, check.names = FALSE)
 dim(basedifffreq_cutdemux_rerun_q30_unstranded)
 ## [1] 1738811      13
-basedifffreq_cutdemux_E749_q30_unstranded <- read.csv("Report/release/SNVs/basedifffreq_cutdemux_E749_sub500k_q30_unstranded.csv.gz", as.is = TRUE, check.names = FALSE)
+basedifffreq_cutdemux_E749_q30_unstranded <- read.csv("Report/SNVs/basedifffreq_cutdemux_E749_sub500k_q30_unstranded.csv.gz", as.is = TRUE, check.names = FALSE)
 dim(basedifffreq_cutdemux_E749_q30_unstranded)
 ## [1] 436025     13
-basedifffreq_cutdemux_E754_q30_unstranded <- read.csv("Report/release/SNVs/basedifffreq_cutdemux_E754_sub500k_q30_unstranded.csv.gz", as.is = TRUE, check.names = FALSE)
+basedifffreq_cutdemux_E754_q30_unstranded <- read.csv("Report/SNVs/basedifffreq_cutdemux_E754_sub500k_q30_unstranded.csv.gz", as.is = TRUE, check.names = FALSE)
 dim(basedifffreq_cutdemux_E754_q30_unstranded)
 ## [1] 352826     13
-basedifffreq_cutdemux_E757_q30_unstranded <- read.csv("Report/release/SNVs/basedifffreq_cutdemux_E757_sub500k_q30_unstranded.csv.gz", as.is = TRUE, check.names = FALSE)
+basedifffreq_cutdemux_E757_q30_unstranded <- read.csv("Report/SNVs/basedifffreq_cutdemux_E757_sub500k_q30_unstranded.csv.gz", as.is = TRUE, check.names = FALSE)
 dim(basedifffreq_cutdemux_E757_q30_unstranded)
 ## [1] 160858     13
-basedifffreq_cutdemux_E771_q30_unstranded <- read.csv("Report/release/SNVs/basedifffreq_cutdemux_E771_sub500k_q30_unstranded.csv.gz", as.is = TRUE, check.names = FALSE)
+basedifffreq_cutdemux_E771_q30_unstranded <- read.csv("Report/SNVs/basedifffreq_cutdemux_E771_sub500k_q30_unstranded.csv.gz", as.is = TRUE, check.names = FALSE)
 dim(basedifffreq_cutdemux_E771_q30_unstranded)
 ## [1] 148146     13
-basedifffreq_cutdemux_E777_q30_unstranded <- read.csv("Report/release/SNVs/basedifffreq_cutdemux_E777_sub500k_q30_unstranded.csv.gz", as.is = TRUE, check.names = FALSE)
+basedifffreq_cutdemux_E777_q30_unstranded <- read.csv("Report/SNVs/basedifffreq_cutdemux_E777_sub500k_q30_unstranded.csv.gz", as.is = TRUE, check.names = FALSE)
 dim(basedifffreq_cutdemux_E777_q30_unstranded)
 ## [1] 313974     13
-basedifffreq_cutdemux_E799_q30_unstranded <- read.csv("Report/release/SNVs/basedifffreq_cutdemux_E799_sub500k_q30_unstranded.csv.gz", as.is = TRUE, check.names = FALSE)
+basedifffreq_cutdemux_E799_q30_unstranded <- read.csv("Report/SNVs/basedifffreq_cutdemux_E799_sub500k_q30_unstranded.csv.gz", as.is = TRUE, check.names = FALSE)
 dim(basedifffreq_cutdemux_E799_q30_unstranded)
 ## [1] 67242    13
 
@@ -71,23 +71,23 @@ basedifffreq_cutdemux_q30_unstranded[, c("i.ExptID", "i.LibraryID", "i.MitoID") 
 dim(basedifffreq_cutdemux_q30_unstranded)
 ## [1] 3117733      29
 
-fwrite(basedifffreq_cutdemux_q30_unstranded, file = "Report/release/SNVs/basedifffreq_cutdemux_sub500k_q30_unstranded.csv.gz")
-basedifffreq_cutdemux_q30_unstranded <- fread("Report/release/SNVs/basedifffreq_cutdemux_sub500k_q30_unstranded.csv.gz")
+fwrite(basedifffreq_cutdemux_q30_unstranded, file = "Report/SNVs/basedifffreq_cutdemux_sub500k_q30_unstranded.csv.gz")
+basedifffreq_cutdemux_q30_unstranded <- fread("Report/SNVs/basedifffreq_cutdemux_sub500k_q30_unstranded.csv.gz")
 
 ###########################################################################
 ## gather all insertion tables
 ###########################################################################
-MitoInfo <- fread(file = "Report/release/metadata/MitoInfo.csv")
+MitoInfo <- fread(file = "Report/metadata/MitoInfo.csv")
 dim(MitoInfo)
 ## [1] 1717   19
 
-mpileups_ins_cutdemux_rerun <- read.csv("Report/release/SNVs/ins/mpileups_ins_cutdemux_rerun_sub500k.csv.gz", as.is = TRUE)
-mpileups_ins_cutdemux_E749 <- read.csv("Report/release/SNVs/ins/mpileups_ins_cutdemux_E749_sub500k.csv.gz", as.is = TRUE)
-mpileups_ins_cutdemux_E754 <- read.csv("Report/release/SNVs/ins/mpileups_ins_cutdemux_E754_sub500k.csv.gz", as.is = TRUE)
-mpileups_ins_cutdemux_E757 <- read.csv("Report/release/SNVs/ins/mpileups_ins_cutdemux_E757_sub500k.csv.gz", as.is = TRUE)
-mpileups_ins_cutdemux_E771 <- read.csv("Report/release/SNVs/ins/mpileups_ins_cutdemux_E771_sub500k.csv.gz", as.is = TRUE)
-mpileups_ins_cutdemux_E777 <- read.csv("Report/release/SNVs/ins/mpileups_ins_cutdemux_E777_sub500k.csv.gz", as.is = TRUE)
-mpileups_ins_cutdemux_E799 <- read.csv("Report/release/SNVs/ins/mpileups_ins_cutdemux_E799_sub500k.csv.gz", as.is = TRUE)
+mpileups_ins_cutdemux_rerun <- read.csv("Report/SNVs/ins/mpileups_ins_cutdemux_rerun_sub500k.csv.gz", as.is = TRUE)
+mpileups_ins_cutdemux_E749 <- read.csv("Report/SNVs/ins/mpileups_ins_cutdemux_E749_sub500k.csv.gz", as.is = TRUE)
+mpileups_ins_cutdemux_E754 <- read.csv("Report/SNVs/ins/mpileups_ins_cutdemux_E754_sub500k.csv.gz", as.is = TRUE)
+mpileups_ins_cutdemux_E757 <- read.csv("Report/SNVs/ins/mpileups_ins_cutdemux_E757_sub500k.csv.gz", as.is = TRUE)
+mpileups_ins_cutdemux_E771 <- read.csv("Report/SNVs/ins/mpileups_ins_cutdemux_E771_sub500k.csv.gz", as.is = TRUE)
+mpileups_ins_cutdemux_E777 <- read.csv("Report/SNVs/ins/mpileups_ins_cutdemux_E777_sub500k.csv.gz", as.is = TRUE)
+mpileups_ins_cutdemux_E799 <- read.csv("Report/SNVs/ins/mpileups_ins_cutdemux_E799_sub500k.csv.gz", as.is = TRUE)
 mpileups_ins_cutdemux <- rbind(mpileups_ins_cutdemux_rerun, 
                                mpileups_ins_cutdemux_E749, 
                                mpileups_ins_cutdemux_E754, 
@@ -120,12 +120,12 @@ dim(mpileups_ins_cutdemux)
 ## [1] 85490    27
 ## [1] 84603    27
 
-chrmproperties <- fread(file = "Report/release/artifact/chrmbases_properties.csv.gz")
+chrmproperties <- fread(file = "Report/artifact/chrmbases_properties.csv.gz")
 setkey(chrmproperties, "pos")
 
 mpileups_ins_cutdemux <- chrmproperties[mpileups_ins_cutdemux, on = "pos"]
 mpileups_ins_cutdemux[, i.ref := NULL]
 setcolorder(mpileups_ins_cutdemux, colnames(mpileups_ins_cutdemux)[c(10:29, 1:9, 30:34)])
 
-fwrite(mpileups_ins_cutdemux, file = "Report/release/SNVs/ins/mpileups_ins_cutdemux_sub500k.csv.gz")
-mpileups_ins_cutdemux <- fread(file = "Report/release/SNVs/ins/mpileups_ins_cutdemux_sub500k.csv.gz")
+fwrite(mpileups_ins_cutdemux, file = "Report/SNVs/ins/mpileups_ins_cutdemux_sub500k.csv.gz")
+mpileups_ins_cutdemux <- fread(file = "Report/SNVs/ins/mpileups_ins_cutdemux_sub500k.csv.gz")

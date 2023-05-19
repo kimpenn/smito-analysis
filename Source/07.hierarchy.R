@@ -7,7 +7,7 @@
 ## 
 ## This Source Code is distributed under Creative Commons Attribution License 4.0 (CC BY).
 ###########################################################################
-source("Source/release/functions.R")
+source("Source/functions.R")
 library("data.table")
 library("reshape2")
 library("pheatmap")
@@ -22,23 +22,23 @@ snvIDs <- snv_info[,SNVID]
 mito_barcodes <- fread("Data/mito_barcodes.csv")
 mitoIDs <- mito_barcodes[, ID] 
 
-chrmbases_properties <- fread("Report/release/artifact/chrmbases_properties.csv.gz")
+chrmbases_properties <- fread("Report/artifact/chrmbases_properties.csv.gz")
 chrmbases <- chrmbases_properties[, ref]
 nchrmbases <- length(chrmbases)
 nchrmbases
 ## [1] 16299
 
-MitoInfo <- fread("Report/release/metadata/MitoInfo.csv")
+MitoInfo <- fread("Report/metadata/MitoInfo.csv")
 dim(MitoInfo)
 ## [1] 1717   19
 MitoInfo[, ExptID := factor(ExptID)]
 MitoInfo[, MitoID := factor(MitoID, levels = mitoIDs)]
 MitoInfo[, CellID := factor(CellID)]
 
-CellInfo <- fread("Report/release/metadata/CellInfo.csv")
+CellInfo <- fread("Report/metadata/CellInfo.csv")
 dim(CellInfo)
 ## [1] 102  12
-MouseInfo <- fread("Report/release/metadata/MouseInfo.csv")
+MouseInfo <- fread("Report/metadata/MouseInfo.csv")
 dim(MouseInfo)
 ## [1] 13  2
 
@@ -54,7 +54,7 @@ rownames(MouseInfo_df) <- MouseInfo_df$MouseID
 ###########################################################################
 ## Load the data
 ###########################################################################
-inherited_altperc_bymito_byposmut <- fread(file = "Report/release/SNVs/filter/basediffperc_cutdemux_sub500k_q30_unstranded_highdepth_inherited_altperc_bymito_byposmut.csv.gz")
+inherited_altperc_bymito_byposmut <- fread(file = "Report/SNVs/filter/basediffperc_cutdemux_sub500k_q30_unstranded_highdepth_inherited_altperc_bymito_byposmut.csv.gz")
 
 inherited_noctrl_altperc_bymito_byposmut <- inherited_altperc_bymito_byposmut[IsCtrl == "N"]
 inherited_noctrl_altperc_bymito_byposmut[, CellTypeID := paste0(CellType, "_", CellID)]
@@ -63,7 +63,7 @@ dim(inherited_noctrl_altperc_bymito_byposmut)
 ## 1631 270 after removing 16 inside-primer SNVs
 ## 1631 270 after fixing 9027
 
-support_byposmut <- fread("Report/release/SNVs/filter/basediffperc_cutdemux_sub500k_q30_unstranded_highdepth_highaf_qcfltd_support_byposmut.csv")
+support_byposmut <- fread("Report/SNVs/filter/basediffperc_cutdemux_sub500k_q30_unstranded_highdepth_highaf_qcfltd_support_byposmut.csv")
 inherited_posmuts <- support_byposmut[nmice >= 3, posmut]
 
 
@@ -82,12 +82,12 @@ inherited_noctrl_altasin_bymouse_byposmut <- inherited_noctrl_altasin_bycell_byp
 inherited_noctrl_altasin_bymouse_byposmut <- MouseInfo[inherited_noctrl_altasin_bymouse_byposmut, on = "MouseID"]
 mouse_metacnames <- names(inherited_noctrl_altasin_bymouse_byposmut)[!names(inherited_noctrl_altasin_bymouse_byposmut) %in% inherited_posmuts]
 
-fwrite(inherited_noctrl_altasin_bymito_byposmut, file = "Report/release/SNVs/hierarchy/inherited_noctrl_altasin_bymito_byposmut.csv")
-fwrite(inherited_noctrl_altasin_bycell_byposmut, file = "Report/release/SNVs/hierarchy/inherited_noctrl_altasin_bycell_byposmut.csv")
-fwrite(inherited_noctrl_altasin_bymouse_byposmut, file = "Report/release/SNVs/hierarchy/inherited_noctrl_altasin_bymouse_byposmut.csv")
-inherited_noctrl_altasin_bymito_byposmut <- fread(file = "Report/release/SNVs/hierarchy/inherited_noctrl_altasin_bymito_byposmut.csv")
-inherited_noctrl_altasin_bycell_byposmut <- fread(file = "Report/release/SNVs/hierarchy/inherited_noctrl_altasin_bycell_byposmut.csv")
-inherited_noctrl_altasin_bymouse_byposmut <- fread(file = "Report/release/SNVs/hierarchy/inherited_noctrl_altasin_bymouse_byposmut.csv")
+fwrite(inherited_noctrl_altasin_bymito_byposmut, file = "Report/SNVs/hierarchy/inherited_noctrl_altasin_bymito_byposmut.csv")
+fwrite(inherited_noctrl_altasin_bycell_byposmut, file = "Report/SNVs/hierarchy/inherited_noctrl_altasin_bycell_byposmut.csv")
+fwrite(inherited_noctrl_altasin_bymouse_byposmut, file = "Report/SNVs/hierarchy/inherited_noctrl_altasin_bymouse_byposmut.csv")
+inherited_noctrl_altasin_bymito_byposmut <- fread(file = "Report/SNVs/hierarchy/inherited_noctrl_altasin_bymito_byposmut.csv")
+inherited_noctrl_altasin_bycell_byposmut <- fread(file = "Report/SNVs/hierarchy/inherited_noctrl_altasin_bycell_byposmut.csv")
+inherited_noctrl_altasin_bymouse_byposmut <- fread(file = "Report/SNVs/hierarchy/inherited_noctrl_altasin_bymouse_byposmut.csv")
 
 inherited_noctrl_altasinctrd_bymito_byposmut <- sapply(inherited_posmuts, function(posmut) {
     X <- inherited_noctrl_altasin_bymito_byposmut[, .(permito = get(posmut), LibraryMitoID, CellUID)]
@@ -112,12 +112,12 @@ inherited_noctrl_altasinctrd_bymouse_byposmut <- sapply(inherited_posmuts, funct
 })
 inherited_noctrl_altasinctrd_bymouse_byposmut <- data.table(inherited_noctrl_altasin_bymouse_byposmut[, mouse_metacnames, with = FALSE], inherited_noctrl_altasinctrd_bymouse_byposmut)
 
-fwrite(inherited_noctrl_altasinctrd_bymito_byposmut, file = "Report/release/SNVs/hierarchy/inherited_noctrl_altasinctrd_bymito_byposmut.csv")
-fwrite(inherited_noctrl_altasinctrd_bycell_byposmut, file = "Report/release/SNVs/hierarchy/inherited_noctrl_altasinctrd_bycell_byposmut.csv")
-fwrite(inherited_noctrl_altasinctrd_bymouse_byposmut, file = "Report/release/SNVs/hierarchy/inherited_noctrl_altasinctrd_bymouse_byposmut.csv")
-inherited_noctrl_altasinctrd_bymito_byposmut <- fread(file = "Report/release/SNVs/hierarchy/inherited_noctrl_altasinctrd_bymito_byposmut.csv")
-inherited_noctrl_altasinctrd_bycell_byposmut <- fread(file = "Report/release/SNVs/hierarchy/inherited_noctrl_altasinctrd_bycell_byposmut.csv")
-inherited_noctrl_altasinctrd_bymouse_byposmut <- fread(file = "Report/release/SNVs/hierarchy/inherited_noctrl_altasinctrd_bymouse_byposmut.csv")
+fwrite(inherited_noctrl_altasinctrd_bymito_byposmut, file = "Report/SNVs/hierarchy/inherited_noctrl_altasinctrd_bymito_byposmut.csv")
+fwrite(inherited_noctrl_altasinctrd_bycell_byposmut, file = "Report/SNVs/hierarchy/inherited_noctrl_altasinctrd_bycell_byposmut.csv")
+fwrite(inherited_noctrl_altasinctrd_bymouse_byposmut, file = "Report/SNVs/hierarchy/inherited_noctrl_altasinctrd_bymouse_byposmut.csv")
+inherited_noctrl_altasinctrd_bymito_byposmut <- fread(file = "Report/SNVs/hierarchy/inherited_noctrl_altasinctrd_bymito_byposmut.csv")
+inherited_noctrl_altasinctrd_bycell_byposmut <- fread(file = "Report/SNVs/hierarchy/inherited_noctrl_altasinctrd_bycell_byposmut.csv")
+inherited_noctrl_altasinctrd_bymouse_byposmut <- fread(file = "Report/SNVs/hierarchy/inherited_noctrl_altasinctrd_bymouse_byposmut.csv")
 
 ###########################################################################
 ## using ANOVA to decompose the variance
@@ -163,8 +163,8 @@ inherited_noctrl_altasin_nestedaov_ftest_bylevel_byposmut <- data.table(
     posmut = inherited_posmuts, 
     inherited_noctrl_altasin_nestedaov_ftest_bylevel_byposmut
 )
-fwrite(inherited_noctrl_altasin_nestedaov_ftest_bylevel_byposmut, file = "Report/release/SNVs/hierarchy/inherited_noctrl_altasin_nestedaov_ftest_bylevel_byposmut.csv")
-inherited_noctrl_altasin_nestedaov_ftest_bylevel_byposmut <- fread(file = "Report/release/SNVs/hierarchy/inherited_noctrl_altasin_nestedaov_ftest_bylevel_byposmut.csv")
+fwrite(inherited_noctrl_altasin_nestedaov_ftest_bylevel_byposmut, file = "Report/SNVs/hierarchy/inherited_noctrl_altasin_nestedaov_ftest_bylevel_byposmut.csv")
+inherited_noctrl_altasin_nestedaov_ftest_bylevel_byposmut <- fread(file = "Report/SNVs/hierarchy/inherited_noctrl_altasin_nestedaov_ftest_bylevel_byposmut.csv")
 
 inherited_noctrl_altasin_nestedaov_df_bylevel_byposmut_df <- reshape2::melt(inherited_noctrl_altasin_nestedaov_df_bylevel_byposmut)
 inherited_noctrl_altasin_nestedaov_ms_bylevel_byposmut_df <- reshape2::melt(inherited_noctrl_altasin_nestedaov_ms_bylevel_byposmut)
@@ -179,43 +179,43 @@ inherited_noctrl_altasin_nestedaov_bylevel_byposmut_dt <- data.table(
 )
 
 fig <- ggplot(inherited_noctrl_altasin_nestedaov_bylevel_byposmut_dt, aes(x = posmut, fill = level, y = 100 * ms_prop)) + geom_bar(stat = "identity") + scale_x_discrete(limits = inherited_noctrl_altasin_nestedaov_bylevel_byposmut_dt[level == "mousewise"][order(-ms_prop)][, posmut]) + theme_classic(base_size = 12) + theme(axis.text.x = element_text(size = 4, angle = 90, vjust = 0.5, hjust = 1)) + xlab("") + ylab("% mean squares")
-ggsave(fig, file = "Report/release/SNVs/hierarchy/inherited_noctrl_altasin_nestedaov_ms_bylevel_byposmut_bar.pdf", width = 12, height = 4)
+ggsave(fig, file = "Report/SNVs/hierarchy/inherited_noctrl_altasin_nestedaov_ms_bylevel_byposmut_bar.pdf", width = 12, height = 4)
 
-pdf("Report/release/SNVs/hierarchy/inherited_noctrl_altasin_nestedaov_msprop_bylevel_hist.pdf", width = 12, height = 6)
+pdf("Report/SNVs/hierarchy/inherited_noctrl_altasin_nestedaov_msprop_bylevel_hist.pdf", width = 12, height = 6)
 par(ps = 16, lend = 2, ljoin = 1, bty = "L", mfrow = c(1, 2), mar = c(2.5, 2.5, 1, 0), oma = c(0, 0, 0, 0), mgp = c(1.5, 0.5, 0))
 hist(log2(inherited_noctrl_altasin_nestedaov_msprop_bylevel_byposmut["mousewise", ] / inherited_noctrl_altasin_nestedaov_msprop_bylevel_byposmut["cellwise", ]), main = "between-mice to between-cells", xlab = "log2 ratios of mean squares", nclass = 100, border = FALSE)
 hist(log2(inherited_noctrl_altasin_nestedaov_msprop_bylevel_byposmut["cellwise", ] / inherited_noctrl_altasin_nestedaov_msprop_bylevel_byposmut["mitowise", ]), main = "between-cells to between-mitos", xlab = "log2 ratios of mean squares", nclass = 100, border = FALSE)
 dev.off()
 
-pdf(file = "Report/release/SNVs/hierarchy/inherited_noctrl_altasin_bycell_byposmut_boxplot.pdf", width = 11, height = 4)
+pdf(file = "Report/SNVs/hierarchy/inherited_noctrl_altasin_bycell_byposmut_boxplot.pdf", width = 11, height = 4)
 for (posmut in inherited_noctrl_altasin_nestedaov_bylevel_byposmut_dt[level == "mitowise"][order(ms_prop)][, posmut]) {
     message(posmut)
     print(ggplot(inherited_noctrl_altasin_bymito_byposmut[MouseID != "Mouse16&17", c("MouseID", "CellUID", posmut), with = FALSE], aes(y = get(posmut), x = CellUID)) + geom_boxplot(outlier.color = NA) + geom_jitter(aes(col = MouseID), size = 0.5) + theme_classic(base_size = 12) + theme(axis.text.x = element_text(size = 8, angle = 90, vjust = 0.5, hjust = 1)) + xlab("") + ylab("arcsin AF") + ggtitle(posmut))
 }
 dev.off()
 
-pdf("Report/release/SNVs/hierarchy/inherited_noctrl_altasin_bymouse_byposmut_boxplot.pdf", width = 4.5, height = 4.5, useDingbats = FALSE)
+pdf("Report/SNVs/hierarchy/inherited_noctrl_altasin_bymouse_byposmut_boxplot.pdf", width = 4.5, height = 4.5, useDingbats = FALSE)
 for (posmut in inherited_noctrl_altasin_nestedaov_bylevel_byposmut_dt[level == "cellwise"][order(ms_prop)][, posmut]) {
     message(posmut)
     print(ggplot(inherited_noctrl_altasin_bycell_byposmut[MouseID != "Mouse16&17"], aes(x = MouseID, y = get(posmut), fill = MouseID)) + geom_boxplot(outlier.color = NA) + geom_jitter(size = 0.6) + theme_classic(base_size = 12) + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) + xlab("") + ylab("arcsin AF") + ggtitle(posmut))
 }
 dev.off()
 
-pdf("Report/release/SNVs/hierarchy/inherited_noctrl_altasinctrd_bycell_byposmut_boxplot.pdf", width = 11, height = 4, useDingbats = FALSE)
+pdf("Report/SNVs/hierarchy/inherited_noctrl_altasinctrd_bycell_byposmut_boxplot.pdf", width = 11, height = 4, useDingbats = FALSE)
 for (posmut in inherited_noctrl_altasin_nestedaov_bylevel_byposmut_dt[level == "mitowise"][order(ms_prop)][, posmut]) {
     message(posmut)
     print(ggplot(inherited_noctrl_altasinctrd_bymito_byposmut[MouseID != "Mouse16&17", c("MouseID", "CellUID", posmut), with = FALSE], aes(y = get(posmut), x = CellUID)) + geom_boxplot(outlier.color = NA) + geom_jitter(aes(col = MouseID), size = 0.5) + theme_classic(base_size = 12) + theme(axis.text.x = element_text(size = 8, angle = 90, vjust = 0.5, hjust = 1)) + xlab("") + ylab("arcsin centered AF") + ggtitle(posmut))
 }
 dev.off()
 
-pdf("Report/release/SNVs/hierarchy/inherited_noctrl_altasinctrd_bymouse_byposmut_boxplot.pdf", width = 4.5, height = 4.5, useDingbats = FALSE)
+pdf("Report/SNVs/hierarchy/inherited_noctrl_altasinctrd_bymouse_byposmut_boxplot.pdf", width = 4.5, height = 4.5, useDingbats = FALSE)
 for (posmut in inherited_noctrl_altasin_nestedaov_bylevel_byposmut_dt[level == "cellwise"][order(ms_prop)][, posmut]) {
     message(posmut)
     print(ggplot(inherited_noctrl_altasinctrd_bycell_byposmut[MouseID != "Mouse16&17"], aes(x = MouseID, y = get(posmut), fill = MouseID)) + geom_boxplot(outlier.color = NA) + geom_jitter(size = 0.6) + theme_classic(base_size=12) + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) + xlab("") + ylab("arcsin centered AF") + ggtitle(posmut))
 }
 dev.off()
 
-pdf("Report/release/SNVs/hierarchy/inherited_noctrl_altasinctrd_allmice_byposmut_boxplot.pdf", width = 2.5, height = 4.5, useDingbats = FALSE)
+pdf("Report/SNVs/hierarchy/inherited_noctrl_altasinctrd_allmice_byposmut_boxplot.pdf", width = 2.5, height = 4.5, useDingbats = FALSE)
 for (posmut in inherited_noctrl_altasin_nestedaov_bylevel_byposmut_dt[level == "cellwise"][order(ms_prop)][, posmut]) {
     message(posmut)
     print(ggplot(inherited_noctrl_altasinctrd_bymouse_byposmut[MouseID != "Mouse16&17"], aes(x = 1, y = get(posmut))) + geom_boxplot(outlier.color = NA) + geom_jitter(size = 0.6, aes(col = MouseID)) + theme_classic(base_size=12) + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) + xlab("") + ylab("arcsin centered AF") + ggtitle(posmut))
@@ -290,10 +290,10 @@ rnd_altasin_nestedaov_ftest_bylevel_byposmut <- lapply(1:1000, function(i) {
     )
 })
 rnd_altasin_nestedaov_ftest_bylevel_byposmut <- rbindlist(rnd_altasin_nestedaov_ftest_bylevel_byposmut)
-fwrite(rnd_altasin_nestedaov_ftest_bylevel_byposmut, file = "Report/release/SNVs/hierarchy/rnd_altasin_nestedaov_ftest_bylevel_byposmut.csv.gz")
-rnd_altasin_nestedaov_ftest_bylevel_byposmut <- fread(file = "Report/release/SNVs/hierarchy/rnd_altasin_nestedaov_ftest_bylevel_byposmut.csv.gz")
+fwrite(rnd_altasin_nestedaov_ftest_bylevel_byposmut, file = "Report/SNVs/hierarchy/rnd_altasin_nestedaov_ftest_bylevel_byposmut.csv.gz")
+rnd_altasin_nestedaov_ftest_bylevel_byposmut <- fread(file = "Report/SNVs/hierarchy/rnd_altasin_nestedaov_ftest_bylevel_byposmut.csv.gz")
 
-pdf(file = "Report/release/SNVs/hierarchy/rnd_altasin_nestedaov_ftest_bylevel_density.pdf", width = 10, height = 4)
+pdf(file = "Report/SNVs/hierarchy/rnd_altasin_nestedaov_ftest_bylevel_density.pdf", width = 10, height = 4)
 par(ps = 16, lend = 2, ljoin = 1, bty = "L", mfrow = c(1, 3), mar = c(2.5, 2.5, 1, 0), oma = c(0, 0, 0, 0), mgp = c(1.5, 0.5, 0))
 inherited_noctrl_altasin_nestedaov_ftest_bylevel_byposmut[, plot(density(100 * msprop_mousewise), col = scales::hue_pal()(3)[1], lwd = 3, xlim = c(-0.1, 1) * 100, ylim = c(0, 7)/100, main = "between mice", xlab = "mean squares proportion (%)", ylab = "density")]
 rnd_altasin_nestedaov_ftest_bylevel_byposmut[, lines(density(100 * msprop_mousewise), col= "#00000001"), keyby = "perm"]

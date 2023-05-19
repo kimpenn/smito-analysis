@@ -7,7 +7,7 @@
 ## 
 ## This Source Code is distributed under Creative Commons Attribution License 4.0 (CC BY).
 ###########################################################################
-source("Source/release/functions.R")
+source("Source/functions.R")
 library("data.table")
 library("ggplot2")
 library("ggsignif")
@@ -26,26 +26,26 @@ chrmbases <- paste0(chrmbases, collapse = "")
 chrmbases <- strsplit(chrmbases, "")[[1]]
 nchrmbases <- length(chrmbases)
 
-MitoInfo <- fread(file = "Report/release/metadata/MitoInfo.csv")
+MitoInfo <- fread(file = "Report/metadata/MitoInfo.csv")
 MitoInfo[, ExptID := factor(ExptID)]
 MitoInfo[, MitoID := factor(MitoID, levels = mitoIDs)]
 
-CellInfo <- fread("Report/release/metadata/CellInfo.csv")
+CellInfo <- fread("Report/metadata/CellInfo.csv")
 dim(CellInfo)
 ## [1] 102  12
-MouseInfo <- fread("Report/release/metadata/MouseInfo.csv")
+MouseInfo <- fread("Report/metadata/MouseInfo.csv")
 dim(MouseInfo)
 
-support_byposmut <- fread("Report/release/SNVs/filter/basediffperc_cutdemux_sub500k_q30_unstranded_highdepth_highaf_qcfltd_support_byposmut.csv")
+support_byposmut <- fread("Report/SNVs/filter/basediffperc_cutdemux_sub500k_q30_unstranded_highdepth_highaf_qcfltd_support_byposmut.csv")
 inherited_posmuts <- support_byposmut[nmice >= 3, posmut]
 somatic_posmuts <- support_byposmut[nmice == 1, posmut]
 
 ###########################################################################
 ## ANOVA to test whether cell type contribute to the # of SNV sites variance
 ###########################################################################
-noctrl_nposhasdata_bymito <- fread("Report/release/SNVs/QC/basediffperc_cutdemux_q30_unstranded_highdepth_noctrl_nposhasdata_bymito.csv")
+noctrl_nposhasdata_bymito <- fread("Report/SNVs/QC/basediffperc_cutdemux_q30_unstranded_highdepth_noctrl_nposhasdata_bymito.csv")
 noctrl_nposhasdata_bymito[is.na(nposhasdata), nposhasdata := 0]
-noctrl_npos_bymito <- fread("Report/release/SNVs/QC/basediffperc_cutdemux_q30_unstranded_highdepth_highaf_noctrl_npos_bymito.csv")
+noctrl_npos_bymito <- fread("Report/SNVs/QC/basediffperc_cutdemux_q30_unstranded_highdepth_highaf_noctrl_npos_bymito.csv")
 noctrl_npos_bymito <- merge.data.table(noctrl_npos_bymito, noctrl_nposhasdata_bymito[, c("LibraryMitoID", "nposhasdata")], on = "LibraryMitoID")
 
 ## Are total # of sites differential?
@@ -79,7 +79,7 @@ rnd_npos_lme <- lapply(seq_along(rnd_npos_ls), function(i) {
 })
 rnd_npos_lme_celltypestats <- sapply(rnd_npos_lme, function(X) summary(X)[[10]]["CellTypeNeuron", "Estimate"])
 
-pdf("Report/release/SNVs/diff/noctrl_rndcelltype_npos_lme_celltypestats_hist.pdf", width = 6, height = 6)
+pdf("Report/SNVs/diff/noctrl_rndcelltype_npos_lme_celltypestats_hist.pdf", width = 6, height = 6)
 par(ps = 16, lend = 2, ljoin = 1, bty = "L", mfrow = c(1, 1), mar = c(2.5, 2.5, 1, 0.5), oma = c(0, 0, 0, 0), mgp = c(1.5, 0.5, 0))
 hist(rnd_npos_lme_celltypestats, main = sprintf("p = %.3f", if (summary(mod)[[10]]["CellTypeNeuron", "Estimate"] < 0) { mean(rnd_npos_lme_celltypestats < summary(mod)[[10]]["CellTypeNeuron", "Estimate"]) } else { mean(rnd_npos_lme_celltypestats > summary(mod)[[10]]["CellTypeNeuron", "Estimate"]) }), xlab = "linear mixed-effects model cell-type coef.", ylab = "# permutations", border = "grey70", nclass = 1000)
 abline(v = summary(mod)[[10]]["CellTypeNeuron", "Estimate"], lty = 2, lwd = 3, col = "red")
@@ -89,8 +89,8 @@ dev.off()
 ## Use `hassnv` as a binary indicator and do a logistic regression to see
 ## if one cell type is more likely to have more # of SNVs.
 ###########################################################################
-inherited_noctrl_hassnv_bymito_byposmut <- fread("Report/release/SNVs/origin/highdepth_highaf_inherited_noctrl_hassnv_bymito_byposmut.csv")
-inherited_noctrl_hasdata_bymito_byposmut <- fread("Report/release/SNVs/origin/highdepth_inherited_noctrl_hasdata_bymito_byposmut.csv")
+inherited_noctrl_hassnv_bymito_byposmut <- fread("Report/SNVs/origin/highdepth_highaf_inherited_noctrl_hassnv_bymito_byposmut.csv")
+inherited_noctrl_hasdata_bymito_byposmut <- fread("Report/SNVs/origin/highdepth_inherited_noctrl_hasdata_bymito_byposmut.csv")
 inherited_noctrl_hassnv_bymito_byposmut <- inherited_noctrl_hassnv_bymito_byposmut[MitoInfo[IsCtrl == "N", c("LibraryMitoID")], on = "LibraryMitoID"]
 inherited_noctrl_hasdata_bymito_byposmut <- inherited_noctrl_hasdata_bymito_byposmut[MitoInfo[IsCtrl == "N", c("LibraryMitoID")], on = "LibraryMitoID"]
 inherited_noctrl_hassnv_bymito_byposmut <- data.table(MitoInfo[IsCtrl == "N", 1:19], inherited_noctrl_hassnv_bymito_byposmut[, -c(1:19)])
@@ -123,15 +123,15 @@ inherited_noctrl_hassnv_logit_byposmut <- data.table(posmut = inherited_posmuts,
 inherited_noctrl_hassnv_logit_byposmut[, padj := p.adjust(`Pr(>|z|)`)]
 inherited_noctrl_hassnv_logit_byposmut <- inherited_noctrl_hassnv_logit_byposmut[order(`Pr(>|z|)`)]
 
-fwrite(inherited_noctrl_hassnv_logit_byposmut, file = "Report/release/SNVs/diff/inherited_noctrl_hassnv_logit_byposmut.csv")
-inherited_noctrl_hassnv_logit_byposmut <- fread(file = "Report/release/SNVs/diff/inherited_noctrl_hassnv_logit_byposmut.csv")
+fwrite(inherited_noctrl_hassnv_logit_byposmut, file = "Report/SNVs/diff/inherited_noctrl_hassnv_logit_byposmut.csv")
+inherited_noctrl_hassnv_logit_byposmut <- fread(file = "Report/SNVs/diff/inherited_noctrl_hassnv_logit_byposmut.csv")
 
 ###########################################################################
 ## Comparing the fraction of mitos with SNV per mito between astrocytes and
 ## neurons. We set a limit to include cells with enough number of mitos. 
 ###########################################################################
-inherited_noctrl_fmitoshassnv_bycell_byposmut <- fread("Report/release/SNVs/origin/highdepth_highaf_inherited_noctrl_fmitoshassnv_bycell_byposmut.csv")
-inherited_noctrl_nmitoshasdata_bycell_byposmut <- fread(file = "Report/release/SNVs/origin/highdepth_inherited_noctrl_nmitoshasdata_bycell_byposmut.csv")
+inherited_noctrl_fmitoshassnv_bycell_byposmut <- fread("Report/SNVs/origin/highdepth_highaf_inherited_noctrl_fmitoshassnv_bycell_byposmut.csv")
+inherited_noctrl_nmitoshasdata_bycell_byposmut <- fread(file = "Report/SNVs/origin/highdepth_inherited_noctrl_nmitoshasdata_bycell_byposmut.csv")
 inherited_noctrl_fmitoshassnv_bycell_byposmut <- inherited_noctrl_fmitoshassnv_bycell_byposmut[CellInfo[, "CellUID"], on = "CellUID"]
 inherited_noctrl_nmitoshasdata_bycell_byposmut <- inherited_noctrl_nmitoshasdata_bycell_byposmut[CellInfo[, "CellUID"], on = "CellUID"]
 
@@ -161,21 +161,21 @@ inherited_noctrl_fmitoshassnv_nolowmito_logit_byposmut <- data.table(posmut = ro
 inherited_noctrl_fmitoshassnv_nolowmito_logit_byposmut[, padj := p.adjust(`Pr(>|z|)`)]
 inherited_noctrl_fmitoshassnv_nolowmito_logit_byposmut <- inherited_noctrl_fmitoshassnv_nolowmito_logit_byposmut[order(`Pr(>|z|)`)]
 
-fwrite(inherited_noctrl_fmitoshassnv_nolowmito_logit_byposmut, file = "Report/release/SNVs/diff/inherited_noctrl_fmitoshassnv_nolowmito_logit_byposmut.csv")
-inherited_noctrl_fmitoshassnv_nolowmito_logit_byposmut <- fread(file = "Report/release/SNVs/diff/inherited_noctrl_fmitoshassnv_nolowmito_logit_byposmut.csv")
+fwrite(inherited_noctrl_fmitoshassnv_nolowmito_logit_byposmut, file = "Report/SNVs/diff/inherited_noctrl_fmitoshassnv_nolowmito_logit_byposmut.csv")
+inherited_noctrl_fmitoshassnv_nolowmito_logit_byposmut <- fread(file = "Report/SNVs/diff/inherited_noctrl_fmitoshassnv_nolowmito_logit_byposmut.csv")
 
 ###########################################################################
 ## make a figure pooling all mice, using the stats from fmitoshassnv logistic 
 ## regression, excluding the low-mito cells
 ###########################################################################
-inherited_noctrl_fmitoshassnv_bycell_byposmut <- fread("Report/release/SNVs/origin/highdepth_highaf_inherited_noctrl_fmitoshassnv_bycell_byposmut.csv")
-inherited_noctrl_nmitoshasdata_bycell_byposmut <- fread(file = "Report/release/SNVs/origin/highdepth_inherited_noctrl_nmitoshasdata_bycell_byposmut.csv")
+inherited_noctrl_fmitoshassnv_bycell_byposmut <- fread("Report/SNVs/origin/highdepth_highaf_inherited_noctrl_fmitoshassnv_bycell_byposmut.csv")
+inherited_noctrl_nmitoshasdata_bycell_byposmut <- fread(file = "Report/SNVs/origin/highdepth_inherited_noctrl_nmitoshasdata_bycell_byposmut.csv")
 inherited_noctrl_fmitoshassnv_bycell_byposmut <- inherited_noctrl_fmitoshassnv_bycell_byposmut[CellInfo[, "CellUID"], on = "CellUID"]
 inherited_noctrl_nmitoshasdata_bycell_byposmut <- inherited_noctrl_nmitoshasdata_bycell_byposmut[CellInfo[, "CellUID"], on = "CellUID"]
 
-inherited_noctrl_fmitoshassnv_nolowmito_logit_byposmut <- fread(file = "Report/release/SNVs/diff/inherited_noctrl_fmitoshassnv_nolowmito_logit_byposmut.csv")
+inherited_noctrl_fmitoshassnv_nolowmito_logit_byposmut <- fread(file = "Report/SNVs/diff/inherited_noctrl_fmitoshassnv_nolowmito_logit_byposmut.csv")
 nmitoshasdata_th <- 3
-pdf(file = "Report/release/SNVs/diff/inherited_noctrl_fmitoshassnv_nolowmito_logit_byposmut_micepooled_violin.pdf", width = 4, height = 6)
+pdf(file = "Report/SNVs/diff/inherited_noctrl_fmitoshassnv_nolowmito_logit_byposmut_micepooled_violin.pdf", width = 4, height = 6)
 for (posmut in inherited_noctrl_fmitoshassnv_nolowmito_logit_byposmut[!is.na(`Pr(>|z|)`)][, posmut]) {
     message(posmut)
     pval <- inherited_noctrl_fmitoshassnv_nolowmito_logit_byposmut[posmut, `Pr(>|z|)`, on = "posmut"]
@@ -192,7 +192,7 @@ dev.off()
 ###########################################################################
 ## Finally, we went to compare the variance between astrocytes and neurons.
 ###########################################################################
-inherited_noctrl_altasin_bymito_byposmut <- fread(file = "Report/release/SNVs/hierarchy/inherited_noctrl_altasin_bymito_byposmut.csv")
+inherited_noctrl_altasin_bymito_byposmut <- fread(file = "Report/SNVs/hierarchy/inherited_noctrl_altasin_bymito_byposmut.csv")
 inherited_noctrl_altasin_astro_nestedaov_byposmut <- sapply(inherited_posmuts, function(posmut) {
     X <- inherited_noctrl_altasin_bymito_byposmut[MouseID != "Mouse16&17" & CellType == "Astrocyte", c(posmut, "MouseID", "CellUID", "CellType", "MitoID"), with = FALSE]
     names(X)[1] <- "VAF"
@@ -238,9 +238,9 @@ inherited_noctrl_altasin_vartest_byposmut <- data.table(posmut = inherited_posmu
 inherited_noctrl_altasin_vartest_byposmut[, padj := p.adjust(pval)]
 inherited_noctrl_altasin_vartest_byposmut <- inherited_noctrl_altasin_vartest_byposmut[order(pval)]
 
-fwrite(inherited_noctrl_altasin_vartest_byposmut, file = "Report/release/SNVs/diff/inherited_noctrl_altasin_vartest_byposmut.csv")
-inherited_noctrl_altasin_vartest_byposmut <- fread(file = "Report/release/SNVs/diff/inherited_noctrl_altasin_vartest_byposmut.csv")
+fwrite(inherited_noctrl_altasin_vartest_byposmut, file = "Report/SNVs/diff/inherited_noctrl_altasin_vartest_byposmut.csv")
+inherited_noctrl_altasin_vartest_byposmut <- fread(file = "Report/SNVs/diff/inherited_noctrl_altasin_vartest_byposmut.csv")
 
-pdf(file = "Report/release/SNVs/diff/inherited_noctrl_altasin_vartest_nolowvar_scatter.pdf", width = 8, height = 6, useDingbats = FALSE)
+pdf(file = "Report/SNVs/diff/inherited_noctrl_altasin_vartest_nolowvar_scatter.pdf", width = 8, height = 6, useDingbats = FALSE)
 ggplot(inherited_noctrl_altasin_vartest_byposmut[(ms_astro > 0.01 | ms_neuron > 0.01) & padj < 0.05], aes(x = (ms_astro), y = (ms_neuron))) + geom_point(aes(color = -log10(padj), size = log2(pmax(fstat_astro_to_neuron, fstat_neuron_to_astro)))) + geom_text_repel(aes(x = (ms_astro), y = (ms_neuron), label = posmut), size = 4, max.overlaps = 10, data = inherited_noctrl_altasin_vartest_byposmut[(ms_astro > 0.01 | ms_neuron > 0.01) & padj < 0.05]) + geom_abline(slope = 1, intercept = 0, color = "red", linetype = 2) + theme_classic(base_size = 16) + xlab("between-mitos variance  in astrocytes") + ylab("between-mitos variance in neurons") + scale_x_continuous(limits = c(0, 0.13)) + scale_y_continuous(limits = c(0, 0.13)) + guides(size = guide_legend("var ratio (log2)")) + scale_color_viridis_c()
 dev.off()

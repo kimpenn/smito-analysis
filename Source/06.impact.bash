@@ -8,4 +8,4 @@
 ## This Source Code is distributed under Creative Commons Attribution License 4.0 (CC BY).
 ###########################################################################
 ## all SNVs
-vep --offline --cache --fasta Data/mm10.mito/chrM.fa --species mus_musculus --force_overwrite --everything -i Report/release/SNVs/impact/noctrl_vars.txt -o Report/release/SNVs/impact/noctrl_vep.txt
+vep --offline --cache --fasta Data/mm10.mito/chrM.fa --species mus_musculus --force_overwrite --everything -i Report/SNVs/impact/noctrl_vars.txt -o Report/SNVs/impact/noctrl_vep.txt

@@ -7,7 +7,7 @@
 ## 
 ## This Source Code is distributed under Creative Commons Attribution License 4.0 (CC BY).
 ###########################################################################
-source("Source/release/functions.R")
+source("Source/functions.R")
 library("data.table")
 library("ggplot2")
 library("ggsignif")
@@ -17,30 +17,30 @@ snvIDs <- snv_info[, SNVID]
 mito_barcodes <- fread("Data/mito_barcodes.csv")
 mitoIDs <- mito_barcodes[, ID] 
 
-chrmbases_properties <- fread("Report/release/artifact/chrmbases_properties.csv.gz")
+chrmbases_properties <- fread("Report/artifact/chrmbases_properties.csv.gz")
 chrmbases <- chrmbases_properties[, ref]
 nchrmbases <- length(chrmbases)
 nchrmbases
 ## [1] 16299
 
-MitoInfo <- fread("Report/release/metadata/MitoInfo.csv")
+MitoInfo <- fread("Report/metadata/MitoInfo.csv")
 dim(MitoInfo)
 ## [1] 1717   19
 MitoInfo[, ExptID := factor(ExptID)]
 MitoInfo[, MitoID := factor(MitoID, levels = mitoIDs)]
 MitoInfo[, CellID := factor(CellID)]
 
-CellInfo <- fread("Report/release/metadata/CellInfo.csv")
+CellInfo <- fread("Report/metadata/CellInfo.csv")
 dim(CellInfo)
 ## [1] 102  12
-MouseInfo <- fread("Report/release/metadata/MouseInfo.csv")
+MouseInfo <- fread("Report/metadata/MouseInfo.csv")
 dim(MouseInfo)
 ## [1] 13  2
 
 ###########################################################################
 ## Prepare the input for VEP
 ###########################################################################
-support_byposmut <- fread("Report/release/SNVs/filter/basediffperc_cutdemux_sub500k_q30_unstranded_highdepth_highaf_qcfltd_support_byposmut.csv")
+support_byposmut <- fread("Report/SNVs/filter/basediffperc_cutdemux_sub500k_q30_unstranded_highdepth_highaf_qcfltd_support_byposmut.csv")
 posmuts <- support_byposmut[, posmut]
 noctrl_vars_start <- support_byposmut[, pos]
 noctrl_vars_end <- noctrl_vars_start
@@ -53,12 +53,12 @@ noctrl_vars_vep <- data.table(
     strand = rep("+", nrow(support_byposmut)), 
     id = support_byposmut[, posmut]
 )
-fwrite(noctrl_vars_vep, file = "Report/release/SNVs/impact/noctrl_vars.txt", col.names = FALSE, sep = "\t")
+fwrite(noctrl_vars_vep, file = "Report/SNVs/impact/noctrl_vars.txt", col.names = FALSE, sep = "\t")
 
 ###########################################################################
 ## convert the VEP output into data table
 ###########################################################################
-vep <- fread("Report/release/SNVs/impact/noctrl_vep.txt", skip = 85, header = TRUE, sep = "\t")
+vep <- fread("Report/SNVs/impact/noctrl_vep.txt", skip = 85, header = TRUE, sep = "\t")
 setnames(vep, "#Uploaded_variation", "Uploaded_variation")
 vep <- vep[Uploaded_variation %in% posmuts]
 notes <- vep[, list(lapply(strsplit(Extra, ";"), function(x) { y <- strsplit(x, "="); n <- sapply(y, '[', 1); m <- sapply(y, '[', 2); structure(m, names = n) }))][, V1]
@@ -94,13 +94,13 @@ vep[pos == 9461 & Feature_type == "Transcript" & Consequence == "synonymous_vari
 ##     Codons Existing_variation IMPACT
 ## 1: atT/atA                  -    LOW
 ## 2: atT/atC                  -    LOW
-fwrite(vep, file = "Report/release/SNVs/impact/noctrl_vep.csv")
-vep <- fread(file = "Report/release/SNVs/impact/noctrl_vep.csv")
+fwrite(vep, file = "Report/SNVs/impact/noctrl_vep.csv")
+vep <- fread(file = "Report/SNVs/impact/noctrl_vep.csv")
 
 ###########################################################################
 ## annotate all SNVs
 ###########################################################################
-vep <- fread(file = "Report/release/SNVs/impact/noctrl_vep.csv")
+vep <- fread(file = "Report/SNVs/impact/noctrl_vep.csv")
 vep_synonymous <- vep[Feature_type == "Transcript" & Consequence == "synonymous_variant"]
 vep_synonymous[, list(uniqueN(posmut), .N)]
 ##     V1   N
@@ -175,30 +175,30 @@ sum(vep_unique[, table(class)])
 ## [1] 1032
 dim(vep_unique)
 ## [1] 1032  42
-fwrite(vep_unique, file = "Report/release/SNVs/impact/noctrl_vep_unique.csv")
-vep <- fread(file = "Report/release/SNVs/impact/noctrl_vep_unique.csv")
+fwrite(vep_unique, file = "Report/SNVs/impact/noctrl_vep_unique.csv")
+vep <- fread(file = "Report/SNVs/impact/noctrl_vep_unique.csv")
 
 ###########################################################################
 ## Among all SNVs, # of SNV sites per gene locus per number-of-mitos support
 ###########################################################################
-vep <- fread(file = "Report/release/SNVs/impact/noctrl_vep_unique.csv")
+vep <- fread(file = "Report/SNVs/impact/noctrl_vep_unique.csv")
 vep[, gene := ifelse(SYMBOL == "", class, SYMBOL)]
-pdf("Report/release/SNVs/impact/noctrl_vep_nsnvs_bygene_bynmitos.pdf", width = 6.5, height = 6)
+pdf("Report/SNVs/impact/noctrl_vep_nsnvs_bygene_bynmitos.pdf", width = 6.5, height = 6)
 ggplot(vep[, .N, by = c("gene", "nmitos")][order(nmitos)], aes(x = gene, y = N, fill = nmitos)) + geom_bar(stat = "identity") + scale_x_discrete(limits = vep[, .N, by = "gene"][order(-N), gene]) + theme_classic(base_size = 16) + theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1), axis.text.y = element_text(angle = 90, hjust = 0.5, vjust = 1)) + xlab("") + ylab("# SNVs") + scale_fill_viridis_c(breaks = c(1, 10, 100, 1000), labels = c(1, 10, 100, 1000), trans = scales::log_trans()) + scale_y_continuous(breaks = seq(0, 150, by = 50))
 dev.off()
-pdf("Report/release/SNVs/impact/noctrl_vep_nsnvs_bygene_byncells.pdf", width = 6, height = 6)
+pdf("Report/SNVs/impact/noctrl_vep_nsnvs_bygene_byncells.pdf", width = 6, height = 6)
 ggplot(vep[, .N, by = c("gene", "ncells")][order(ncells)], aes(x = gene, y = N, fill = ncells)) + geom_bar(stat = "identity") + scale_x_discrete(limits = vep[, .N, by = "gene"][order(-N), gene]) + theme_classic(base_size = 16) + theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1), axis.text.y = element_text(angle = 90, hjust = 0.5, vjust = 1)) + xlab("") + ylab("# SNVs") + scale_fill_viridis_c(breaks = c(1, 10, 100, 1000), labels = c(1, 10, 100, 1000), trans = scales::log_trans())
 dev.off()
-pdf("Report/release/SNVs/impact/noctrl_vep_nsnvs_bygene_bynmice.pdf", width = 6, height = 6)
+pdf("Report/SNVs/impact/noctrl_vep_nsnvs_bygene_bynmice.pdf", width = 6, height = 6)
 ggplot(vep[, .N, by = c("gene", "nmice")][order(nmice)], aes(x = gene, y = N, fill = nmice)) + geom_bar(stat = "identity") + scale_x_discrete(limits = vep[, .N, by = "gene"][order(-N), gene]) + theme_classic(base_size = 16) + theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1), axis.text.y = element_text(angle = 90, hjust = 0.5, vjust = 1)) + xlab("") + ylab("# SNVs") + scale_fill_viridis_c(breaks = seq(1, 13, by = 2), labels = seq(1, 13, by = 2))
 dev.off()
 
 ###########################################################################
 ## Among all SNVs, how is the per-base SNV occurrence per region?
 ###########################################################################
-vep <- fread(file = "Report/release/SNVs/impact/noctrl_vep_unique.csv")
+vep <- fread(file = "Report/SNVs/impact/noctrl_vep_unique.csv")
 vep[, gene := ifelse(SYMBOL == "", class, SYMBOL)]
-chrmgenes <- fread("Report/release/artifact/chrmgenes.csv")
+chrmgenes <- fread("Report/artifact/chrmgenes.csv")
 ## get D-loop and intergenic info
 chrmgenes <- rbind(chrmgenes,
     chrmbases_properties[is_in_range == "Y" & is_in_primer == "N" & SNVID == "SNV8", list(symbol = "D-loop", start = min(pos), end = max(pos), strand = "*", nbases_covered = .N)], 
@@ -208,17 +208,17 @@ npos_bygene <- vep[, list(npos = uniqueN(pos)), by = c("gene")]
 npos_bygene <- chrmgenes[, c("symbol", "nbases_covered")][npos_bygene, on = c(symbol = "gene")]
 npos_bygene[, npos_perbase := npos / nbases_covered]
 setnames(npos_bygene, "symbol", "gene")
-fwrite(npos_bygene[order(-npos_perbase)], file = "Report/release/SNVs/impact/noctrl_vep_npos_bygene_perbase.csv")
-npos_bygene <- fread(file = "Report/release/SNVs/impact/noctrl_vep_npos_bygene_perbase.csv")
+fwrite(npos_bygene[order(-npos_perbase)], file = "Report/SNVs/impact/noctrl_vep_npos_bygene_perbase.csv")
+npos_bygene <- fread(file = "Report/SNVs/impact/noctrl_vep_npos_bygene_perbase.csv")
 
-pdf("Report/release/SNVs/impact/noctrl_vep_npos_bygene_perbase.pdf", width = 5.4, height = 6)
+pdf("Report/SNVs/impact/noctrl_vep_npos_bygene_perbase.pdf", width = 5.4, height = 6)
 ggplot(npos_bygene, aes(x = gene, y = 100 * npos_perbase)) + geom_bar(stat = "identity", fill = "gray") + scale_x_discrete(limits = npos_bygene[order(-npos_perbase), gene]) + theme_classic(base_size = 16) + theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1), axis.text.y = element_text(angle = 90, hjust = 0.5, vjust = 1)) + xlab("") + ylab("# SNV sites per-base")
 dev.off()
 
 ###########################################################################
 ## Transition probability matrix for all SNVs
 ###########################################################################
-support_byposmut <- fread("Report/release/SNVs/filter/basediffperc_cutdemux_sub500k_q30_unstranded_highdepth_highaf_qcfltd_support_byposmut.csv")
+support_byposmut <- fread("Report/SNVs/filter/basediffperc_cutdemux_sub500k_q30_unstranded_highdepth_highaf_qcfltd_support_byposmut.csv")
 transmat <- dcast.data.table(support_byposmut[, .N, by = c("ref", "alt")], ref ~ alt, value.var = "N")
 transmat
 ##    ref  A   C   G   T del
@@ -228,7 +228,7 @@ transmat
 ## 4:   T 24 204  21  NA   3
 ## Because of the deletions, the sum of ti and tv will be less than 1032. 
 
-vep <- fread(file = "Report/release/SNVs/impact/noctrl_vep_unique.csv")
+vep <- fread(file = "Report/SNVs/impact/noctrl_vep_unique.csv")
 vep_nonsynonymous <- vep[class == "nonsynonymous"]
 vep_synonymous <- vep[class  == "synonymous"]
 vep_tRNA <- vep[class == "tRNA"]
@@ -258,10 +258,10 @@ Tools$write_xlsx(list(
     rRNA = transmat_rRNA, 
     dloop= transmat_dloop, 
     intergenic = transmat_intergenic
-), file = "Report/release/SNVs/impact/noctrl_transmat.xlsx", row.names = FALSE)
+), file = "Report/SNVs/impact/noctrl_transmat.xlsx", row.names = FALSE)
 
 support_byposmut[, mut := factor(mut, levels = setdiff(paste0(rep(c("A", "C", "G", "T"), each = 5), ">", c("A", "C", "G", "T", "del")), c("A>A", "C>C", "G>G", "T>T")))]
-pdf(file = "Report/release/SNVs/impact/noctrl_transmat_barplot.pdf", width = 5, height = 6)
+pdf(file = "Report/SNVs/impact/noctrl_transmat_barplot.pdf", width = 5, height = 6)
 par(ps = 12, lend = 2, ljoin = 1, bty = "L", mfrow = c(7, 1), mar = c(2, 2.5, 1, 0), oma = c(0, 0, 0, 0), mgp = c(1.5, 0.5, 0), cex.axis = 1)
 support_byposmut[, barplot(table(mut), ylab = "# SNVs", main = "total", cex.names = 0.8, border = NA)]
 support_byposmut[posmut %in% vep_nonsynonymous_posmut, barplot(table(mut), ylab = "# SNVs", main = "nonsynonymous", cex.names = 0.8, border = NA)]
@@ -276,7 +276,7 @@ colmap <- structure(c(RColorBrewer::brewer.pal(5, "Set1"), "gray"), names = c("D
 nsnvs_byclass <- melt.data.table(dcast.data.table(vep, mut ~ class, fun.aggregate = function(x) uniqueN(x), value.var = "pos"), id.vars = "mut", variable.name = "class", value.name = "nsnvs")
 nsnvs_byclass[, class := factor(class, levels = c("intergenic", "D-loop", "rRNA", "tRNA", "synonymous", "nonsynonymous"))]
 fig <- ggplot(nsnvs_byclass, aes(x = mut, y = nsnvs, fill = class)) + geom_bar(stat = "identity") + theme_classic(12) + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1), axis.text.y = element_text(angle = 90, hjust = 0.5, vjust = 1)) + xlab("") + ylab("# SNVs") + scale_fill_manual(values = colmap) + scale_y_continuous(breaks = seq(0, 300, by = 50))
-ggsave(fig, file = "Report/release/SNVs/impact/noctrl_nsnvs_byclass_bytrans_bar.pdf", width = 6, height = 4.5)
+ggsave(fig, file = "Report/SNVs/impact/noctrl_nsnvs_byclass_bytrans_bar.pdf", width = 6, height = 4.5)
 
 noctrl_titv <- list(
     all = Genetics$titv(Tools$dt2df(transmat)), 
@@ -290,16 +290,16 @@ noctrl_titv <- list(
 noctrl_titv <- do.call(rbind, noctrl_titv)
 noctrl_titv <- data.table(class = rownames(noctrl_titv), noctrl_titv)
 
-fwrite(noctrl_titv, file = "Report/release/SNVs/impact/noctrl_titv.csv")
-noctrl_titv <- fread(file = "Report/release/SNVs/impact/noctrl_titv.csv")
+fwrite(noctrl_titv, file = "Report/SNVs/impact/noctrl_titv.csv")
+noctrl_titv <- fread(file = "Report/SNVs/impact/noctrl_titv.csv")
 
 ###########################################################################
 ## Among inherited SNVs, how is the per-base mutation occurrence per region?
 ###########################################################################
-vep <- fread(file = "Report/release/SNVs/impact/noctrl_vep_unique.csv")
+vep <- fread(file = "Report/SNVs/impact/noctrl_vep_unique.csv")
 vep[, gene := ifelse(SYMBOL == "", class, SYMBOL)]
 inherited_noctrl_vep <- vep[nmice >= 3]
-chrmgenes <- fread("Report/release/artifact/chrmgenes.csv")
+chrmgenes <- fread("Report/artifact/chrmgenes.csv")
 ## get D-loop and intergenic info
 chrmgenes <- rbind(chrmgenes,
     chrmbases_properties[is_in_range == "Y" & is_in_primer == "N" & SNVID == "SNV8", list(symbol = "D-loop", start = min(pos), end = max(pos), strand = "*", nbases_covered = .N)], 
@@ -309,20 +309,20 @@ inherited_noctrl_npos_bygene <- inherited_noctrl_vep[, list(npos = uniqueN(pos))
 inherited_noctrl_npos_bygene <- chrmgenes[, c("symbol", "nbases_covered")][inherited_noctrl_npos_bygene, on = c(symbol = "gene")]
 inherited_noctrl_npos_bygene[, npos_perbase := npos / nbases_covered]
 setnames(inherited_noctrl_npos_bygene, "symbol", "gene")
-fwrite(inherited_noctrl_npos_bygene[order(-npos_perbase)], file = "Report/release/SNVs/impact/inherited_noctrl_vep_npos_bygene_perbase.csv")
-inherited_noctrl_npos_bygene <- fread(file = "Report/release/SNVs/impact/inherited_noctrl_vep_npos_bygene_perbase.csv")
+fwrite(inherited_noctrl_npos_bygene[order(-npos_perbase)], file = "Report/SNVs/impact/inherited_noctrl_vep_npos_bygene_perbase.csv")
+inherited_noctrl_npos_bygene <- fread(file = "Report/SNVs/impact/inherited_noctrl_vep_npos_bygene_perbase.csv")
 
-pdf("Report/release/SNVs/impact/inherited_noctrl_vep_npos_bygene_perbase.pdf", width = 5, height = 6)
+pdf("Report/SNVs/impact/inherited_noctrl_vep_npos_bygene_perbase.pdf", width = 5, height = 6)
 ggplot(inherited_noctrl_npos_bygene, aes(x = gene, y = npos_perbase)) + geom_bar(stat = "identity") + scale_x_discrete(limits = inherited_noctrl_npos_bygene[order(-npos_perbase), gene]) + theme_classic(base_size = 16) + theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) + xlab("") + ylab("# SNV sites per-base")
 dev.off()
 
 ###########################################################################
 ## Transition probability matrix for inherited SNVs
 ###########################################################################
-support_byposmut <- fread("Report/release/SNVs/filter/basediffperc_cutdemux_sub500k_q30_unstranded_highdepth_highaf_qcfltd_support_byposmut.csv")
+support_byposmut <- fread("Report/SNVs/filter/basediffperc_cutdemux_sub500k_q30_unstranded_highdepth_highaf_qcfltd_support_byposmut.csv")
 inherited_noctrl_transmat <- dcast.data.table(support_byposmut[nmice >= 3, .N, by = c("ref", "alt")], ref ~ alt, value.var = "N")
 
-vep <- fread(file = "Report/release/SNVs/impact/noctrl_vep_unique.csv")
+vep <- fread(file = "Report/SNVs/impact/noctrl_vep_unique.csv")
 inherited_noctrl_vep <- vep[nmice >= 3]
 inherited_noctrl_vep_nonsynonymous <- inherited_noctrl_vep[class == "nonsynonymous"]
 inherited_noctrl_vep_synonymous <- inherited_noctrl_vep[class  == "synonymous"]
@@ -349,7 +349,7 @@ Tools$write_xlsx(list(
     tRNA = inherited_noctrl_transmat_tRNA, 
     rRNA = inherited_noctrl_transmat_rRNA, 
     dloop= inherited_noctrl_transmat_dloop
-), file = "Report/release/SNVs/impact/inherited_noctrl_transmat.xlsx", row.names = FALSE)
+), file = "Report/SNVs/impact/inherited_noctrl_transmat.xlsx", row.names = FALSE)
 
 inherited_noctrl_titv <- list(
     all = Genetics$titv(Tools$dt2df(inherited_noctrl_transmat)), 
@@ -362,11 +362,11 @@ inherited_noctrl_titv <- list(
 inherited_noctrl_titv <- do.call(rbind, inherited_noctrl_titv)
 inherited_noctrl_titv <- data.table(class = rownames(inherited_noctrl_titv), inherited_noctrl_titv)
 
-fwrite(inherited_noctrl_titv, file = "Report/release/SNVs/impact/inherited_noctrl_titv.csv")
-inherited_noctrl_titv <- fread(file = "Report/release/SNVs/impact/inherited_noctrl_titv.csv")
+fwrite(inherited_noctrl_titv, file = "Report/SNVs/impact/inherited_noctrl_titv.csv")
+inherited_noctrl_titv <- fread(file = "Report/SNVs/impact/inherited_noctrl_titv.csv")
 
 ## Ti/Tv per gene
-vep <- fread(file = "Report/release/SNVs/impact/noctrl_vep_unique.csv")
+vep <- fread(file = "Report/SNVs/impact/noctrl_vep_unique.csv")
 inherited_noctrl_vep <- vep[nmice >= 3]
 inherited_noctrl_vep[, gene := SYMBOL]
 inherited_noctrl_vep[, gene := ifelse(gene == "", class, gene)]
@@ -379,16 +379,16 @@ inherited_noctrl_vep[, table(gene)]
 inherited_noctrl_transmat_bygene <- sapply(inherited_noctrl_vep[, sort(unique(gene))], function(g) dcast.data.table(inherited_noctrl_vep[gene == g, .N, by = c("ref", "alt")], ref ~ alt, value.var = "N"), simplify = FALSE)
 inherited_noctrl_titv_bygene <- t(sapply(inherited_noctrl_transmat_bygene, function(dt) Genetics$titv(Tools$dt2df(dt))))
 inherited_noctrl_titv_bygene <- data.table(gene = rownames(inherited_noctrl_titv_bygene), inherited_noctrl_titv_bygene)
-fwrite(inherited_noctrl_titv_bygene, file = "Report/release/SNVs/impact/inherited_noctrl_titv_bygene.csv")
-inherited_noctrl_titv_bygene <- fread(file = "Report/release/SNVs/impact/inherited_noctrl_titv_bygene.csv")
+fwrite(inherited_noctrl_titv_bygene, file = "Report/SNVs/impact/inherited_noctrl_titv_bygene.csv")
+inherited_noctrl_titv_bygene <- fread(file = "Report/SNVs/impact/inherited_noctrl_titv_bygene.csv")
 
 ###########################################################################
 ## Among somatic SNVs, how is the per-base mutation occurrence per region?
 ###########################################################################
-vep <- fread(file = "Report/release/SNVs/impact/noctrl_vep_unique.csv")
+vep <- fread(file = "Report/SNVs/impact/noctrl_vep_unique.csv")
 vep[, gene := ifelse(SYMBOL == "", class, SYMBOL)]
 somatic_noctrl_vep <- vep[nmice == 1]
-chrmgenes <- fread("Report/release/artifact/chrmgenes.csv")
+chrmgenes <- fread("Report/artifact/chrmgenes.csv")
 ## get D-loop and intergenic info
 chrmgenes <- rbind(chrmgenes,
     chrmbases_properties[is_in_range == "Y" & is_in_primer == "N" & SNVID == "SNV8", list(symbol = "D-loop", start = min(pos), end = max(pos), strand = "*", nbases_covered = .N)], 
@@ -398,20 +398,20 @@ somatic_noctrl_npos_bygene <- somatic_noctrl_vep[, list(npos = uniqueN(pos)), by
 somatic_noctrl_npos_bygene <- chrmgenes[, c("symbol", "nbases_covered")][somatic_noctrl_npos_bygene, on = c(symbol = "gene")]
 somatic_noctrl_npos_bygene[, npos_perbase := npos / nbases_covered]
 setnames(somatic_noctrl_npos_bygene, "symbol", "gene")
-fwrite(somatic_noctrl_npos_bygene[order(-npos_perbase)], file = "Report/release/SNVs/impact/somatic_noctrl_vep_npos_bygene_perbase.csv")
-somatic_noctrl_npos_bygene <- fread(file = "Report/release/SNVs/impact/somatic_noctrl_vep_npos_bygene_perbase.csv")
+fwrite(somatic_noctrl_npos_bygene[order(-npos_perbase)], file = "Report/SNVs/impact/somatic_noctrl_vep_npos_bygene_perbase.csv")
+somatic_noctrl_npos_bygene <- fread(file = "Report/SNVs/impact/somatic_noctrl_vep_npos_bygene_perbase.csv")
 
-pdf("Report/release/SNVs/impact/somatic_noctrl_vep_npos_bygene_perbase.pdf", width = 5, height = 6)
+pdf("Report/SNVs/impact/somatic_noctrl_vep_npos_bygene_perbase.pdf", width = 5, height = 6)
 ggplot(somatic_noctrl_npos_bygene, aes(x = gene, y = npos_perbase)) + geom_bar(stat = "identity") + scale_x_discrete(limits = somatic_noctrl_npos_bygene[order(-npos_perbase), gene]) + theme_classic(base_size = 16) + theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) + xlab("") + ylab("# SNV sites per-base")
 dev.off()
 
 ###########################################################################
 ## Transition probability matrix for somatic SNVs
 ###########################################################################
-support_byposmut <- fread("Report/release/SNVs/filter/basediffperc_cutdemux_sub500k_q30_unstranded_highdepth_highaf_qcfltd_support_byposmut.csv")
+support_byposmut <- fread("Report/SNVs/filter/basediffperc_cutdemux_sub500k_q30_unstranded_highdepth_highaf_qcfltd_support_byposmut.csv")
 somatic_noctrl_transmat <- dcast.data.table(support_byposmut[nmice == 1, .N, by = c("ref", "alt")], ref ~ alt, value.var = "N")
 
-vep <- fread(file = "Report/release/SNVs/impact/noctrl_vep_unique.csv")
+vep <- fread(file = "Report/SNVs/impact/noctrl_vep_unique.csv")
 somatic_noctrl_vep <- vep[nmice == 1]
 somatic_noctrl_vep_nonsynonymous <- somatic_noctrl_vep[class == "nonsynonymous"]
 somatic_noctrl_vep_synonymous <- somatic_noctrl_vep[class  == "synonymous"]
@@ -442,7 +442,7 @@ Tools$write_xlsx(list(
     rRNA = somatic_noctrl_transmat_rRNA, 
     dloop = somatic_noctrl_transmat_dloop,
     intergenic = somatic_noctrl_transmat_intergenic
-), file = "Report/release/SNVs/impact/somatic_noctrl_transmat.xlsx", row.names = FALSE)
+), file = "Report/SNVs/impact/somatic_noctrl_transmat.xlsx", row.names = FALSE)
 
 somatic_noctrl_titv <- list(
     all = Genetics$titv(Tools$dt2df(somatic_noctrl_transmat)), 
@@ -456,11 +456,11 @@ somatic_noctrl_titv <- list(
 somatic_noctrl_titv <- do.call(rbind, somatic_noctrl_titv)
 somatic_noctrl_titv <- data.table(class = rownames(somatic_noctrl_titv), somatic_noctrl_titv)
 
-fwrite(somatic_noctrl_titv, file = "Report/release/SNVs/impact/somatic_noctrl_titv.csv")
-somatic_noctrl_titv <- fread(file = "Report/release/SNVs/impact/somatic_noctrl_titv.csv")
+fwrite(somatic_noctrl_titv, file = "Report/SNVs/impact/somatic_noctrl_titv.csv")
+somatic_noctrl_titv <- fread(file = "Report/SNVs/impact/somatic_noctrl_titv.csv")
 
 ## Ti/Tv per gene
-vep <- fread(file = "Report/release/SNVs/impact/noctrl_vep_unique.csv")
+vep <- fread(file = "Report/SNVs/impact/noctrl_vep_unique.csv")
 somatic_noctrl_vep <- vep[nmice == 1]
 somatic_noctrl_vep[, gene := SYMBOL]
 somatic_noctrl_vep[, gene := ifelse(gene == "", class, gene)]
@@ -475,8 +475,8 @@ somatic_noctrl_vep[, table(gene)]
 somatic_noctrl_transmat_bygene <- sapply(somatic_noctrl_vep[, sort(unique(gene))], function(g) dcast.data.table(somatic_noctrl_vep[gene == g, .N, by = c("ref", "alt")], ref ~ alt, value.var = "N"), simplify = FALSE)
 somatic_noctrl_titv_bygene <- t(sapply(somatic_noctrl_transmat_bygene, function(dt) Genetics$titv(Tools$dt2df(dt))))
 somatic_noctrl_titv_bygene <- data.table(gene = rownames(somatic_noctrl_titv_bygene), somatic_noctrl_titv_bygene)
-fwrite(somatic_noctrl_titv_bygene, file = "Report/release/SNVs/impact/somatic_noctrl_titv_bygene.csv")
-somatic_noctrl_titv_bygene <- fread(file = "Report/release/SNVs/impact/somatic_noctrl_titv_bygene.csv")
+fwrite(somatic_noctrl_titv_bygene, file = "Report/SNVs/impact/somatic_noctrl_titv_bygene.csv")
+somatic_noctrl_titv_bygene <- fread(file = "Report/SNVs/impact/somatic_noctrl_titv_bygene.csv")
 
 ###########################################################################
 ## somatic vs. inherited SNVs
@@ -488,7 +488,7 @@ inherited_noctrl_nsnvs_bygene[, psnvs := nsnvs / sum(nsnvs) * 100]
 comparison_noctrl_nsnvs_bygene <- rbind(somatic_noctrl_nsnvs_bygene, inherited_noctrl_nsnvs_bygene)
 comparison_noctrl_nsnvs_bygene[, origin := factor(origin, levels = c("somatic", "inherited"))]
 
-pdf("Report/release/SNVs/impact/comparison_noctrl_nsnvs_bygene_bar.pdf", width = 7, height = 6)
+pdf("Report/SNVs/impact/comparison_noctrl_nsnvs_bygene_bar.pdf", width = 7, height = 6)
 ggplot(comparison_noctrl_nsnvs_bygene, aes(x = gene, fill = origin, y = psnvs)) + geom_bar(stat = "identity", position = position_dodge2(preserve = "single")) + scale_x_discrete(limits = c(inherited_noctrl_nsnvs_bygene[order(-psnvs), gene], setdiff(somatic_noctrl_nsnvs_bygene[, gene], inherited_noctrl_nsnvs_bygene[, gene]))) + theme_classic(base_size = 16) + theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) + xlab("") + ylab("% of SNVs from either origin") + scale_fill_brewer(palette = "Set1")
 dev.off()
 
@@ -501,13 +501,13 @@ somatic_noctrl_npos_bygene[, origin := "somatic"]
 inherited_noctrl_npos_bygene[, origin := "inherited"]
 comparison_noctrl_npos_bygene <- rbind(somatic_noctrl_npos_bygene, inherited_noctrl_npos_bygene)
 
-pdf("Report/release/SNVs/impact/comparison_noctrl_npos_bygene_bar.pdf", width = 7, height = 6)
+pdf("Report/SNVs/impact/comparison_noctrl_npos_bygene_bar.pdf", width = 7, height = 6)
 ggplot(comparison_noctrl_npos_bygene, aes(x = gene, y = log2(ratio), fill = origin)) + geom_bar(stat = "identity", position = position_dodge2(preserve = "single")) + scale_x_discrete(limits = c(inherited_noctrl_npos_bygene[order(-ratio), gene], setdiff(somatic_noctrl_npos_bygene[, gene], inherited_noctrl_npos_bygene[, gene])[c(3, 1, 2)])) + theme_classic(base_size = 16) + theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) + xlab("") + ylab("normalized mutation rate (log2)") + scale_fill_brewer(palette = "Set1")
 dev.off()
 
 ## ti/tv comparison
-inherited_noctrl_titv <- fread(file = "Report/release/SNVs/impact/inherited_noctrl_titv.csv")
-somatic_noctrl_titv <- fread(file = "Report/release/SNVs/impact/somatic_noctrl_titv.csv")
+inherited_noctrl_titv <- fread(file = "Report/SNVs/impact/inherited_noctrl_titv.csv")
+somatic_noctrl_titv <- fread(file = "Report/SNVs/impact/somatic_noctrl_titv.csv")
 inherited_noctrl_titv[, origin := "inherited"]
 somatic_noctrl_titv[, origin := "somatic"]
 comparison_noctrl_titv <- rbind(inherited_noctrl_titv, somatic_noctrl_titv)
@@ -515,7 +515,7 @@ comparison_noctrl_titv[class == "all", class := "average"]
 comparison_noctrl_titv[class == "synonymous", class := "syn"]
 comparison_noctrl_titv[class == "nonsynonymous", class := "nonsyn"]
 comparison_noctrl_titv[class == "dloop", class := "D-loop"]
-pdf("Report/release/SNVs/impact/comparison_noctrl_titv_bar.pdf", width = 7, height = 6)
+pdf("Report/SNVs/impact/comparison_noctrl_titv_bar.pdf", width = 7, height = 6)
 ggplot(comparison_noctrl_titv, aes(x = class, fill = origin, y = r)) + geom_bar(stat = "identity", position = position_dodge2(preserve = "single")) + scale_x_discrete(limits = c(comparison_noctrl_titv[origin == "inherited"][order(-r), class], "intergenic")) + theme_classic(base_size = 16)  + xlab("") + ylab("Ti/Tv") + scale_fill_brewer(palette = "Set1") + scale_y_continuous(breaks = seq(0, 12, by = 2)) ## + theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
 dev.off()
 (sapply(c("all", "tRNA", "rRNA", "nonsynonymous", "synonymous", "dloop"), function(x) { inherited <- comparison_noctrl_titv[class == x & origin == "inherited", list(ti, tv)]; somatic <- comparison_noctrl_titv[class == x & origin == "somatic", list(ti, tv)]; y <- rbind(inherited, somatic); fisher.test(y)$p.value }, simplify = TRUE))
@@ -524,36 +524,36 @@ dev.off()
 ##         dloop
 ##   0.001920203
 
-inherited_noctrl_titv_bygene <- fread(file = "Report/release/SNVs/impact/inherited_noctrl_titv_bygene.csv")
-somatic_noctrl_titv_bygene <- fread(file = "Report/release/SNVs/impact/somatic_noctrl_titv_bygene.csv")
+inherited_noctrl_titv_bygene <- fread(file = "Report/SNVs/impact/inherited_noctrl_titv_bygene.csv")
+somatic_noctrl_titv_bygene <- fread(file = "Report/SNVs/impact/somatic_noctrl_titv_bygene.csv")
 inherited_noctrl_titv_bygene[, origin := "inherited"]
 somatic_noctrl_titv_bygene[, origin := "somatic"]
 comparison_noctrl_titv_bygene <- rbind(inherited_noctrl_titv_bygene, somatic_noctrl_titv_bygene)
 
-pdf("Report/release/SNVs/impact/comparison_noctrl_titv_bygene_bar.pdf", width = 7, height = 6)
+pdf("Report/SNVs/impact/comparison_noctrl_titv_bygene_bar.pdf", width = 7, height = 6)
 ggplot(comparison_noctrl_titv_bygene, aes(x = gene, fill = origin, y = r)) + geom_bar(stat = "identity", position = position_dodge2(preserve = "single")) + scale_x_discrete(limits = setdiff(unique(c(comparison_noctrl_titv_bygene[origin == "inherited"][order(-r), gene], comparison_noctrl_titv_bygene[origin == "somatic"][order(r), gene])), c("D-loop", "intergenic"))) + theme_classic(base_size = 16)  + xlab("") + ylab("Ti/Tv") + scale_fill_brewer(palette = "Set1") + theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) + scale_y_continuous(breaks = seq(0, 12, by = 2))
 dev.off()
 
 ###########################################################################
 ## How about the 2017 dataset?
 ###########################################################################
-Morris2017_altperc_bymito_byposmut <- fread(file = "Report/release/Morris2017/common_altperc_bymito_byposmut.csv")
+Morris2017_altperc_bymito_byposmut <- fread(file = "Report/Morris2017/common_altperc_bymito_byposmut.csv")
 Morris2017_common_posmut <- data.table(posmut = names(Morris2017_altperc_bymito_byposmut)[-c(1:10)])
 Morris2017_common_posmut[, pos := as.integer(sapply(strsplit(posmut, ":"), "[", 1))]
 Morris2017_common_posmut[, ref := sapply(strsplit(sapply(strsplit(posmut, ":"), "[", 2), ">"), "[", 1)]
 Morris2017_common_posmut[, alt := sapply(strsplit(sapply(strsplit(posmut, ":"), "[", 2), ">"), "[", 2)]
-fwrite(Morris2017_common_posmut, file = "Report/release/SNVs/impact/Morris2017_common_posmut.csv")
+fwrite(Morris2017_common_posmut, file = "Report/SNVs/impact/Morris2017_common_posmut.csv")
 Morris2017_common_transmat <- dcast.data.table(Morris2017_common_posmut[, .N, by = c("ref", "alt")], ref ~ alt, value.var = "N")
-fwrite(Morris2017_common_transmat, file = "Report/release/SNVs/impact/Morris2017_common_transmat.csv")
-Morris2017_common_transmat <- fread(file = "Report/release/SNVs/impact/Morris2017_common_transmat.csv")
+fwrite(Morris2017_common_transmat, file = "Report/SNVs/impact/Morris2017_common_transmat.csv")
+Morris2017_common_transmat <- fread(file = "Report/SNVs/impact/Morris2017_common_transmat.csv")
 setkey(Morris2017_common_transmat, ref)
 
 Morris2017_common_titv <- Genetics$titv(Tools$dt2df(Morris2017_common_transmat))
-fwrite(t(Morris2017_common_titv), file = "Report/release/SNVs/impact/Morris2017_common_titv.csv")
-Morris2017_common_titv <- fread(file = "Report/release/SNVs/impact/Morris2017_common_titv.csv")
+fwrite(t(Morris2017_common_titv), file = "Report/SNVs/impact/Morris2017_common_titv.csv")
+Morris2017_common_titv <- fread(file = "Report/SNVs/impact/Morris2017_common_titv.csv")
 
 Morris2017_common_posmut[, mut := factor(mut, levels = paste0(rep(c("A", "C", "G", "T"), each = 5), ">", c("A", "C", "G", "T", "del")))]
-pdf(file = "Report/release/SNVs/impact/Morris2017_common_transmat_barplot.pdf", width = 6, height = 1.5)
+pdf(file = "Report/SNVs/impact/Morris2017_common_transmat_barplot.pdf", width = 6, height = 1.5)
 par(ps = 12, lend = 2, ljoin = 1, bty = "L", mfrow = c(1, 1), mar = c(1.5, 2.0, 1, 0), oma = c(0, 0, 0, 0), mgp = c(1.0, 0.5, 0), cex.axis = 0.8)
 Morris2017_common_posmut[, barplot(table(mut), ylab = "# of SNVs", main = "Morris2017", cex.names = 0.5)]
 dev.off()

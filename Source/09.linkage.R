@@ -7,7 +7,7 @@
 ## 
 ## This Source Code is distributed under Creative Commons Attribution License 4.0 (CC BY).
 ###########################################################################
-source("Source/release/functions.R")
+source("Source/functions.R")
 library("data.table")
 library("circlize")
 
@@ -16,7 +16,7 @@ snvIDs <- snv_info[, SNVID]
 mito_barcodes <- read.csv("Data/mito_barcodes.csv", as.is = TRUE)
 mitoIDs <- mito_barcodes[, "ID"] 
 
-chrmbases_properties <- fread("Report/release/artifact/chrmbases_properties.csv.gz")
+chrmbases_properties <- fread("Report/artifact/chrmbases_properties.csv.gz")
 chrmbases <- chrmbases_properties[, ref]
 nchrmbases <- length(chrmbases)
 nchrmbases
@@ -28,17 +28,17 @@ chrmgenes <- chrmgenes[, list(symbol, V4, V5, V7)]
 
 bases <- c("A", "G", "C", "T", "-")
 
-MitoInfo <- fread("Report/release/metadata/MitoInfo.csv")
+MitoInfo <- fread("Report/metadata/MitoInfo.csv")
 dim(MitoInfo)
 ## [1] 1717   19
 MitoInfo[, ExptID := factor(ExptID)]
 MitoInfo[, MitoID := factor(MitoID, levels = mitoIDs)]
 MitoInfo[, CellID := factor(CellID)]
 
-CellInfo <- fread("Report/release/metadata/CellInfo.csv")
+CellInfo <- fread("Report/metadata/CellInfo.csv")
 dim(CellInfo)
 ## [1] 102  12
-MouseInfo <- fread("Report/release/metadata/MouseInfo.csv")
+MouseInfo <- fread("Report/metadata/MouseInfo.csv")
 dim(MouseInfo)
 ## [1] 13  2
 
@@ -57,8 +57,8 @@ rownames(MouseInfo_df) <- MouseInfo_df$MouseID
 ## Here, we decided to work on the strictly filtered data for fears that alignment
 ## artifacts could impact linkage analysis the most.
 ############################################################################
-loose_support_byposmut <- fread(file = "Report/release/SNVs/filter/basediffperc_cutdemux_sub500k_q30_unstranded_highdepth_highaf_qcfltd_support_byposmut.csv")
-strict_support_byposmut <- fread(file = "Report/release/SNVs/filter/basediffperc_cutdemux_strict_sub500k_q30_unstranded_highdepth_highaf_qcfltd_support_byposmut.csv")
+loose_support_byposmut <- fread(file = "Report/SNVs/filter/basediffperc_cutdemux_sub500k_q30_unstranded_highdepth_highaf_qcfltd_support_byposmut.csv")
+strict_support_byposmut <- fread(file = "Report/SNVs/filter/basediffperc_cutdemux_strict_sub500k_q30_unstranded_highdepth_highaf_qcfltd_support_byposmut.csv")
 support_byposmut <- strict_support_byposmut[pos %in% loose_support_byposmut[, unique(`pos`)]]
 inherited_support_byposmut <- support_byposmut[nmice >= 3]
 inherited_pos <- inherited_support_byposmut[, unique(pos)]
@@ -66,7 +66,7 @@ inherited_pos <- inherited_support_byposmut[, unique(pos)]
 ############################################################################
 ## Linkage per cell
 ############################################################################
-inherited_allele_bymito_bypos <- fread("Report/release/SNVs/filter/basediffperc_cutdemux_strict_sub500k_q30_unstranded_highdepth_inherited_allele_bymito_bypos.csv.gz")
+inherited_allele_bymito_bypos <- fread("Report/SNVs/filter/basediffperc_cutdemux_strict_sub500k_q30_unstranded_highdepth_inherited_allele_bymito_bypos.csv.gz")
 inherited_allele_bymito_bypos <- inherited_allele_bymito_bypos[IsCtrl == "N", c(1:19, match(inherited_pos, names(inherited_allele_bymito_bypos))), with = FALSE]
 dim(inherited_allele_bymito_bypos)
 ## [1] 1610  155
@@ -91,7 +91,7 @@ cellUIDs
 ## [25] "Mouse12_Neuron_3"     "Mouse16&17_Neuron_4"
 
 inherited_allele_bymito_bypos_bycell <- sapply(cellUIDs, function(x) inherited_allele_bymito_bypos[CellUID == x], simplify = FALSE)
-Tools$write_xlsx(inherited_allele_bymito_bypos_bycell, file = "Report/release/SNVs/linkage/inherited_allele_bymito_bypos_bycell.xlsx", row.names = FALSE)
+Tools$write_xlsx(inherited_allele_bymito_bypos_bycell, file = "Report/SNVs/linkage/inherited_allele_bymito_bypos_bycell.xlsx", row.names = FALSE)
 
 ## further filter out sites that have < 10 non-missing mitos
 inherited_allele_nafltd_bymito_bypos_bycell <- lapply(inherited_allele_bymito_bypos_bycell, function(Y) { 
@@ -153,7 +153,7 @@ sapply(inherited_allele_nafltd_rarefltd_bycell, ncol)
 ##                    8                    4                   13
 ##     Mouse12_Neuron_3  Mouse16&17_Neuron_4
 ##                    4                   11
-Tools$write_xlsx(inherited_allele_nafltd_rarefltd_bycell[sort(cellUIDs)], file = "Report/release/SNVs/linkage/inherited_allele_nafltd_rarefltd_bycell.xlsx", row.names = TRUE)
+Tools$write_xlsx(inherited_allele_nafltd_rarefltd_bycell[sort(cellUIDs)], file = "Report/SNVs/linkage/inherited_allele_nafltd_rarefltd_bycell.xlsx", row.names = TRUE)
 
 bases <- c("A", "G", "C", "T", "-")
 inherited_allele_nafltd_rarefltd_contab_bycell <- sapply(names(inherited_allele_nafltd_rarefltd_bycell), function(cellUID) { 
@@ -243,10 +243,10 @@ inherited_allele_nafltd_rarefltd_fetstat_bycell[, `:=`(
 ]
 setcolorder(inherited_allele_nafltd_rarefltd_fetstat_bycell, names(inherited_allele_nafltd_rarefltd_fetstat_bycell)[c(1:3, 9:14, 4:8)])
 
-fwrite(inherited_allele_nafltd_rarefltd_fetstat_bycell, file = "Report/release/SNVs/linkage/inherited_allele_nafltd_rarefltd_fetstat_bycell.csv")
-inherited_allele_nafltd_rarefltd_fetstat_bycell <- fread(file = "Report/release/SNVs/linkage/inherited_allele_nafltd_rarefltd_fetstat_bycell.csv")
+fwrite(inherited_allele_nafltd_rarefltd_fetstat_bycell, file = "Report/SNVs/linkage/inherited_allele_nafltd_rarefltd_fetstat_bycell.csv")
+inherited_allele_nafltd_rarefltd_fetstat_bycell <- fread(file = "Report/SNVs/linkage/inherited_allele_nafltd_rarefltd_fetstat_bycell.csv")
 
-pdf("Report/release/SNVs/linkage/inherited_allele_nafltd_rarefltd_fetstat_bycell_chord_padj0.1.pdf")
+pdf("Report/SNVs/linkage/inherited_allele_nafltd_rarefltd_fetstat_bycell_chord_padj0.1.pdf")
 for (cellUID in unique(inherited_allele_nafltd_rarefltd_fetstat_bycell[, CellUID])) {
     X <- inherited_allele_nafltd_rarefltd_fetstat_bycell[padj < 0.1 & CellUID == cellUID]
     if (nrow(X) > 0) {
@@ -270,13 +270,13 @@ dev.off()
 ###########################################################################
 ## All mice together
 ###########################################################################
-loose_support_byposmut <- fread(file = "Report/release/SNVs/filter/basediffperc_cutdemux_sub500k_q30_unstranded_highdepth_highaf_qcfltd_support_byposmut.csv")
-strict_support_byposmut <- fread(file = "Report/release/SNVs/filter/basediffperc_cutdemux_strict_sub500k_q30_unstranded_highdepth_highaf_qcfltd_support_byposmut.csv")
+loose_support_byposmut <- fread(file = "Report/SNVs/filter/basediffperc_cutdemux_sub500k_q30_unstranded_highdepth_highaf_qcfltd_support_byposmut.csv")
+strict_support_byposmut <- fread(file = "Report/SNVs/filter/basediffperc_cutdemux_strict_sub500k_q30_unstranded_highdepth_highaf_qcfltd_support_byposmut.csv")
 support_byposmut <- strict_support_byposmut[pos %in% loose_support_byposmut[, unique(`pos`)]]
 inherited_support_byposmut <- support_byposmut[nmice >= 3]
 inherited_pos <- inherited_support_byposmut[, unique(pos)]
 
-inherited_allele_bymito_bypos <- fread("Report/release/SNVs/filter/basediffperc_cutdemux_strict_sub500k_q30_unstranded_highdepth_inherited_allele_bymito_bypos.csv.gz")
+inherited_allele_bymito_bypos <- fread("Report/SNVs/filter/basediffperc_cutdemux_strict_sub500k_q30_unstranded_highdepth_inherited_allele_bymito_bypos.csv.gz")
 inherited_allele_bymito_bypos <- inherited_allele_bymito_bypos[IsCtrl == "N", c(1:19, match(inherited_pos, names(inherited_allele_bymito_bypos))), with = FALSE]
 dim(inherited_allele_bymito_bypos)
 ## [1] 1609  228
@@ -302,8 +302,8 @@ dim(inherited_allele_nafltd_rarefltd)
 
 inherited_allele_nafltd_rarefltd_dt <- data.table(LibraryMitoID = rownames(inherited_allele_nafltd_rarefltd), inherited_allele_nafltd_rarefltd)
 inherited_allele_nafltd_rarefltd_dt <- MitoInfo[inherited_allele_nafltd_rarefltd_dt, on = "LibraryMitoID"]
-fwrite(inherited_allele_nafltd_rarefltd_dt, file = "Report/release/SNVs/linkage/inherited_allele_nafltd_rarefltd.csv")
-inherited_allele_nafltd_rarefltd_dt <- fread(file = "Report/release/SNVs/linkage/inherited_allele_nafltd_rarefltd.csv")
+fwrite(inherited_allele_nafltd_rarefltd_dt, file = "Report/SNVs/linkage/inherited_allele_nafltd_rarefltd.csv")
+inherited_allele_nafltd_rarefltd_dt <- fread(file = "Report/SNVs/linkage/inherited_allele_nafltd_rarefltd.csv")
 
 bases <- c("A", "G", "C", "T", "-")
 inherited_allele_nafltd_rarefltd_contab <- local({
@@ -374,11 +374,11 @@ inherited_allele_nafltd_rarefltd_fetstat[, `:=`(
 ]
 setcolorder(inherited_allele_nafltd_rarefltd_fetstat, names(inherited_allele_nafltd_rarefltd_fetstat)[c(1:2, 8:13, 3:7)])
 
-fwrite(inherited_allele_nafltd_rarefltd_fetstat, file = "Report/release/SNVs/linkage/inherited_allele_nafltd_rarefltd_fetstat.csv")
-inherited_allele_nafltd_rarefltd_fetstat <- fread(file = "Report/release/SNVs/linkage/inherited_allele_nafltd_rarefltd_fetstat.csv")
+fwrite(inherited_allele_nafltd_rarefltd_fetstat, file = "Report/SNVs/linkage/inherited_allele_nafltd_rarefltd_fetstat.csv")
+inherited_allele_nafltd_rarefltd_fetstat <- fread(file = "Report/SNVs/linkage/inherited_allele_nafltd_rarefltd_fetstat.csv")
 
 inherited_allele_nafltd_rarefltd_fetstat_sig <- inherited_allele_nafltd_rarefltd_fetstat[padj < 0.1]
-pdf("Report/release/SNVs/linkage/inherited_allele_nafltd_rarefltd_locuspair_chord_padj0.1.pdf", width = 6, height = 6)
+pdf("Report/SNVs/linkage/inherited_allele_nafltd_rarefltd_locuspair_chord_padj0.1.pdf", width = 6, height = 6)
 chordDiagram(unique(inherited_allele_nafltd_rarefltd_fetstat_sig[, list(pos1, pos2)]))
 title(main = "All mitos (padj < 0.1)")
 circos.clear()

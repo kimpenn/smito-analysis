@@ -7,6 +7,6 @@
 ## 
 ## This Source Code is distributed under Creative Commons Attribution License 4.0 (CC BY).
 ###########################################################################
-source("Source/release/functions/Graphics.R")
-source("Source/release/functions/Genetics.R")
-source("Source/release/functions/Tools.R")
+source("Source/functions/Graphics.R")
+source("Source/functions/Genetics.R")
+source("Source/functions/Tools.R")
