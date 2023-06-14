@@ -212,7 +212,7 @@ fwrite(npos_bygene[order(-npos_perbase)], file = "Report/SNVs/impact/noctrl_vep_
 npos_bygene <- fread(file = "Report/SNVs/impact/noctrl_vep_npos_bygene_perbase.csv")
 
 pdf("Report/SNVs/impact/noctrl_vep_npos_bygene_perbase.pdf", width = 5.4, height = 6)
-ggplot(npos_bygene, aes(x = gene, y = 100 * npos_perbase)) + geom_bar(stat = "identity", fill = "gray") + scale_x_discrete(limits = npos_bygene[order(-npos_perbase), gene]) + theme_classic(base_size = 16) + theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1), axis.text.y = element_text(angle = 90, hjust = 0.5, vjust = 1)) + xlab("") + ylab("# SNV sites per-base")
+ggplot(npos_bygene, aes(x = gene, y = npos_perbase)) + geom_bar(stat = "identity", fill = "gray") + scale_x_discrete(limits = npos_bygene[order(-npos_perbase), gene]) + theme_classic(base_size = 16) + theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1), axis.text.y = element_text(angle = 90, hjust = 0.5, vjust = 1)) + xlab("") + ylab("# SNV sites per-base")
 dev.off()
 
 ###########################################################################
