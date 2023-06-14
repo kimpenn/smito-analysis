@@ -111,6 +111,39 @@ for (mitoID in mitoIDs) {
 }
 dev.off()
 
+png("Report/SNVs/QC/depth_rankfreq_colorbypos.png", width = 300 * 1 * length(snvIDs), height = 300 * 1 * length(mitoIDs), res = 300, type = "cairo")
+par(ps = 11, lend = 2, ljoin = 1, bty = "L", mfrow = c(length(mitoIDs), length(snvIDs)), mar = c(2, 2.5, 1, 0.5), oma = c(0, 0, 0, 0), mgp = c(1.5, 0.5, 0))
+for (mitoID in mitoIDs) {
+    for (snvID in snvIDs) {
+        message(mitoID, " ", snvID)
+        X <- basedifffreq_cutdemux_q30_unstranded[IsCtrl == "N" & MitoID == mitoID & SNVID == snvID][order(depth)]
+        x <- X[, depth]
+        y <- X[, pos] - snv_info[SNVID == snvID, Start] + 1
+        plot(log10(x), xlab = "", ylab = "log10 depth", main = sprintf("%s %s", mitoID, snvID), pch = '.', col = rainbow(255)[1:200][cut(y, breaks = seq(1, snv_info[SNVID == snvID, End - Start + 1], length.out = 200), include.lowest = TRUE)], ylim = c(0, log10(500000)))
+        abline(h = 2, col = "navyblue", lwd = 1, lty = 2)
+        xy <- par()$usr
+        segments(x0 = seq(0, (xy[2] - xy[1]) / 3, length.out = 200), x1 = seq(0, (xy[2] - xy[1]) / 3, length.out = 200), y0 = xy[4] - (xy[4] - xy[3])/50, y1 = xy[4], col = rainbow(255)[1:200], xpd = TRUE)
+        text(x = 0, y = xy[4] - (xy[4] - xy[3])/10, label = 1, cex = 0.5)
+        text(x = (xy[2] - xy[1]) / 3, y = xy[4] - (xy[4] - xy[3])/10, label = snv_info[SNVID == snvID, Length], cex = 0.5)
+    }
+}
+dev.off()
+
+png("Report/SNVs/QC/depth_rankfreq_colorbymito.png", width = 300 * 1 * length(snvIDs), height = 300 * 1 * length(mitoIDs), res = 300, type = "cairo")
+par(ps = 11, lend = 2, ljoin = 1, bty = "L", mfrow = c(length(mitoIDs), length(snvIDs)), mar = c(2, 2.5, 1, 0.5), oma = c(0, 0, 0, 0), mgp = c(1.5, 0.5, 0))
+for (mitoID in mitoIDs) {
+    for (snvID in snvIDs) {
+        message(mitoID, " ", snvID)
+        X <- basedifffreq_cutdemux_q30_unstranded[IsCtrl == "N" & MitoID == mitoID & SNVID == snvID][order(depth)]
+        x <- X[, depth]
+        y <- factor(X[, LibraryMitoID])
+        palette(rainbow(nlevels(y)))
+        plot(log10(x), xlab = "", ylab = "log10 depth", main = sprintf("%s %s", mitoID, snvID), pch = '.', col = y, ylim = c(0, log10(500000)))
+        abline(h = 2, col = "navyblue", lwd = 1, lty = 2)
+    }
+}
+dev.off()
+
 summary(basedifffreq_cutdemux_q30_unstranded$depth)
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##       1       8      70   12628     960  494752 
