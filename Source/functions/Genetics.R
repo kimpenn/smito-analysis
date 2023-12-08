@@ -19,6 +19,81 @@ local({
         c(ti = ti, tv = tv, r = ti/tv)
     }
 
+    .dt_to_df <- function(dt) {
+        k <- key(dt)
+        if (is.null(k)) {
+            warning("No key found! Using the first column as the key...")
+            k <- names(dt)[1]
+        } 
+        df <- as.data.frame(dt)
+        if (any(duplicated(dt[, get(k)]))) {
+            df
+        } else {
+            rownames(df) <- dt[, get(k)]
+            df[, -match(k, names(dt)), drop = FALSE]
+        }
+    }
+
+    mutate_from_transmut <- function(pos, ref, size, transmut) {
+        ref <- toupper(ref)
+        transmut <- as.matrix(.dt_to_df(transmut))
+        transmut[is.na(transmut)] <- 0
+        n <- sum(transmut)
+        transmut <- transmut / n
+        margin <- rowSums(transmut)
+        if (missing(size)) {
+            size <- n
+        }
+        ns <- round(size * margin)
+        refbases <- c('A', 'C', 'G', 'T')
+        ms <- structure(as.vector(table(factor(ref, levels = refbases))), names = refbases)
+        nm <- ms / ns
+        i <- which.min(nm)
+
+        if (nm[i] < 1) {
+            ns <- round(ns * nm[i])
+            warning(sprintf("Some base (%s) has fewer reference sites than can be sampled, shrinking `size` to %d...", refbases[i], sum(ns)))
+        }
+        if (any(ns > ms)) {
+            stop("Cannot afford the sample size even after shrinking!")
+        }
+
+        res <- lapply(refbases, function(refbase) {
+            p <- pos[ref == refbase]
+            i <- which(refbases == refbase)
+            K <- ns[i]
+            r <- unlist(transmut[refbase, ])
+            r <- r / sum(r)
+            m <- round(r * K)
+            f <- rep(factor(seq(length(r))), times = m)
+            K <- sum(m)
+            q <- sample(p, size = K, replace = FALSE)
+            t <- split(q, f = f)
+            s <- paste0(refbase, '>', names(r))
+            R <- mapply(FUN = function(x, y) {
+                if (length(x) > 0) {
+                    data.table::data.table(pos = x, mut = y)
+                } else {
+                    data.table::data.table(pos = integer(0), mut = character(0))
+                }
+            }, x = t, y = s, SIMPLIFY = FALSE)
+            rbindlist(R)
+        })
+        res <- rbindlist(res)
+        res[, ref := sapply(strsplit(mut, '>'), '[', 1)]
+        res[, alt := sapply(strsplit(mut, '>'), '[', 2)]
+        res[, c("pos", "ref", "alt", "mut")]
+        res[order(pos)]
+    }
+
+    KaKs <- function(total_pos, var_pos, codon_table) {
+        nonsyn_sites <- vertmtcodon[pos %in% var_pos, list(syn = mean(S), nonsyn = mean(N)), by = c("symbol", "strand", "codon_index")][, sum(nonsyn)]
+        nonsyn_total <- vertmtcodon[pos %in% total_pos, list(syn = mean(S), nonsyn = mean(N)), by = c("symbol", "strand", "codon_index")][, sum(nonsyn)]
+        syn_sites <- vertmtcodon[pos %in% var_pos, list(syn = mean(S), nonsyn = mean(N)), by = c("symbol", "strand", "codon_index")][, sum(syn)]
+        syn_total <- vertmtcodon[pos %in% total_pos, list(syn = mean(S), nonsyn = mean(N)), by = c("symbol", "strand", "codon_index")][, sum(syn)]
+        (nonsyn_sites / nonsyn_total) / (syn_sites / syn_total)
+    }
+
     link_bin_contab <- function(df, lab = "") {
         pos <- colnames(df)
         sapply(pos, function(j) {
