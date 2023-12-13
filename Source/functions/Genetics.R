@@ -86,7 +86,7 @@ local({
         res[order(pos)]
     }
 
-    KaKs <- function(total_pos, var_pos, codon_table) {
+    KaKs <- function(total_pos, var_pos, vertmtcodon) {
         nonsyn_sites <- vertmtcodon[pos %in% var_pos, list(syn = mean(S), nonsyn = mean(N)), by = c("symbol", "strand", "codon_index")][, sum(nonsyn)]
         nonsyn_total <- vertmtcodon[pos %in% total_pos, list(syn = mean(S), nonsyn = mean(N)), by = c("symbol", "strand", "codon_index")][, sum(nonsyn)]
         syn_sites <- vertmtcodon[pos %in% var_pos, list(syn = mean(S), nonsyn = mean(N)), by = c("symbol", "strand", "codon_index")][, sum(syn)]
