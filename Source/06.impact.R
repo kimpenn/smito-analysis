@@ -179,6 +179,58 @@ fwrite(vep_unique, file = "Report/SNVs/impact/noctrl_vep_unique.csv")
 vep <- fread(file = "Report/SNVs/impact/noctrl_vep_unique.csv")
 
 ###########################################################################
+## SNV occurrence by predicted functional consequence
+###########################################################################
+noctrl_sift <- fread("Report/20210510/SNVs/impact/noctrl_impact_added_SIFT.tsv")
+pdf("Report/20210510/SNVs/impact/noctrl_impact_added_SIFT_boxplot.pdf", width = 4.5, height = 4.5)
+ggplot(noctrl_sift[SIFT_confidence == "high"], aes(x = SIFT_prediction, y = `# mice`)) + geom_boxplot() + theme_classic(base_size = 12) + geom_signif(comparisons = list(c("tolerated", "deleterious"))) + xlab("High-confidence SIFT prediction") + ylab("Number of mice shared")
+ggplot(noctrl_sift[SIFT_confidence == "high"], aes(x = SIFT_prediction, y = `# cells`)) + geom_boxplot() + theme_classic(base_size = 12) + geom_signif(comparisons = list(c("tolerated", "deleterious"))) + xlab("High-confidence SIFT prediction") + ylab("Number of cells shared")
+ggplot(noctrl_sift[SIFT_confidence == "high"], aes(x = SIFT_prediction, y = `# mitos`)) + geom_boxplot() + theme_classic(base_size = 12) + geom_signif(comparisons = list(c("tolerated", "deleterious"))) + xlab("High-confidence SIFT prediction") + ylab("Number of mitos shared")
+dev.off()
+
+summary(glm(`# mitos` ~ SIFT_prediction, data = noctrl_sift[SIFT_confidence == "high"], family = poisson(link = "log")))
+## 
+## Call:
+## glm(formula = `# mitos` ~ SIFT_prediction, family = poisson(link = "log"),
+##     data = noctrl_sift[SIFT_confidence == "high"])
+## 
+## Coefficients:
+##                          Estimate Std. Error z value Pr(>|z|)
+## (Intercept)               1.23353    0.09853  12.519   <2e-16 ***
+## SIFT_predictiontolerated  0.15276    0.12087   1.264    0.206
+## ---
+## Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+## 
+## (Dispersion parameter for poisson family taken to be 1)
+## 
+##     Null deviance: 497.74  on 80  degrees of freedom
+## Residual deviance: 496.11  on 79  degrees of freedom
+## AIC: 715.3
+## 
+## Number of Fisher Scoring iterations: 6
+
+summary(glm(`# cells` ~ SIFT_prediction, data = noctrl_sift[SIFT_confidence == "high"], family = poisson(link = "log")))
+## 
+## Call:
+## glm(formula = `# cells` ~ SIFT_prediction, family = poisson(link = "log"),
+##     data = noctrl_sift[SIFT_confidence == "high"])
+## 
+## Coefficients:
+##                          Estimate Std. Error z value Pr(>|z|)
+## (Intercept)               1.06471    0.10721   9.931   <2e-16 ***
+## SIFT_predictiontolerated  0.07864    0.13320   0.590    0.555
+## ---
+## Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+## 
+## (Dispersion parameter for poisson family taken to be 1)
+## 
+##     Null deviance: 301.75  on 80  degrees of freedom
+## Residual deviance: 301.40  on 79  degrees of freedom
+## AIC: 514.81
+## 
+## Number of Fisher Scoring iterations: 5
+
+###########################################################################
 ## Among all SNVs, # of SNV sites per gene locus per number-of-mitos support
 ###########################################################################
 vep <- fread(file = "Report/SNVs/impact/noctrl_vep_unique.csv")
