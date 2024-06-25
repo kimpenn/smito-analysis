@@ -505,6 +505,45 @@ pdf("Report/SNVs/impact/comparison_noctrl_npos_bygene_bar.pdf", width = 7, heigh
 ggplot(comparison_noctrl_npos_bygene, aes(x = gene, y = log2(ratio), fill = origin)) + geom_bar(stat = "identity", position = position_dodge2(preserve = "single")) + scale_x_discrete(limits = c(inherited_noctrl_npos_bygene[order(-ratio), gene], setdiff(somatic_noctrl_npos_bygene[, gene], inherited_noctrl_npos_bygene[, gene])[c(3, 1, 2)])) + theme_classic(base_size = 16) + theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) + xlab("") + ylab("normalized mutation rate (log2)") + scale_fill_brewer(palette = "Set1")
 dev.off()
 
+## SNV rate by functional class (coding vs noncoding) for inherited vs somatic SNVs
+comparison_noctrl_npos_bygene <- fread(file = "Report/20210510/SNVs/impact/comparison_noctrl_npos_bygene.csv")
+comparison_noctrl_npos_byclass <- rbind(
+    comparison_noctrl_npos_bygene[origin == "inherited" & gene %like% "Atp|Nd|Co|Cytb", list(origin = "inherited", class = "coding", nbases_covered = sum(nbases_covered), npos = sum(npos))], 
+    comparison_noctrl_npos_bygene[origin == "inherited" & ! gene %like% "Atp|Nd|Co|Cytb", list(origin = "inherited", class = "noncoding", nbases_covered = sum(nbases_covered), npos = sum(npos))], 
+    comparison_noctrl_npos_bygene[origin == "somatic" & gene %like% "Atp|Nd|Co|Cytb", list(origin = "somatic", class = "coding", nbases_covered = sum(nbases_covered), npos = sum(npos))], 
+    comparison_noctrl_npos_bygene[origin == "somatic" & ! gene %like% "Atp|Nd|Co|Cytb", list(origin = "somatic", class = "noncoding", nbases_covered = sum(nbases_covered), npos = sum(npos))]
+)
+
+pdf("Report/20210510/SNVs/impact/comparison_noctrl_npos_byclass_bar.pdf", width = 6, height = 6)
+ggplot(comparison_noctrl_npos_byclass, aes(x = origin, y = npos / nbases_covered, fill = class)) + geom_bar(stat = "identity", position = "dodge") + theme_classic(16) + xlab("") + ylab("Number of SNV site per base") + scale_fill_brewer(palette = "Set1")
+dev.off()
+fisher.test(as.matrix(comparison_noctrl_npos_byclass[origin == "inherited", list(nbases_covered, npos)]))
+## 
+##         Fisher's Exact Test for Count Data
+## 
+## data:  as.matrix(comparison_noctrl_npos_byclass[origin == "inherited", list(nbases_covered, npos)])
+## p-value = 0.02842
+## alternative hypothesis: true odds ratio is not equal to 1
+## 95 percent confidence interval:
+##  1.033391 2.083782
+## sample estimates:
+## odds ratio
+##   1.468354
+## 
+fisher.test(as.matrix(comparison_noctrl_npos_byclass[origin == "somatic", list(nbases_covered, npos)]))
+## 
+##         Fisher's Exact Test for Count Data
+## 
+## data:  as.matrix(comparison_noctrl_npos_byclass[origin == "somatic", list(nbases_covered, npos)])
+## p-value = 0.8377
+## alternative hypothesis: true odds ratio is not equal to 1
+## 95 percent confidence interval:
+##  0.8317907 1.2553468
+## sample estimates:
+## odds ratio
+##   1.022407
+
+
 ## ti/tv comparison
 inherited_noctrl_titv <- fread(file = "Report/SNVs/impact/inherited_noctrl_titv.csv")
 somatic_noctrl_titv <- fread(file = "Report/SNVs/impact/somatic_noctrl_titv.csv")
@@ -533,6 +572,48 @@ comparison_noctrl_titv_bygene <- rbind(inherited_noctrl_titv_bygene, somatic_noc
 pdf("Report/SNVs/impact/comparison_noctrl_titv_bygene_bar.pdf", width = 7, height = 6)
 ggplot(comparison_noctrl_titv_bygene, aes(x = gene, fill = origin, y = r)) + geom_bar(stat = "identity", position = position_dodge2(preserve = "single")) + scale_x_discrete(limits = setdiff(unique(c(comparison_noctrl_titv_bygene[origin == "inherited"][order(-r), gene], comparison_noctrl_titv_bygene[origin == "somatic"][order(r), gene])), c("D-loop", "intergenic"))) + theme_classic(base_size = 16)  + xlab("") + ylab("Ti/Tv") + scale_fill_brewer(palette = "Set1") + theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) + scale_y_continuous(breaks = seq(0, 12, by = 2))
 dev.off()
+
+## Ti/Tv by functional class (coding vs noncoding) for inherited vs somatic SNVs
+comparison_noctrl_titv <- fread(file = "Report/20210510/SNVs/impact/comparison_noctrl_titv.csv")
+comparison_noctrl_titv_byclass <- rbind(
+    comparison_noctrl_titv[class != "average" & origin == "inherited" & class %in% c("nonsyn", "syn"), list(origin = "inherited", class = "coding", ti = sum(ti), tv = sum(tv), r = sum(ti)/sum(tv))], 
+    comparison_noctrl_titv[class != "average" & origin == "inherited" & !class %in% c("nonsyn", "syn"), list(origin = "inherited", class = "noncoding", ti = sum(ti), tv = sum(tv), r = sum(ti)/sum(tv))], 
+    comparison_noctrl_titv[class != "average" & origin == "somatic" & class %in% c("nonsyn", "syn"), list(origin = "somatic", class = "coding", ti = sum(ti), tv = sum(tv), r = sum(ti)/sum(tv))], 
+    comparison_noctrl_titv[class != "average" & origin == "somatic" & !class %in% c("nonsyn", "syn"), list(origin = "somatic", class = "noncoding", ti = sum(ti), tv = sum(tv), r = sum(ti)/sum(tv))]
+)
+pdf("Report/20210510/SNVs/impact/comparison_noctrl_titv_byclass_bar.pdf", width = 6, height = 6)
+ggplot(comparison_noctrl_titv_byclass, aes(x = origin, fill = class, y = r)) + geom_bar(stat = "identity", position = "dodge") + theme_classic(base_size = 16)  + xlab("") + ylab("Ti/Tv") + scale_fill_brewer(palette = "Set1")
+dev.off()
+
+fisher.test(as.matrix(comparison_noctrl_titv_byclass[origin == "inherited", list(ti, tv)]))
+## 
+## 
+##         Fisher's Exact Test for Count Data
+## 
+## data:  as.matrix(comparison_noctrl_titv_byclass[origin == "inherited", list(ti, tv)])
+## p-value = 0.1006
+## alternative hypothesis: true odds ratio is not equal to 1
+## 95 percent confidence interval:
+##  0.8390188 4.1757872
+## sample estimates:
+## odds ratio
+##   1.852849
+## 
+fisher.test(as.matrix(comparison_noctrl_titv_byclass[origin == "somatic", list(ti, tv)]))
+## 
+##         Fisher's Exact Test for Count Data
+## 
+## data:  as.matrix(comparison_noctrl_titv_byclass[origin == "somatic", list(ti, tv)])
+## p-value = 0.7905
+## alternative hypothesis: true odds ratio is not equal to 1
+## 95 percent confidence interval:
+##  0.7390601 1.5233002
+## sample estimates:
+## odds ratio
+##   1.062389
+## 
+pchisq(-2 * (log(0.01) + log(1-0.79)), df = 4, lower.tail = FALSE)
+## [1] 0.01504822
 
 ###########################################################################
 ## How about the 2017 dataset?
