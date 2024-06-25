@@ -181,8 +181,8 @@ vep <- fread(file = "Report/SNVs/impact/noctrl_vep_unique.csv")
 ###########################################################################
 ## SNV occurrence by predicted functional consequence
 ###########################################################################
-noctrl_sift <- fread("Report/20210510/SNVs/impact/noctrl_impact_added_SIFT.tsv")
-pdf("Report/20210510/SNVs/impact/noctrl_impact_added_SIFT_boxplot.pdf", width = 4.5, height = 4.5)
+noctrl_sift <- fread("Report/SNVs/impact/noctrl_impact_added_SIFT.tsv")
+pdf("Report/SNVs/impact/noctrl_impact_added_SIFT_boxplot.pdf", width = 4.5, height = 4.5)
 ggplot(noctrl_sift[SIFT_confidence == "high"], aes(x = SIFT_prediction, y = `# mice`)) + geom_boxplot() + theme_classic(base_size = 12) + geom_signif(comparisons = list(c("tolerated", "deleterious"))) + xlab("High-confidence SIFT prediction") + ylab("Number of mice shared")
 ggplot(noctrl_sift[SIFT_confidence == "high"], aes(x = SIFT_prediction, y = `# cells`)) + geom_boxplot() + theme_classic(base_size = 12) + geom_signif(comparisons = list(c("tolerated", "deleterious"))) + xlab("High-confidence SIFT prediction") + ylab("Number of cells shared")
 ggplot(noctrl_sift[SIFT_confidence == "high"], aes(x = SIFT_prediction, y = `# mitos`)) + geom_boxplot() + theme_classic(base_size = 12) + geom_signif(comparisons = list(c("tolerated", "deleterious"))) + xlab("High-confidence SIFT prediction") + ylab("Number of mitos shared")
@@ -558,7 +558,7 @@ ggplot(comparison_noctrl_npos_bygene, aes(x = gene, y = log2(ratio), fill = orig
 dev.off()
 
 ## SNV rate by functional class (coding vs noncoding) for inherited vs somatic SNVs
-comparison_noctrl_npos_bygene <- fread(file = "Report/20210510/SNVs/impact/comparison_noctrl_npos_bygene.csv")
+comparison_noctrl_npos_bygene <- fread(file = "Report/SNVs/impact/comparison_noctrl_npos_bygene.csv")
 comparison_noctrl_npos_byclass <- rbind(
     comparison_noctrl_npos_bygene[origin == "inherited" & gene %like% "Atp|Nd|Co|Cytb", list(origin = "inherited", class = "coding", nbases_covered = sum(nbases_covered), npos = sum(npos))], 
     comparison_noctrl_npos_bygene[origin == "inherited" & ! gene %like% "Atp|Nd|Co|Cytb", list(origin = "inherited", class = "noncoding", nbases_covered = sum(nbases_covered), npos = sum(npos))], 
@@ -566,7 +566,7 @@ comparison_noctrl_npos_byclass <- rbind(
     comparison_noctrl_npos_bygene[origin == "somatic" & ! gene %like% "Atp|Nd|Co|Cytb", list(origin = "somatic", class = "noncoding", nbases_covered = sum(nbases_covered), npos = sum(npos))]
 )
 
-pdf("Report/20210510/SNVs/impact/comparison_noctrl_npos_byclass_bar.pdf", width = 6, height = 6)
+pdf("Report/SNVs/impact/comparison_noctrl_npos_byclass_bar.pdf", width = 6, height = 6)
 ggplot(comparison_noctrl_npos_byclass, aes(x = origin, y = npos / nbases_covered, fill = class)) + geom_bar(stat = "identity", position = "dodge") + theme_classic(16) + xlab("") + ylab("Number of SNV site per base") + scale_fill_brewer(palette = "Set1")
 dev.off()
 fisher.test(as.matrix(comparison_noctrl_npos_byclass[origin == "inherited", list(nbases_covered, npos)]))
@@ -626,14 +626,14 @@ ggplot(comparison_noctrl_titv_bygene, aes(x = gene, fill = origin, y = r)) + geo
 dev.off()
 
 ## Ti/Tv by functional class (coding vs noncoding) for inherited vs somatic SNVs
-comparison_noctrl_titv <- fread(file = "Report/20210510/SNVs/impact/comparison_noctrl_titv.csv")
+comparison_noctrl_titv <- fread(file = "Report/SNVs/impact/comparison_noctrl_titv.csv")
 comparison_noctrl_titv_byclass <- rbind(
     comparison_noctrl_titv[class != "average" & origin == "inherited" & class %in% c("nonsyn", "syn"), list(origin = "inherited", class = "coding", ti = sum(ti), tv = sum(tv), r = sum(ti)/sum(tv))], 
     comparison_noctrl_titv[class != "average" & origin == "inherited" & !class %in% c("nonsyn", "syn"), list(origin = "inherited", class = "noncoding", ti = sum(ti), tv = sum(tv), r = sum(ti)/sum(tv))], 
     comparison_noctrl_titv[class != "average" & origin == "somatic" & class %in% c("nonsyn", "syn"), list(origin = "somatic", class = "coding", ti = sum(ti), tv = sum(tv), r = sum(ti)/sum(tv))], 
     comparison_noctrl_titv[class != "average" & origin == "somatic" & !class %in% c("nonsyn", "syn"), list(origin = "somatic", class = "noncoding", ti = sum(ti), tv = sum(tv), r = sum(ti)/sum(tv))]
 )
-pdf("Report/20210510/SNVs/impact/comparison_noctrl_titv_byclass_bar.pdf", width = 6, height = 6)
+pdf("Report/SNVs/impact/comparison_noctrl_titv_byclass_bar.pdf", width = 6, height = 6)
 ggplot(comparison_noctrl_titv_byclass, aes(x = origin, fill = class, y = r)) + geom_bar(stat = "identity", position = "dodge") + theme_classic(base_size = 16)  + xlab("") + ylab("Ti/Tv") + scale_fill_brewer(palette = "Set1")
 dev.off()
 
