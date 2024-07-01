@@ -19,22 +19,22 @@ local({
         c(ti = ti, tv = tv, r = ti/tv)
     }
 
-    .dt_to_df <- function(dt) {
-        k <- key(dt)
-        if (is.null(k)) {
-            warning("No key found! Using the first column as the key...")
-            k <- names(dt)[1]
-        } 
-        df <- as.data.frame(dt)
-        if (any(duplicated(dt[, get(k)]))) {
-            df
-        } else {
-            rownames(df) <- dt[, get(k)]
-            df[, -match(k, names(dt)), drop = FALSE]
-        }
-    }
-
     mutate_from_transmut <- function(pos, ref, size, transmut) {
+        .dt_to_df <- function(dt) {
+            k <- key(dt)
+            if (is.null(k)) {
+                warning("No key found! Using the first column as the key...")
+                k <- names(dt)[1]
+            } 
+            df <- as.data.frame(dt)
+            if (any(duplicated(dt[, get(k)]))) {
+                df
+            } else {
+                rownames(df) <- dt[, get(k)]
+                df[, -match(k, names(dt)), drop = FALSE]
+            }
+        }
+
         ref <- toupper(ref)
         transmut <- as.matrix(.dt_to_df(transmut))
         transmut[is.na(transmut)] <- 0
