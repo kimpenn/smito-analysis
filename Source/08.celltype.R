@@ -248,7 +248,7 @@ dev.off()
 ###########################################################################
 ## Ka/Ks from Li et al. 2015 PNAS methods
 ###########################################################################
-highdepth_highaf <- fread("Report/release/SNVs/filter/basediffperc_cutdemux_sub500k_q30_unstranded_highdepth_highaf_qcfltd.csv.gz")
+highdepth_highaf <- fread("Report/SNVs/filter/basediffperc_cutdemux_sub500k_q30_unstranded_highdepth_highaf_qcfltd.csv.gz")
 highdepth_highaf_noctrl <- highdepth_highaf[IsCtrl == "N"]
 highdepth_highaf_noctrl[ref == "A", A := `=`]
 highdepth_highaf_noctrl[ref == "C", C := `=`]
@@ -285,7 +285,7 @@ highdepth_highaf_support_neuron[, alt := sapply(strsplit(as.character(mut), ">")
 setcolorder(highdepth_highaf_support_neuron, c("posmut", "SNVID", "pos", "mut", "ref", "alt", "nmice", "ncells", "nmitos"))
 
 
-vertmtcodon <- fread(file = "Report/release/evo/vertmtcodon.csv")
+vertmtcodon <- fread(file = "Report/evo/vertmtcodon.csv")
 vertmtcodon[, CDS_position:= as.integer(CDS_position)]
 vertmtcodon[, codon_index := round((CDS_position+1)/3)]
 
@@ -296,7 +296,7 @@ kaks_rand <- replicate(3000, {
     rand_muts <- Genetics$mutate_from_transmut(chrmbases_covered_cds[, pos], ref = chrmbases_covered_cds[, ref], transmut = noctrl_transmat_cds)
     Genetics$KaKs(total_pos = chrmbases_covered_cds[, pos], var_pos = rand_muts[, unique(pos)], codon_table = vertmtcodon[, c("pos", "strand", "symbol", "codon_index", "S", "N")])
 })
-pdf("Report/release/SNVs/diff/kaks_total_hist.pdf", width = 6, height = 6)
+pdf("Report/SNVs/diff/kaks_total_hist.pdf", width = 6, height = 6)
 par(ps = 12, lend = 2, ljoin = 1, bty = "L", mar = c(3, 2.5, 1, 0), oma = c(0, 0, 0, 0), mgp = c(1.5, 0.5, 0))
 hist(kaks_rand, xlab = "Ka/Ks", ylab = "Number of permutations", main = "All SNVs")
 abline(v = kaks, lwd = 2, col = "red", lty = 2)
@@ -312,7 +312,7 @@ kaks_rand_astrocyte <- replicate(3000, {
     rand_muts <- Genetics$mutate_from_transmut(chrmbases_covered_cds[, pos], ref = chrmbases_covered_cds[, ref], transmut = noctrl_transmat_cds_astrocyte)
     Genetics$KaKs(total_pos = chrmbases_covered_cds[, pos], var_pos = rand_muts[, unique(pos)], codon_table = vertmtcodon[, c("pos", "strand", "symbol", "codon_index", "S", "N")])
 })
-pdf("Report/release/SNVs/diff/kaks_astrocyte_hist.pdf", width = 6, height = 6)
+pdf("Report/SNVs/diff/kaks_astrocyte_hist.pdf", width = 6, height = 6)
 par(ps = 12, lend = 2, ljoin = 1, bty = "L", mar = c(3, 2.5, 1, 0), oma = c(0, 0, 0, 0), mgp = c(1.5, 0.5, 0))
 hist(kaks_rand_astrocyte, xlab = "Ka/Ks", ylab = "Number of permutations", main = "Astrocyte SNVs")
 abline(v = kaks_astrocyte, lwd = 2, col = "red", lty = 2)
@@ -328,7 +328,7 @@ kaks_rand_neuron <- replicate(3000, {
     rand_muts <- Genetics$mutate_from_transmut(chrmbases_covered_cds[, pos], ref = chrmbases_covered_cds[, ref], transmut = noctrl_transmat_cds_neuron)
     Genetics$KaKs(total_pos = chrmbases_covered_cds[, pos], var_pos = rand_muts[, unique(pos)], codon_table = vertmtcodon[, c("pos", "strand", "symbol", "codon_index", "S", "N")])
 })
-pdf("Report/release/SNVs/diff/kaks_neuron_hist.pdf", width = 6, height = 6)
+pdf("Report/SNVs/diff/kaks_neuron_hist.pdf", width = 6, height = 6)
 par(ps = 12, lend = 2, ljoin = 1, bty = "L", mar = c(3, 2.5, 1, 0), oma = c(0, 0, 0, 0), mgp = c(1.5, 0.5, 0))
 hist(kaks_rand_neuron, xlab = "Ka/Ks", ylab = "Number of permutations", main = "Neuron SNVs")
 abline(v = kaks_neuron, lwd = 2, col = "red", lty = 2)
