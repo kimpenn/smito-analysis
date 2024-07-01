@@ -37,6 +37,22 @@ local({
         dfs
     }
 
+    dt2df <- function(dt) {
+        k <- key(dt)
+        if (is.null(k)) {
+            warning("No key found! Using the first column as the key...")
+            k <- names(dt)[1]
+        } 
+        df <- as.data.frame(dt)
+        if (any(duplicated(dt[, get(k)]))) {
+            df
+        } else {
+            rownames(df) <- dt[, get(k)]
+            df[, -match(k, names(dt)), drop = FALSE]
+        }
+    }
+
+
     for (.obj in ls()) {
         assign(.obj, get(.obj), envir = Tools)
     }
