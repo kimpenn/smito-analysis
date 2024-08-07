@@ -51,7 +51,7 @@ dim(strains_mclust_varonly)
 fwrite(strains_mclust_varonly, file = "Report/evo/strains_mclust_varonly.csv")
 
 
-castdom_mclust <- fread(file = "Report/population/clustalo-castdom_base.csv")
+castdom_mclust <- fread(file = "Report/population/clustalo-castaneus_domesticus_base.csv")
 names(castdom_mclust)[1] <- "pos"
 names(castdom_mclust)[which(names(castdom_mclust) == "C57BL/6J")] <- "ref"
 setkey(castdom_mclust, pos)
