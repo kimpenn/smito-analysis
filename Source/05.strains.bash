@@ -25,6 +25,6 @@ perl -e 'while (<>) { if (/\s+\*/) { chomp; s/^\s{22}//; $s .= $_ } } END { prin
 ## add 12 whitespaces to the last row where every position is divergent
 
 ## castaneus vs domesticus
-grep '>' Data/strains/castaneus_domesticus.chrM.fa | awk '{ print $1 }' | tr -d '>' | parallel -j 1 -k "perl -se 'BEGIN { print \$v, qq(\t) } while (<>) { if (/^\$v/) { @F=split /\s+/; \$s .= \$F[1] } } END { print \$s, qq(\n) }' -- -v={1} Report/strains/clustalo-castaneus_domesticus.clustal_num" > Report/strains/clustalo-castaneus_domesticus_str.tsv
-echo -n -e "alignment\t" >> Report/strains/clustalo-castaneus_domesticus_str.tsv
-perl -e 'while (<>) { if (/\s+\*/) { chomp; s/^\s{29}//; $s .= $_ } } END { print $s, "\n" }' Report/strains/clustalo-castaneus_domesticus.clustal_num >> Report/strains/clustalo-castaneus_domesticus_str.tsv
+grep '>' Data/population/castaneus_domesticus.chrM.fa | awk '{ print $1 }' | tr -d '>' | parallel -j 1 -k "perl -se 'BEGIN { print \$v, qq(\t) } while (<>) { if (/^\$v/) { @F=split /\s+/; \$s .= \$F[1] } } END { print \$s, qq(\n) }' -- -v={1} Report/population/clustalo-castaneus_domesticus.clustal_num" > Report/population/clustalo-castaneus_domesticus_str.tsv
+echo -n -e "alignment\t" >> Report/population/clustalo-castaneus_domesticus_str.tsv
+perl -e 'while (<>) { if (/\s+\*/) { chomp; s/^\s{29}//; $s .= $_ } } END { print $s, "\n" }' Report/population/clustalo-castaneus_domesticus.clustal_num >> Report/population/clustalo-castaneus_domesticus_str.tsv
