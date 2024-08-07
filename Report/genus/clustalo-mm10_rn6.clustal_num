@@ -1,0 +1,1094 @@
+CLUSTAL O(1.2.4) multiple sequence alignment
+
+
+Mus_musculus           GTTAATGTAGCTTAATAACAAAGCAAAGCACTGAAAATGCTTAGATGGATAATTGTATCC	60
+Rattus_norvegicus      GTTAATGTAGCTT-ATAATAAAGCAAAGCACTGAAAATGCTTAGATGGATTCAAAAATCC	59
+                       ************* **** *******************************      ****
+
+Mus_musculus           CATAAACACAAAGGTTTGGTCCTGGCCTTATAATTAATTAGAGGTAAAATTACACATGCA	120
+Rattus_norvegicus      CATAAACACAAAGGTTTGGTCCTGGCCTTATAATTAATTGGAGGTAAGATTACACATGCA	119
+                       *************************************** ******* ************
+
+Mus_musculus           AACCTCCATAGACCGGTGTAAAATCCCTTAAACATTTACTTAAAATTTAAGGAGAGGGTA	180
+Rattus_norvegicus      AACATCCATAAACCGGTGTAAAATCCCTTAAACATTTGCCTAAAACTTAAGGAGAGGGCA	179
+                       *** ****** ************************** * ***** ************ *
+
+Mus_musculus           TCAAGCACATTAAAATAGCTTAAGACACCTTGCCTAGCCACACCCCCACGGGACTCAGCA	240
+Rattus_norvegicus      TCAAGCACA-TAATATAGCTCAAGACGCCTTGCCTAGCCACACCCCCACGGGACTCAGCA	238
+                       ********* *** ****** ***** *********************************
+
+Mus_musculus           GTGATAAATATTAAGCAATAAACGAAAGTTTGACTAAGTTATACCTCTTAGGGTTGGTAA	300
+Rattus_norvegicus      GTGATAAATATTAAGCAATGAACGAAAGTTTGACTAAGCTATACCTCTCAGGGTTGGTAA	298
+                       ******************* ****************** ********* ***********
+
+Mus_musculus           ATTTCGTGCCAGCCACCGCGGTCATACGATTAACCCAAACTAATTATCTTCGGCGTAAAA	360
+Rattus_norvegicus      ATTTCGTGCCAGCCACCGCGGTCATACGATTAACCCAAACTAATTATTTTCGGCGTAAAA	358
+                       *********************************************** ************
+
+Mus_musculus           CGTGTCAACTATAAATAAATAAATAGAATTAAAATCCAACTTATATGTGAAAATTCATTG	420
+Rattus_norvegicus      CGTGCCAACTATAAATCTCATAATAGAATTAAAATCCAACTTATATGTGAAAATTCATTG	418
+                       **** ***********     ***************************************
+
+Mus_musculus           TTAGGACCTAAACTCAATAACGAAAGTAATTCTAGTCATT--TATAATACACGACAGCTA	478
+Rattus_norvegicus      TTAGGACCTAAGCCCAATAACGAAAGTAATTCTAATCATTTATATAATGCACGATAGCTA	478
+                       *********** * ******************** *****  ****** ***** *****
+
+Mus_musculus           AGACCCAAACTGGGATTAGATACCCCACTATGCTTAGCCATAAACCTAAATAATTAAATT	538
+Rattus_norvegicus      AGACCCAAACTGGGATTAGATACCCCACTATGCTTAGCCCTAAACCTTAATAATTAAACC	538
+                       *************************************** ******* **********  
+
+Mus_musculus           TAACAAAACTATTTGCCAGAGAACTACTAGCCATAGCTTAAAACTCAAAGGACTTGGCGG	598
+Rattus_norvegicus      T-ACAAAATTATTTGCCAGAGAACTACTAGCTACAGCTTAAAACTCAAAGGACTTGGCGG	597
+                       * ****** ********************** * **************************
+
+Mus_musculus           TACTTTATATCCATCTAGAGGAGCCTGTTCTATAATCGATAAACCCCGCTCTACCTCACC	658
+Rattus_norvegicus      TACTTTATATCCATCTAGAGGAGCCTGTTCTATAATCGATAAACCCCGTTATACCTTACC	657
+                       ************************************************ * ***** ***
+
+Mus_musculus           ATCTCTTGCTAATTCAGCCTATATACCGCCATCTTCAGCAAACCCTAAAAAGGTATTAAA	718
+Rattus_norvegicus      CCTTCTCGCTAATTCAGCCTATATACCGCCATCTTCAGCAAACCCTAAAAAGGCACTAAA	717
+                          *** ********************************************** * ****
+
+Mus_musculus           GTAAGCAAAAGAATCAAACATAAAAACGTTAGGTCAAGGTGTAGCCAATGAAATGGGAAG	778
+Rattus_norvegicus      GTAAGCACAAGAA-CAAACATAAAAACGTTAGGTCAAGGTGTAGCCAATGAAGCGGAAAG	776
+                       ******* ***** **************************************  ** ***
+
+Mus_musculus           AAATGGGCTACATTTTCTTAT--AAAAGAACATTACTATACCCTTTATGAAACTAAAGGA	836
+Rattus_norvegicus      AAATGGGCTACATTTTCTTTTCCCAGAGAACATTACGAAACCCTTTATGAAACTAAAGGA	836
+                       ******************* *   * ********** * *********************
+
+Mus_musculus           CTAAGGAGGATTTAGTAGTAAATTAAGAATAGAGAGCTTAATTGAATTGAGCAATGAAGT	896
+Rattus_norvegicus      CAAAGGAGGATTTAGTAGTAAATTAAGAATAGAGAGCTTAATTGAATAGAGCAATGAAGT	896
+                       * ********************************************* ************
+
+Mus_musculus           ACGCACACACCGCCCGTCACCCTCCTCAAATTAAATTAAACTTAACATA-ATTAATTTCT	955
+Rattus_norvegicus      ACGCACACACCGCCCGTCACCCTCCTCAAATTAGATTGGCATTCATATATACATAATTTC	956
+                       ********************************* ***    ** * *** *   * **  
+
+Mus_musculus           AGACATCCGTTTATGAGAGGAGATAAGTCGTAACAAGGTAAGCATACTGGAAAGTGTGCT	1015
+Rattus_norvegicus      ACTAACAAATTTATGAGAGGAGATAAGTCGTAACAAGGTAAGCATACTGGAAAGTGTGCT	1016
+                       *   *    ***************************************************
+
+Mus_musculus           TGGAATAATCATAGTGTAGCTTAATATTAAAGCATCTGGCCTACACCCAGAAGATTTCAT	1075
+Rattus_norvegicus      TGGAATAATCACAGTGTAGCTTAATCACAAAGCATCTGGCCTACACCCAGAAGAATTCAT	1076
+                       *********** *************   ************************** *****
+
+Mus_musculus           GACCAATGAACACTCTGAACTAATCCTAGCCCTAGCCCTACACAAATATAATTATACTAT	1135
+Rattus_norvegicus      AA-AAATGAACACTTTGAACTAATCCTAGCCCTACAACCAACCAACATAACTAAACCCCC	1135
+                        *  ********** *******************   * *  ***    * * *  *   
+
+Mus_musculus           TATATAAATCAAAACATTTATCCTACTAAAAGTATTGGAGAAAGAAATTCGTACATCTAG	1195
+Rattus_norvegicus      CACATAAACTAAAACATTTAACT--CAAAAAGTATTGGAGAAAGAAATTTACTTA-CCAG	1192
+                        * *****  ********** *   * **********************     * * **
+
+Mus_musculus           GAGCTATAGAACTAGTACCGCAAGGGAAAGATGAAAGACTAATTAAAAGTAAGAACAAGC	1255
+Rattus_norvegicus      GAGCTATAGAGAAAGTACCGCAAGGGAATGGTGAAAGACTAATTTAAAGTAAAAATAAGC	1252
+                       **********   *************** * ************* ******* ** ****
+
+Mus_musculus           AAAGATTAAACCTTGTACCTTTTGCATAATGAACTAACTAGAAAACTTCTAACTAAAAGA	1315
+Rattus_norvegicus      AAAGATTAAACCTTGTACCTTTTGCATAATGAATTAACTAGAAAATCCTTAACAAAAAGA	1312
+                       ********************************* ***********    **** ******
+
+Mus_musculus           ATTACAGCTAGAAACCCCGAAACCAAACGAGCTACCTAAAAACAATTTTATGAATCAACT	1375
+Rattus_norvegicus      ATTTAAGCTAAGAACCCCGAAACCAAACGAGCTACCTAAAAACAATTTCATGAATCAACC	1372
+                       ***  *****  ************************************ ********** 
+
+Mus_musculus           CGTCTATGTGGCAAAATAGTGAGAAGATTTTTAGGTAGAGGTGAAAAGCCTAACGAGCTT	1435
+Rattus_norvegicus      CGTCTATGTAGCAAAATAGTGGGAAGATTTTTAGGTAGAGGTGAAAAGCCTATCGAGCTT	1432
+                       ********* *********** ****************************** *******
+
+Mus_musculus           GGTGATAGCTGGTTACCCAAAAAATGAATTTAAGTTCAATTTTAAACTTGCTAAAAAAAC	1495
+Rattus_norvegicus      GGTGATAGCTGGTTGCCCAAAAAA-GAATTTCAGTTCAACTTTAAGCTTACCATCAGAAC	1491
+                       ************** ********* ****** ******* ***** *** * *  * ***
+
+Mus_musculus           AACAAAATCAAAAAGTAAGTTTAGATTATAGCCAAAAGAGGGACAGCTCTTCTGG-AACG	1554
+Rattus_norvegicus      AAC-AAATCAAAATGTAAACTTAAAATATAGCCAAAAGAGGGACAGCTCTTTAGGAAAAG	1550
+                       *** ********* ****  *** * *************************  ** ** *
+
+Mus_musculus           GAAAAAACCTTTAATAGTGAATAATTAACAAAACAGCTTTTAACCATTGTAGGCCTAAAA	1614
+Rattus_norvegicus      GAAAAAACCTTAAATAGTGAATAAACAACTACA-ATCACTTAACCATTGTAGGCTTAAAA	1609
+                       *********** ************  *** * * * *  *************** *****
+
+Mus_musculus           GCAGCCACCAATAAAGAAAGCGTTCAAGCTCAACATAAAATTTCA-----ATTAATTCCA	1669
+Rattus_norvegicus      GCAGCCATCAATAAAGAAAGCGTTCAAGCTCAACATACATACTTACACACACTAATTCCA	1669
+                       ******* ***************************** *   * *     * ********
+
+Mus_musculus           TAATTTACACCAACTTCCTAAACTTAAAATTGGGTTAATCTATAACTTTATAGATGCAAC	1729
+Rattus_norvegicus      CAAACCTCAATAAATTCCTATATCACAAATTGGGCTAATCTATAGATCCATAGATGAAAT	1729
+                        **    **  ** ****** *    ******** *********  *  ******* ** 
+
+Mus_musculus           ACTGTTAGTATGAGTAACAAGAATTCCAATTCTCCAGGCATACGCGTATAACAACTCGGA	1789
+Rattus_norvegicus      ACTGTTAATATGAGTAACAAGAA--CCAATTCTCCTAGCACAAGTGTATGACAACCCGGA	1787
+                       ******* ***************  **********  *** * * **** ***** ****
+
+Mus_musculus           TAACCATTGTTAGTTAATCAGACTATAGGCAATAATCACACTATAAATAATCCACCTATA	1849
+Rattus_norvegicus      TAACCATTGTCAATT-ATCGAATCATAGGTACTAACCCAACAATA---AAATTACCTATC	1843
+                       ********** * ** ***  *  ***** * *** *  ** ***   **   ****** 
+
+Mus_musculus           ACTTCTCTGTTAACCCAACACCGGAATGCCTAAAGGAAAGATCCAAAAAGATAAAAGGAA	1909
+Rattus_norvegicus      CCTAACTCGTTAGCCCAACACAGGCGTGCTTTAAGGAAAGATTAAAAAAAGTAAAAGGAA	1903
+                        **     **** ******** **  *** * **********  *****  *********
+
+Mus_musculus           CTCGGCAAACAAGAACCCCGCCTGTTTACCAAAAACATCACCTCTAGCATTACAAGTATT	1969
+Rattus_norvegicus      CTCGGCAAACACGAGCCCCGCCTGTTTACCAAAAACATCACCTCTAGCATAACAAGTATT	1963
+                       *********** ** *********************************** *********
+
+Mus_musculus           AGAGGCACTGCCTGCCCAGTGACTAAAGTTTaacggccgcggtatcctgaccgtgcaaag	2029
+Rattus_norvegicus      AGAGGCATTGCCTGCCCAGTGACTAAAGTtaaacggccgcggtatcctgaccgtgcaaag	2023
+                       ******* ********************** *****************************
+
+Mus_musculus           gtagcataatcacttgttccttaattagggactagcatgaacggctaaacgagggtccaa	2089
+Rattus_norvegicus      gtagcataatcacttgttccttaattagggactagaatgaatggctaaacgagggttcaa	2083
+                       *********************************** ***** ************** ***
+
+Mus_musculus           ctgtctcttatctttaatcagtgaaattgacctttcagtgaagaggctgaaatataataa	2149
+Rattus_norvegicus      ctgtctcttactttcaatcagtgaaattgaccttccagtgaagaggctggaatctcccaa	2143
+                       **********  ** ******************* ************** *** *   **
+
+Mus_musculus           taagacgagaagaccctatggagcttaaATTATATAACTTATCTATTTAATTTATTAAAC	2209
+Rattus_norvegicus      taagacgagaagaccctatggagcttCAATTTACTAGTTCAAC--TTATATAAAAACAAC	2201
+                       ************************** ****   **  * * *  **  **  *   ***
+
+Mus_musculus           CTAATGGCCCAA---AAACTATAGTATAAGTTTGAAATTTCGGTTGGGGTGACCTCGGAG	2266
+Rattus_norvegicus      CTAATGGGCTAAAACAAAATAAATATGAACTAAAAAATTTCGGTTGGGGTGACCTCGGAG	2261
+                       ******* * **   *** ** *    ** *   **************************
+
+Mus_musculus           AATAAAAAATCCTCCGAATGATTATAACCTAGACTTACAAGTCAAAGTAAAATCAACATA	2326
+Rattus_norvegicus      AATAAAAAATCCTCCGAATGATTTTAACCTAGACTCACAAGTCAAAGTAATACTA--ATA	2319
+                       *********************** *********** ************** *  *  ***
+
+Mus_musculus           TCTTATTGACCCAGATATATTTTGATCAACGGACCAAGTTACCCTAGGGATAACAGCGCA	2386
+Rattus_norvegicus      TCTTATTGACCCAATTA----TTGATCAACGGACCAAGTTACCCTAGGGATAACAGCGCA	2375
+                       *************  **    ***************************************
+
+Mus_musculus           ATCCTATTTAAGAGTTCATATCGACAATTAGGGTTTACGACCTCGATGTTGGATCAGGAC	2446
+Rattus_norvegicus      ATCCTATTTAAGAGTTCATATCGACAATTAGGGTTTACGACCTCGATGTTGGATCAGGAC	2435
+                       ************************************************************
+
+Mus_musculus           ATCCCAATGGTGTAGAAGCTATTAATGGTTCGTTTGTTCAACGATTAAAGTCCTACGTGA	2506
+Rattus_norvegicus      ATCCCAATGGTGCAGAAGCTATTAATGGTTCGTTTGTTCAACGATTAAAGTCCTACGTGA	2495
+                       ************ ***********************************************
+
+Mus_musculus           TCTGAGTTCAGACCGGAGCAATCCAGGTCGGTTTCTATCTATTTACGATTTCTCCCAGTA	2566
+Rattus_norvegicus      TCTGAGTTCAGACCGGAGCAATCCAGGTCGGTTTCTATCTATTTACAATTTCTCCCAGTA	2555
+                       ********************************************** *************
+
+Mus_musculus           CGAAAGGACAAGAGAAATAGAGCCACCTTACAAATAAGCGCTCTCAACTTAATTTATGAA	2626
+Rattus_norvegicus      CGAAAGGACAAGAGAAATGGAGCCTCCTTAC-CATAAGTGCTCCCAAC-CAATTTATGAA	2613
+                       ****************** ***** ******  ***** **** ****  **********
+
+Mus_musculus           TAAAATCTAAATAAAATATATACGTACA--CCCTCTAACCTAGAGAAGGTTAttagggtg	2684
+Rattus_norvegicus      AAAAATCTCAATAAAGTATATATGTACAATAAATTAAACCTAGCCCAGGTTAttagggtg	2673
+                        ******* ****** ****** *****     *  *******   **************
+
+Mus_musculus           gcagagccaggaaattgcgtaagacttaaaaccttgttcccagaggttcaaatcctctcc	2744
+Rattus_norvegicus      gcagagccaggtaattgcgtaagacttaaaaccttgttcccagaggttcaaatcctctcc	2733
+                       *********** ************************************************
+
+Mus_musculus           ctaataGTGTTCTTTATTAATATCCTAACACTCCTCGTCCCCATTCTAATCGCCATAGCC	2804
+Rattus_norvegicus      ctaataGTGTACTTTATTAATATCCTAACACTCCTAATCCCAATCTTAATTGCCATGGCC	2793
+                       ********** ************************  **** **  **** ***** ***
+
+Mus_musculus           TTCCTAACATTAGTAGAACGCAAAATCTTAGGGTACATACAACTACGAAAAGGCCCTAAC	2864
+Rattus_norvegicus      TTCCTCACCCTAGTAGAACGGAAAATCCTAGGCTACATACAACTACGCAAAGGCCCCAAC	2853
+                       ***** **  ********** ****** **** ************** ******** ***
+
+Mus_musculus           ATTGTTGGTCCATACGGCATTTTACAACCATTTGCAGACGCCATAAAATTATTTATAAAA	2924
+Rattus_norvegicus      ATCGTAGGCCCATATGGTATTCTACAACCATTTGCAGATGCCATAAAACTATTCATAAAA	2913
+                       ** ** ** ***** ** *** **************** ********* **** ******
+
+Mus_musculus           GAACCAATACGCCCTTTAACAACCTCTATATCCTTATTTATTATTGCACCTACCCTATCA	2984
+Rattus_norvegicus      GAACCCATACGCCCCCTAACCACCTCAATATCACTATTTATTATCGCCCCAACCCTCTCC	2973
+                       ***** ********  **** ***** *****  ********** ** ** ***** ** 
+
+Mus_musculus           CTCACACTAGCATTAAGTCTATGAGTTCCCCTACCAATACCACACCCATTAATTAATTTA	3044
+Rattus_norvegicus      CTTACACTAGCTCTAAGCCTATGAATCCCCTTACCAATACCTCACCCCCTTATCAACCTC	3033
+                       ** ********  **** ****** * *** ********** *****  * ** **  * 
+
+Mus_musculus           AACCTAGGGATTTTATTTATTTTAGCAACATCTAGCCTATCAGTTTACTCCATTCTATGA	3104
+Rattus_norvegicus      AACCTAGGCATACTATTTATTCTAGCCACATCAAGTCTTTCAGTCTACTCCATTCTATGA	3093
+                       ******** **  ******** **** ***** ** ** ***** ***************
+
+Mus_musculus           TCAGGATGAGCCTCAAACTCCAAATACTCACTATTCGGAGCTTTACGAGCCGTAGCCCAA	3164
+Rattus_norvegicus      TCAGGATGAGCATCAAATTCAAAATACTCCCTATTCGGAGCCCTACGAGCCGTTGCCCAA	3153
+                       *********** ***** ** ******** ***********  ********** ******
+
+Mus_musculus           ACAATTTCATATGAAGTAACCATAGCTATTATCCTTTTATCAGTTCTATTAATAAATGGA	3224
+Rattus_norvegicus      ACCATCTCTTACGAAGTCACAATAGCCATTATCCTCTTATCCGTCCTCCTAATAAGCGGC	3213
+                       ** ** ** ** ***** ** ***** ******** ***** ** **  ******  ** 
+
+Mus_musculus           TCCTACTCTCTACAAACACTTATTACAACCCAAGAACACATATGATTACTTCTGCCAGCC	3284
+Rattus_norvegicus      TCCTTCTCCCTACAAATACTTATCACTACACAAGAACATATCTGACTATTAATCCCCGCC	3273
+                       **** *** ******* ****** ** ** ******** ** *** ** *  * ** ***
+
+Mus_musculus           TGACCCATAGCCATAATATGATTTATCTCAACCCTAGCAGAAACAAACCGGGCCCCCTTC	3344
+Rattus_norvegicus      TGACCAATAGCCATAATATGATACATTTCAACCCTAGCAGAAACAAATCGAGCTCCCTTC	3333
+                       ***** ****************  ** ******************** ** ** ******
+
+Mus_musculus           GACCTGACAGAAGGAGAATCAGAATTAGTATCAGGGTTTAACGTAGAATACGCAGCCGGC	3404
+Rattus_norvegicus      GACTTAACAGAAGGAGAATCAGAATTAGTCTCAGGCTTTAACGTCGAATACGCCGCAGGA	3393
+                       *** * *********************** ***** ******** ******** ** ** 
+
+Mus_musculus           CCATTCGCGTTATTCTTTATAGCAGAGTACACTAACATTATTCTAATAAACGCCCTAACA	3464
+Rattus_norvegicus      CCATTCGCCCTATTCTTCATAGCCGAGTACACCAATATTATCCTAATAAACGCCCTAACA	3453
+                       ********  ******* ***** ******** ** ***** ******************
+
+Mus_musculus           ACTATTATCTTCCTAGGACCCCTATACTATATCAATTTACCAGAACTCTACTCAACTAAC	3524
+Rattus_norvegicus      TCAATTGTATTCCTAGGCCCCTTATATCACATCAATTACCCTGAATTATACTCAACCAGC	3513
+                        * *** * ******** *** ****  * *******  ** *** * ******** * *
+
+Mus_musculus           TTCATAATAGAAGCTCTACTACTATCATCAACATTCCTATGGATCCGAGCATCTTATCCA	3584
+Rattus_norvegicus      TTCATAACAGAAACACTACTTCTATCCACAACTTTCCTATGAATCCGAGCATCCTACCCC	3573
+                       ******* **** * ***** *****  **** ******** *********** ** ** 
+
+Mus_musculus           CGCTTCCGTTACGATCAACTTATACATCTTCTATGAAAAAACTTTCTACCCCTAACACTA	3644
+Rattus_norvegicus      CGTTTTCGATATGACCAACTAATGCACCTCCTATGAAAAAATTTCCTCCCACTAACACTA	3633
+                       ** ** ** ** ** ***** ** ** ** *********** ** ** ** *********
+
+Mus_musculus           GCATTATGTATGTGACATATTTCTTTACCAATTTTTACAGCGGGAGTACCACCATACATA	3704
+Rattus_norvegicus      GCATTCTGCATATGATACATTTCCCTGCCAATTTTCCTAGCAGGAATTCCACCCTACACA	3693
+                       ***** ** ** *** * *****  * ********   *** *** * ***** **** *
+
+Mus_musculus           TAGAAATATGTCTGATAAAAGAATTACTTTGATAGAGTAAATTATAGAGGTTCAAGCCCT	3764
+Rattus_norvegicus      TAGAAATATGTCTGACAAAAGAGTTACTTTGATAGAGTAAATAATAGAGGTTTAAATCCT	3753
+                       *************** ****** ******************* ********* **  ***
+
+Mus_musculus           CTTATTTctaggacaataggaattgaacctacacttaagaattcaaaattctccgtgcta	3824
+Rattus_norvegicus      CTTATTTctaggacaataggaattgaacctacacctaagaattcaaaattctccgtgcta	3813
+                       ********************************** *************************
+
+Mus_musculus           cctaaacaccttatccta-ATAGTAAGGTCAGCTAATTAAGCTATCGGGCCCATACCCCG	3883
+Rattus_norvegicus      ccaatacaccctatcctaCATAGTAAGGTCAGCTAACTAAGCTATCGGGCCCATACCCCG	3873
+                       ** * ***** ******* ***************** ***********************
+
+Mus_musculus           AAAACGTTGGTTTAAATCCTTCCCGTACTAATAAATCCTATCACCCTTGCCATCATCTAC	3943
+Rattus_norvegicus      AAAATGTTGGTCTAAACCCTTCCCGTACTAATAAACCCAATCACCCTAATCATTATTTAC	3933
+                       **** ****** **** ****************** ** ********   *** ** ***
+
+Mus_musculus           TTCACAATCTTCTTAGGTCCTGTAATCACAATATCCAGCACCAACCTAATACTAATATGA	4003
+Rattus_norvegicus      TTTACTATCCTCATAGGGCCTGTAATCACTATATCTAGCTCCAACTTACTCCTAATATGA	3993
+                       ** ** *** ** **** *********** ***** *** ***** ** * *********
+
+Mus_musculus           GTAGGCCTGGAATTCAGCCTACTAGCAATTATCCCCATACTAATCAACAAAAAAAACCCA	4063
+Rattus_norvegicus      GTAGGATTGGAAATAAGCCTTTTAGCTATCATCCCACTTCTAGCCAACAAAAAAAGCCCA	4053
+                       *****  ***** * *****  **** ** *****  * ***  *********** ****
+
+Mus_musculus           CGATCAACTGAAGCAGCAACAAAATACTTCGTCACACAAGCAACAGCCTCAATAATTATC	4123
+Rattus_norvegicus      CGATCAACTGAAGCAGCAACAAAATATTTTCTAACCCAAGCTACAGCCTCAATAATTATC	4113
+                       ************************** **  * ** ***** ******************
+
+Mus_musculus           CTCCTGGCCATCGTACTCAACTATAAACAACTAGGAACATGAATATTTCAACAACAAACA	4183
+Rattus_norvegicus      CTACTAGTCATCATCCTCAACTACAAACAATCAGGAATATGAACCCTCCAACAACAAACC	4173
+                       ** ** * **** * ******** ******  ***** *****   * *********** 
+
+Mus_musculus           AACGGTCTTATCCTTAACATAACATTAATAGCCCTATCCATAAAACTAGGCCTCGCCCCA	4243
+Rattus_norvegicus      AATAACATACTACTCAACATAATACTCATTTCACTAGCCATAAAACTTGGACTAGCCCCC	4233
+                       **     *  * ** ******* * * **  * *** ********** ** ** ***** 
+
+Mus_musculus           TTCCACTTCTGATTACCAGAAGTAACTCAAGGGATCCCACTGCACATAGGACTTATTCTT	4303
+Rattus_norvegicus      TTCCACTACTGACTACCCGAAGTCACCCAAGGAATTCCCCTACACATTGGATTAATCTTA	4293
+                       ******* **** **** ***** ** ***** ** ** ** ***** *** * **  * 
+
+Mus_musculus           CTTACATGACAAAAAATTGCTCCCCTATCAATTTTAATTCAAATTTACCCGCTACTCAAC	4363
+Rattus_norvegicus      CTAACATGACAAAAAATTGCTCCACTATCAATTCTATACCAATTTTATCAACTCCTAAAC	4353
+                       ** ******************** ********* **   *** **** *  ** ** ***
+
+Mus_musculus           TCTACTATCATTTTAATACTAGCAATTACTTCTATTTTCATAGGGGCATGAGGAGGACTT	4423
+Rattus_norvegicus      CCAACTATCACCACCATTCTCGCAATTTCATCAGTCTTTGTTGGCGCCTGAGGAGGACTT	4413
+                        * *******     ** ** ****** * **  * **  * ** ** ************
+
+Mus_musculus           AACCAAACACAAATACGAAAAATTATAGCCTATTCATCAATTGCCCACATAGGATGAATA	4483
+Rattus_norvegicus      AACCAGACCCAAACACGAAAAATCATAGCATATTCATCAATTGCCCACATAGGATGAATA	4473
+                       ***** ** **** ********* ***** ******************************
+
+Mus_musculus           TTAGCAATTCTTCCTTACAACCCATCCCTCACTCTACTCAACCTCATAATCTATATTATT	4543
+Rattus_norvegicus      ACAGCAATCCTTCCATACAACCCTAACTTAACCCTCCTAAACTTAACAATTTACATCCTA	4533
+                         ****** ***** ********   * * ** ** ** *** * * *** ** **  * 
+
+Mus_musculus           CTTACAGCCCCTATATTCATAGCACTTATACTAAATAACTCTATAACCATCAACTCAATC	4603
+Rattus_norvegicus      CTTACTGTTCCAATATTCATCACACTCATAACAAACTCAGCAACAACAATCAACACACTC	4593
+                       ***** *  ** ********  **** ***  ***     * * *** ****** ** **
+
+Mus_musculus           TCACTTCTATGAAATAAAACTCCAGCAATACTAACTATAATCTCACTGATATTACTATCC	4663
+Rattus_norvegicus      TCACTCGCATGAAATAAAACTCCCATAATCCTAACCATAACATCCATCATCCTCCTATCA	4653
+                       *****   ***************   *** ***** ****  **  * **  * ***** 
+
+Mus_musculus           CTAGGAGGCCTTCCACCACTAACAGGATTCTTACCAAAATGAATTATCATCACAGAACTT	4723
+Rattus_norvegicus      CTAGGAGGACTCCCCCCTCTCACAGGATTTTTACCAAAATGAGCAATTATCTCCGAGCTT	4713
+                       ******** ** ** ** ** ******** ************   ** *** * ** ***
+
+Mus_musculus           ATAAAAAACAACTGTCTAATTATAGCAACACTCATAGCAATAATAGCTCTACTAAACCTA	4783
+Rattus_norvegicus      CTAAAAAACAACTGCTCAACCCTATCAACACTAATAGCTATCATAGCCCTATTAAGCCTA	4773
+                        *************   **   ** ******* ***** ** ***** *** *** ****
+
+Mus_musculus           TTCTTTTATACTCGCCTAATTTATTCCACTTCACTAACAATATTTCCAACCAACAATAAC	4843
+Rattus_norvegicus      TTCTTCTATACACGACTAATTTACTCTATATCCCTCACCATATTCCCAACCAACAACAAC	4833
+                       ***** ***** ** ******** ** *  ** ** ** ***** *********** ***
+
+Mus_musculus           TCAAAAATAATAAC---TCACCAAACAAAAACTAAACCCAACCTAATATTTTCCACCCTA	4900
+Rattus_norvegicus      TCCAAAATAATCTCCCACCACCACCAAAACCCAAAACATAATTTTATCCTCCCAACCCTC	4893
+                       ** ********  *    *****   ***  * ****  **  * **  *  * ***** 
+
+Mus_musculus           GCTATCATAAGCACAATAACCCTACCCCTAGCCCCCCAACTAATTACCTAGAAGTTTAGG	4960
+Rattus_norvegicus      ACAGTATTAAGTACCCTTACCCTACCGCTTTCCTCCCAACTAATCACATAGAAGTTTAGG	4953
+                        *  *  **** **  * ******** **  ** ********** ** ************
+
+Mus_musculus           ATATACTAGTCCGCGAGCCTTCAAAGCCCTAAGAAAACACACAAGTTTAACTTCTGATAA	5020
+Rattus_norvegicus      ATATAC-AGTCCAAGAGCCTTCAAAGCCCTTAGAAAACAAACAAGTTTAACTTCTGATAA	5012
+                       ****** *****  **************** ******** ********************
+
+Mus_musculus           GGACTGTAAGACTTCATCCTACATCTATTGAATGCAAATCAATTGCTTTAATTAAGCTAA	5080
+Rattus_norvegicus      GGACTGTAAGACTATATCTTACATCTGTTAAATGCAAATCAACTGCTTTAATTAAGCTAA	5072
+                       *************  *** ******* ** ************ *****************
+
+Mus_musculus           GACCTCAACTAGATTGGCAGGAATTAAACCTACGAAAATTTAGTTAACAGCTAAATACCC	5140
+Rattus_norvegicus      ATCCTCAACTAGATTGGAAGGATTCAAACCTACGAAAATTTAGTTAACAGCTAAATACCC	5132
+                         *************** **** * ***********************************
+
+Mus_musculus           TA-TTACTGGCTTCAATCTACTTCTACCGCCGAAAAAAAAAAATGGCGGTAGAAGTCTTA	5199
+Rattus_norvegicus      TACTTACTGGCTTCAATCTACTTCTCCCGCCTATCAGAAAAAGAGGCGGGAGAAGCCTTA	5192
+                       ** ********************** ***** *  * *****  ***** ***** ****
+
+Mus_musculus           GTAGAG--ATTTCTCTACACCTTCGAATTTGCAATTCGACATGAATATCACCTTAAGACC	5257
+Rattus_norvegicus      GTAGAGGAGATTCTCTACACCTTCGAATTTGCAATTCGACATGATAATCACCTTAAGGCT	5252
+                       ******    **********************************  *********** * 
+
+Mus_musculus           TCTGGTAAAAAGAGGATTTAAACCTCTGTGTTTAGATTTACAGTCTAATGCTTACTCAGC	5317
+Rattus_norvegicus      TTTTGGTAAAAAGGGGGCTCAACCCCTGTCTTTAGATTTACAGTCTAATGCTTACTCAGC	5312
+                       * * *  ****  **   * **** **** ******************************
+
+Mus_musculus           CATTTTACCTATGTTCATTAATCGTTGATTATTCTCAACCAATCACAAAGATATCGGAAC	5377
+Rattus_norvegicus      CATTTTACCTATGCTCGTAAACCGTTGACTCTTTTCAACTAACCACAAAGATATCGGAAC	5372
+                       ************* ** * ** ****** * ** ***** ** *****************
+
+Mus_musculus           CCTCTATCTACTATTCGGAGCCTGAGCGGGAATAGTGGGTACTGCACTAAGTATTTTAAT	5437
+Rattus_norvegicus      CCTCTACCTATTATTTGGAGCCTGAGCAGGAATAGTAGGGACAGCTTTAAGTATTCTAAT	5432
+                       ****** *** **** *********** ******** ** ** **  ******** ****
+
+Mus_musculus           TCGAGCAGAATTAGGTCAACCAGGTGCACTTTTAGGAGATGACCAAATTTACAATGTTAT	5497
+Rattus_norvegicus      TCGAGCTGAACTAGGACAGCCAGGCGCACTCCTAGGAGATGACCAAATCTATAATGTCAT	5492
+                       ****** *** **** ** ***** *****  **************** ** ***** **
+
+Mus_musculus           CGTAACTGCCCATGCTTTTGTTATAATTTTCTTCATAGTAATACCAATAATAATTGGAGG	5557
+Rattus_norvegicus      CGTCACAGCCCATGCATTCGTAATAATTTTCTTTATAGTAATACCTATAATAATTGGAGG	5552
+                       *** ** ******** ** ** *********** *********** **************
+
+Mus_musculus           CTTTGGAAACTGACTTGTCCCACTAATAATCGGAGCCCCAGATATAGCATTCCCACGAAT	5617
+Rattus_norvegicus      CTTCGGGAACTGACTTGTACCACTAATAATTGGAGCCCCTGATATAGCATTCCCACGAAT	5612
+                       *** ** *********** *********** ******** ********************
+
+Mus_musculus           AAATAATATAAGTTTTTGACTCCTACCACCATCATTTCTCCTTCTCCTAGCATCATCAAT	5677
+Rattus_norvegicus      AAATAACATAAGCTTTTGACTGCTTCCTCCATCATTTCTACTCCTTTTAGCATCCTCCAT	5672
+                       ****** ***** ******** ** ** *********** ** **  ******* ** **
+
+Mus_musculus           AGTAGAAGCAGGAGCAGGAACAGGATGAACAGTCTACCCACCTCTAGCCGGAAATCTAGC	5737
+Rattus_norvegicus      AGTAGAAGCTGGAGCTGGAACAGGATGAACAGTATATCCCCCCTTAGCCGGAAACCTAGC	5732
+                       ********* ***** ***************** ** ** **  ********** *****
+
+Mus_musculus           CCATGCAGGAGCATCAGTAGACCTAACAATTTTCTCCCTTCATTTAGCTGGAGTGTCATC	5797
+Rattus_norvegicus      CCATGCTGGAGCATCCGTAGATTTAACTATTTTTTCCCTCCACCTAGCCGGGGTGTCTTC	5792
+                       ****** ******** *****  **** ***** ***** **  **** ** ***** **
+
+Mus_musculus           TATTTTAGGTGCAATTAATTTTATTACCACTATTATCAACATGAAACCCCCAGCCATAAC	5857
+Rattus_norvegicus      TATCTTAGGAGCTATCAACTTTATCACCACTATCATTAATATAAAACCCCCTGCTATAAC	5852
+                       *** ***** ** ** ** ***** ******** ** ** ** ******** ** *****
+
+Mus_musculus           ACAGTATCAAACTCCACTATTTGTCTGATCCGTACTTATTACAGCCGTACTGCTCCTATT	5917
+Rattus_norvegicus      CCAATATCAGACACCTCTCTTTGTATGATCCGTACTAATTACAGCCGTCCTACTACTTCT	5912
+                        ** ***** ** ** ** ***** *********** *********** ** ** **  *
+
+Mus_musculus           ATCACTACCAGTGCTAGCCGCAGGCATTACTATACTACTAACAGACCGCAACCTAAACAC	5977
+Rattus_norvegicus      CTCACTGCCAGTATTAGCAGCAGGTATCACTATACTCCTTACAGACCGAAATCTAAATAC	5972
+                        ***** *****  **** ***** ** ******** ** ******** ** ***** **
+
+Mus_musculus           AACTTTCTTTGATCCCGCTGGAGGAGGGGACCCAATTCTCTACCAGCATCTGTTCTGATT	6037
+Rattus_norvegicus      TACTTTCTTCGACCCCGCTGGAGGTGGAGACCCAATCCTTTATCAACACCTATTCTGATT	6032
+                        ******** ** *********** ** ******** ** ** ** ** ** ********
+
+Mus_musculus           CTTTGGGCACCCAGAAGTTTATATTCTTATCCTCCCAGGATTTGGAATTATTTCACATGT	6097
+Rattus_norvegicus      CTTCGGCCACCCAGAAGTGTACATCTTAATTCTTCCAGGGTTTGGAATTATTTCACATGT	6092
+                       *** ** *********** ** **  * ** ** ***** ********************
+
+Mus_musculus           AGTTACTTACTACTCCGGAAAAAAAGAACCTTTCGGCTATATAGGAATAGTATGAGCAAT	6157
+Rattus_norvegicus      AGTTACCTATTACTCTGGAAAAAAAGAACCCTTCGGATATATAGGTATGGTATGAGCCAT	6152
+                       ****** ** ***** ************** ***** ******** ** ******** **
+
+Mus_musculus           AATGTCTATTGGCTTTCTAGGCTTTATTGTATGAGCCCACCACATATTCACAGTAGGATT	6217
+Rattus_norvegicus      AATATCTATTGGCTTCCTAGGATTTATTGTATGAGCACATCACATATTCACAGTAGGCCT	6212
+                       *** *********** ***** ************** ** *****************  *
+
+Mus_musculus           AGATGTAGACACACGAGCTTACTTTACATCAGCCACTATAATTATCGCAATTCCTACCGG	6277
+Rattus_norvegicus      AGATGTAGACACCCGAGCCTACTTTACATCTGCCACTATAATTATCGCAATTCCTACAGG	6272
+                       ************ ***** *********** ************************** **
+
+Mus_musculus           TGTCAAAGTATTTAGCTGACTTGCAACCCTACACGGAGGTAATATTAAATGATCTCCAGC	6337
+Rattus_norvegicus      CGTAAAAGTATTCAGCTGACTCGCTACACTACATGGAGGAAATATCAAATGATCCCCCGC	6332
+                        ** ******** ******** ** ** ***** ***** ***** ******** ** **
+
+Mus_musculus           TATACTATGAGCCTTAGGCTTTATTTTCTTATTTACAGTTGGTGGTCTAACCGGAATTGT	6397
+Rattus_norvegicus      CATATTATGAGCCTTAGGGTTTATCTTCTTATTCACAGTAGGGGGCCTAACAGGGATCGT	6392
+                        *** ************* ***** ******** ***** ** ** ***** ** ** **
+
+Mus_musculus           TTTATCCAACTCATCCCTTGACATCGTGCTTCACGATACATACTATGTAGTAGCCCATTT	6457
+Rattus_norvegicus      ACTATCTAACTCATCCCTTGACATTGTACTTCATGATACATACTATGTAGTAGCTCACTT	6452
+                         **** ***************** ** ***** ******************** ** **
+
+Mus_musculus           CCACTATGTTCTATCAATGGGAGCAGTGTTTGCTATCATAGCAGGATTTGTTCACTGATT	6517
+Rattus_norvegicus      CCACTATGTCTTATCTATAGGAGCAGTATTCGCCATCATAGCTGGCTTCGTCCACTGATT	6512
+                       *********  **** ** ******** ** ** ******** ** ** ** ********
+
+Mus_musculus           CCCATTATTTTCAGGCTTCACCCTAGATGACACATGAGCAAAAGCCCACTTCGCCATCAT	6577
+Rattus_norvegicus      CCCACTATTCTCAGGCTATACCCTAAATGACACATGAGCAAAAGCCCACTTTGCCATTAT	6572
+                       **** **** *******  ****** ************************* ***** **
+
+Mus_musculus           ATTCGTAGGAGTAAACATAACATTCTTCCCTCAACATTTCCTGGGCCTTTCAGGAATACC	6637
+Rattus_norvegicus      ATTTGTAGGTGTAAACATAACATTCTTTCCTCAACACTTCCTAGGATTAGCAGGGATACC	6632
+                       *** ***** ***************** ******** ***** **  *  **** *****
+
+Mus_musculus           ACGACGCTACTCAGACTACCCAGATGCTTACACCACATGAAACACTGTCTCTTCTATAGG	6697
+Rattus_norvegicus      TCGTCGTTACTCTGATTATCCAGATGCTTACACCACATGAAATACAGTCTCCTCTATAGG	6692
+                        ** ** ***** ** ** *********************** ** ***** ********
+
+Mus_musculus           ATCATTTATTTCACTAACAGCTGTTCTCATCATGATCTTTATAATTTGAGAGGCCTTTGC	6757
+Rattus_norvegicus      CTCATTCATCTCACTTACGGCCGTCCTTGTAATGATCTTCATGATTTGAGAAGCCTTCGC	6752
+                        ***** ** ***** ** ** ** **  * ******** ** ******** ***** **
+
+Mus_musculus           TTCAAAACGAGAAGTAATATCAGTATCGTATGCTTCAACAAATTTAGAATGACTTCATGG	6817
+Rattus_norvegicus      ATCAAAACGAGAAGTACTCTCAATTTCCTACTCCTCAACTAACCTAGAATGACTGCATGG	6812
+                        *************** * *** * ** **  * ***** **  ********** *****
+
+Mus_musculus           CTGCCCTCCACCATATCACACATTCGAGGAACCAACCTATGTAAAAGTAAAAtaagaaag	6877
+Rattus_norvegicus      ATGCCCCCCACCCTACCACACATTCGAAGAACCTTCCTATGTAAAAGTTAAAtaagaaag	6872
+                        ***** ***** ** *********** *****  ************* ***********
+
+Mus_musculus           gaaggaatcgaaccccctaaaattggtttcaagccaatctcatatcctatatgtctttct	6937
+Rattus_norvegicus      gaaggattcgaaccccctacaactggtttcaagccaatttcataaccattatgtctttct	6932
+                       ****** ************ ** *************** ***** **  ***********
+
+Mus_musculus           cAATAAGATATTAGTAAAATCAATTACATAACTTTGTCAAAGTTAAATTATAGATCAATA	6997
+Rattus_norvegicus      cAATGAGATATTAGTAAAAT-AATTACATAACCTTGTCAAGGTTAAGTTATAGA-CTTAA	6990
+                       **** *************** *********** ******* ***** ******* *   *
+
+Mus_musculus           ATCTATATATCTTATATGGCCTACCCATTCCAACTTGGTCTACAAGACGCCACATCCCCT	7057
+Rattus_norvegicus      ATCTATATATCTTACATGGCTTACCCATTTCAACTTGGCTTACAAGACGCCACATCACCT	7050
+                       ************** ***** ******** ********  **************** ***
+
+Mus_musculus           ATTATAGAAGAGCTAATAAATTTCCATGATCACACACTAATAATTGTTTTCCTAATTAGC	7117
+Rattus_norvegicus      ATCATAGAAGAACTTACAAACTTTCATGACCACACCCTAATAATTGTATTCCTCATCAGC	7110
+                       ** ******** ** * *** ** ***** ***** *********** ***** ** ***
+
+Mus_musculus           TCCTTAGTCCTCTATATCATCTCGCTAATATTAACAACAAAACTAACACATACAAGCACA	7177
+Rattus_norvegicus      TCCCTAGTACTTTATATTATTTCACTAATACTAACAACAAAACTAACACACACAAGCACA	7170
+                       *** **** ** ***** ** ** ****** ******************* *********
+
+Mus_musculus           ATAGATGCACAAGAAGTTGAAACCATTTGAACTATTCTACCAGCTGTAATCCTTATCATA	7237
+Rattus_norvegicus      ATAGACGCCCAAGAAGTAGAAACAATTTGAACAATTCTCCCAGCTGTCATTCTTATTCTA	7230
+                       ***** ** ******** ***** ******** ***** ******** ** *****  **
+
+Mus_musculus           ATTGCTCTCCCCTCTCTACGCATTCTATATATAATAGACGAAATCAACAACCCCGTATTA	7297
+Rattus_norvegicus      ATTGCCCTTCCCTCCCTACGAATTCTATACATAATAGACGAGATTAATAACCCAGTTCTA	7290
+                       ***** ** ***** ***** ******** *********** ** ** ***** **  **
+
+Mus_musculus           ACCGTTAAAACCATAGGGCACCAATGATACTGAAGCTACGAATATACTGACTATGAAGAC	7357
+Rattus_norvegicus      ACAGTAAAGACTATAGGACACCAATGATACTGAAGCTATGAATATACTGACTATGAAGAC	7350
+                       ** ** ** ** ***** ******************** *********************
+
+Mus_musculus           CTATGCTTTGATTCATATATAATCCCAACAAACGACCTAAAACCTGGTGAACTACGACTG	7417
+Rattus_norvegicus      CTATGCTTTGACTCCTACATAATCCCAACCAATGACCTAAAACCAGGTGAACTTCGTCTA	7410
+                       *********** ** ** *********** ** *********** ******** ** ** 
+
+Mus_musculus           CTAGAAGTTGATAACCGAGTCGTTCTGCCAATAGAACTTCCAATCCGTATATTAATTTCA	7477
+Rattus_norvegicus      TTAGAAGTTGATAATCGGGTAGTCTTACCAATAGAACTTCCAATCCGTATACTAATCTCA	7470
+                        ************* ** ** **  * ************************ **** ***
+
+Mus_musculus           TCTGAAGACGTCCTCCACTCATGAGCAGTCCCCTCCCTAGGACTTAAAACTGATGCCATC	7537
+Rattus_norvegicus      TCCGAAGACGTCCTGCACTCATGAGCCGTCCCTTCACTAGGGTTAAAAACCGACGCAATC	7530
+                       ** *********** *********** ***** ** *****  * ***** ** ** ***
+
+Mus_musculus           CCAGGCCGACTAAATCAAGCAACAGTAACATCAAACCGACCAGGGTTATTCTATGGCCAA	7597
+Rattus_norvegicus      CCCGGCCGCCTAAACCAAGCTACAGTGACATCAAACCGACCAGGTCTATTCTATGGCCAA	7590
+                       ** ***** ***** ***** ***** *****************  **************
+
+Mus_musculus           TGCTCTGAAATTTGTGGATCTAACCATAGCTTTATGCCCATTGTCCTAGAAATGGTTCCA	7657
+Rattus_norvegicus      TGCTCTGAAATTTGCGGCTCAAATCACAGCTTCATACCCATTGTACTAGAAATAGTCCCT	7650
+                       ************** ** ** ** ** ***** ** ******** ******** ** ** 
+
+Mus_musculus           CTAAAATATTTCGAAAACTGATCTGCTTCAATAATTTAATTTCACTATGAAGCTAAGAGC	7717
+Rattus_norvegicus      CTAAAATATTTCGAAAACTGATCAGCTTCTATAATTTAAACTCATTGCGAAGCTTAGAGC	7710
+                       *********************** ***** *********  *** *  ****** *****
+
+Mus_musculus           GTTAACCTTTTAAGTTAAAGTTAGAGACCTTAAAATCTCCATAGTGATATGCCACAACTA	7777
+Rattus_norvegicus      GTTAACCTTTTAAGTTAAAGTTAGAGACA-ACAAATCTCCACAATGACATGCCACAACTA	7769
+                       ****************************    ********* * *** ************
+
+Mus_musculus           GATACATCAACATGATTTATCACAATTATCTCATCAATAATTACCCTATTTATCTTATTT	7837
+Rattus_norvegicus      GACACATCCACATGATTTATTACAATCATCTCCTCAATAGCCACACTATTTATTTTATTT	7829
+                       ** ***** *********** ***** ***** ******   ** ******** ******
+
+Mus_musculus           CAACTAAAAGTCTCATCACAAACATTCCCACTGGCACCTTCACCAAAATCACTAACAACC	7897
+Rattus_norvegicus      CAATTAAAAATTTCTTCCCAAACCTTTCCTGCACCTCCCTCCCCCAAAACTATAGCCACA	7889
+                       *** ***** * ** ** ***** ** **     * ** ** ** *** *  ** * ** 
+
+Mus_musculus           ATAAAAGTAAAAACCCCTTGAGAATTAAAATGAACGAAAATCTATTTGCCTCATTCATTA	7957
+Rattus_norvegicus      GAAAAAACGAATAACCCTTGAGAATCAAAATGAACGAAAACCTATTTGCCTCTTTCATTA	7949
+                         ****   ** * *********** ************** *********** *******
+
+Mus_musculus           CCCCAACAATAATAGGATTCCCAATCGTTGTAGCCATCATTATATTTCCTTCAATCCTAT	8017
+Rattus_norvegicus      CCCCCACAATAATAGGTCTACCAATTGTTGTAACCATTATTATGTTCCCATCAATTCTAT	8009
+                       **** ***********  * ***** ****** **** ***** ** ** ***** ****
+
+Mus_musculus           TCCCATCCTCAAAACGCCTAATCAACAACCGTCTCCATTCTTTCCAACACTGACTAGTTA	8077
+Rattus_norvegicus      TCCCATCATCAGAACGCCTAATCAGCAACCGACTACACTCATTTCAACACTGACTAATCA	8069
+                       ******* *** ************ ****** ** ** ** ** ************ * *
+
+Mus_musculus           AACTTATTATCAAACAAATAATGCTAATCCACACACCAAAAGGACGAACATGAACCCTAA	8137
+Rattus_norvegicus      AACTTATCATCAAACAAATAATGTTAATCCACACACCAAAAGGACGAACCTGAGCCCTAA	8129
+                       ******* *************** ************************* *** ******
+
+Mus_musculus           TAATTGTTTCCCTAATCATATTTATTGGATCAACAAATCTCCTAGGCCTTTTACCACATA	8197
+Rattus_norvegicus      TAATTGTATCCCTAATTATATTTATTGGCTCAACCAACCTTCTAGGGCTTCTTCCCCATA	8189
+                       ******* ******** *********** ***** ** ** ***** *** * ** ****
+
+Mus_musculus           CATTTACACCTACTACCCAACTATCCATAAATCTAAGTATAGCCATTCCACTATGAGCTG	8257
+Rattus_norvegicus      CATTTACCCCTACCACTCAGCTATCTATAAACCTAAGCATAGCCATCCCCCTATGAGCAG	8249
+                       ******* ***** ** ** ***** ***** ***** ******** ** ******** *
+
+Mus_musculus           GAGCCGTAATTACAGGCTTCCGACACAAACTAAAAAGCTCACTTGCCCACTTCCTTCCAC	8317
+Rattus_norvegicus      GAGCCGTAATTCTAGGCTTCCGACACAAACTAAAAAATTCTTTAGCCCACTTCTTACCGC	8309
+                       ***********  ***********************  **  * ********* * ** *
+
+Mus_musculus           AAGGAACTCCAATTTCACTAATTCCAATACTTATTATTATTGAAACAATTAGCCTATTTA	8377
+Rattus_norvegicus      AAGGAACCCCCATCTCCCTAATTCCCATACTAATTATCATCGAAACTATCAGCCTATTTA	8369
+                       ******* ** ** ** ******** ***** ***** ** ***** ** **********
+
+Mus_musculus           TTCAACCAATGGCATTAGCAGTCCGGCTTACAGCTAACATTACTGCAGGACACTTATTAA	8437
+Rattus_norvegicus      TTCAACCGATAGCACTAGCAGTACGACTAACAGCAAACATTACAGCAGGCCATCTATTAA	8429
+                       ******* ** *** ******* ** ** ***** ******** ***** **  ******
+
+Mus_musculus           TACACCTAATCGGAGGAGCTACTCTAGTATTAATAAATATTAGCCCACCAACAGCTACCA	8497
+Rattus_norvegicus      TGCATCTAATCGGAGGAGCTACTCTAGTACTTATAGACATCAGCCCACCAACCGCTACAA	8489
+                       * ** ************************ * *** * ** *********** ***** *
+
+Mus_musculus           TTACATTTATTATTTTACTTCTACTCACAATTCTAGAATTTGCAGTAGCATTAATTCAAG	8557
+Rattus_norvegicus      TTACATTTATTATTCTACTTCTACTTACAGTACTTGAATTTGCCGTAGCCTTAATTCAAG	8549
+                       ************** ********** *** * ** ******** ***** **********
+
+Mus_musculus           CCTACGTATTCACCCTCCTAGTAAGCCTATATCTACATGATAATACATAATGACCCACCA	8617
+Rattus_norvegicus      CCTATGTATTCACCCTTCTAGTAAGCCTGTACCTACATGATAACACATAATGACCCACCA	8609
+                       **** *********** *********** ** *********** ****************
+
+Mus_musculus           AACTCATGCATATCACATAGTTAATCCAAGTCCATGACCATTAACTGGAGCCTTTTCAGC	8677
+Rattus_norvegicus      AACCCATGCATACCATATAGTAAACCCAAGCCCATGACCACTAACAGGAGCCCTATCAGC	8669
+                       *** ******** ** ***** ** ***** ********* **** ****** * *****
+
+Mus_musculus           CCTCCTTCTAACATCAGGTCTAGTAATATGATTTCACTATAATTCAATTACACTATTAAC	8737
+Rattus_norvegicus      TCTTCTACTTACATCCGGCTTAGTAATATGATTCCATTACAACTCCACAATTCTCCTATC	8729
+                        ** ** ** ***** **  ************* ** ** ** ** *  *  **  ** *
+
+Mus_musculus           CCTTGGCCTACTCACCAATATCCTCACAATATATCAATGATGACGAGACGTAATTCGTGA	8797
+Rattus_norvegicus      ATTAGGCCTCCTGACAAACATCCTAACTATATATCAATGATGACGAGATATCATCCGTGA	8789
+                         * ***** ** ** ** ***** ** ********************  * ** *****
+
+Mus_musculus           AGGAACCTACCAAGGCCACCACACTCCTATTGTACAAAAAGGACTACGATATGGTATAAT	8857
+Rattus_norvegicus      AGGAACATACCAAGGCCACCACACCCCTATTGTACAAAAAGGCCTCCGATACGGAATAAT	8849
+                       ****** ***************** ***************** ** ***** ** *****
+
+Mus_musculus           TCTATTCATCGTCTCGGAAGTATTTTTCTTTGCAGGATTCTTCTGAGCGTTCTATCATTC	8917
+Rattus_norvegicus      CCTGTTTATTGTCTCCGAAGTATTCTTCTTTGCCGGATTTTTCTGAGCATTTTATCATTC	8909
+                        ** ** ** ***** ******** ******** ***** ******** ** ********
+
+Mus_musculus           TAGCCTCGTACCAACACATGATCTAGGAGGCTGCTGACCTCCAACAGGAATTTCACCACT	8977
+Rattus_norvegicus      CAGCCTAGTTCCTACCCACGACCTAGGCGGTTGCTGACCCCCAACAGGAATTACCCCTTT	8969
+                        ***** ** ** ** ** ** ***** ** ******** ************ * **  *
+
+Mus_musculus           TAACCCTCTAGAAGTCCCACTACTTAATACTTCAGTACTTCTAGCATCAGGTGTTTCAAT	9037
+Rattus_norvegicus      AAATCCCCTAGAAGTACCCCTTCTAAATACATCAGTCCTCTTAGCATCAGGAGTCTCAAT	9029
+                        ** ** ******** ** ** ** ***** ***** **  ********** ** *****
+
+Mus_musculus           TACATGAGCTCATCATAGCCTTATAGAAGGTAAACGAAACCACATAAATCAAGCCCTACT	9097
+Rattus_norvegicus      TACATGAGCCCATCACAGCCTAATAGAAGGCAACCGAAACCATATAAACCAAGCCCTACT	9089
+                       ********* ***** ***** ******** ** ******** ***** ***********
+
+Mus_musculus           AATTACCATTATACTAGGACTTTACTTCACCATCCTCCAAGCTTCAGAATACTTTGAAAC	9157
+Rattus_norvegicus      AATCACCATTCTCTTAGGATTATATTTCACTATCTTACAAGCCTCAGAGTATTTCGAAAC	9149
+                       *** ****** *  ***** * ** ***** *** * ***** ***** ** ** *****
+
+Mus_musculus           ATCATTCTCCATTTCAGATGGTATCTATGGTTCTACATTCTTCATGGCTACTGGATTCCA	9217
+Rattus_norvegicus      ATCATTTTCTATCTCAGACGGAATTTACGGCTCAACATTCTTCATAGCAACGGGATTTCA	9209
+                       ****** ** ** ***** ** ** ** ** ** *********** ** ** ***** **
+
+Mus_musculus           TGGACTCCATGTAATTATTGGATCAACATTCCTTATTGTTTGCCTACTACGACAACTAAA	9277
+Rattus_norvegicus      TGGCCTCCACGTAATTATTGGCTCAACTTTCCTAATTGTCTGTCTACTACGACAACTAAA	9269
+                       *** ***** *********** ***** ***** ***** ** *****************
+
+Mus_musculus           ATTTCACTTCACATCAAAACATCACTTCGGATTTGAAGCCGCAGCATGATACTGACATTT	9337
+Rattus_norvegicus      ATTCCACTTCACATCAAAACATCATTTCGGATTTGAAGCCGCAGCATGATACTGACACTT	9329
+                       *** ******************** ******************************** **
+
+Mus_musculus           TGTAGACGTAGTCTGACTTTTCCTATACGTCTCCATTTATTGATGAGGATCTTACTCCCT	9397
+Rattus_norvegicus      CGTAGATGTAGTTTGACTATTCCTATACGTTTCTATCTATTGATGAGGATCCTACTCCCT	9389
+                        ***** ***** ***** *********** ** ** ************** ********
+
+Mus_musculus           TAGTATAATTAATATAACTGACTTCCAATTAGTAGATTCTGAATAAACCCAGAAGAGAGT	9457
+Rattus_norvegicus      TAGTATAAACAATACAACTGACTTCCAATCAGTTAATTCTGAAAAAACTCAGAAGAGAGT	9449
+                       ********  **** ************** ***  ******** **** ***********
+
+Mus_musculus           AATTAACCTGTACACTGTTATCTTCATTAATATTTTATTATCCCTAACGCTAATTCTAGT	9517
+Rattus_norvegicus      AATTAACCTACTTATTATCATCACAATTAACATCACCTTATCTTTTATCCTCATTTCAAT	9509
+                       *********    * * * ***   ***** **    *****  * *  ** ***  * *
+
+Mus_musculus           TGCATTCTGACTCCCCCAAATAAATCTGTACTCAGAAAAAGCAAATCCATATGAATGCGG	9577
+Rattus_norvegicus      TGCATTCTGATTGCCTCAAATAAACTTATACTCCGAAAAAGCAAACCCATATGAATGTGG	9569
+                       ********** * ** ********  * ***** *********** *********** **
+
+Mus_musculus           ATTCGACCCTACAAGCTCTGCACGTCTACCATTCTCAATAAAATTTTTCTTGGTAGCAAT	9637
+Rattus_norvegicus      CTTCGACCCAACAAGTTCTGCACGCCTTCCTTTTTCAATAAAATTTTTCTTAGTAGCCAT	9629
+                        ******** ***** ******** ** ** ** ***************** ***** **
+
+Mus_musculus           TACATTTCTATTATTTGACCTAGAAATTGCTCTTCTACTTCCACTACCATGAGCAATTCA	9697
+Rattus_norvegicus      TACATTTCTACTATTCGACCTAGAAATCGCCTTACTACTCCCCCTCCCATGAGCGATTCA	9689
+                       ********** **** *********** **  * ***** ** ** ******** *****
+
+Mus_musculus           AACAATTAAAACCTCTACTATAATAATTATAGCCTTTATTCTAGTCACAATTCTATCTCT	9757
+Rattus_norvegicus      AACAACCAATACTACTACAATAATAGCAACTGCCTTTATTCTAGTCACTATTTTAGCTCT	9749
+                       *****  ** **  **** ******   *  ***************** *** ** ****
+
+Mus_musculus           AGGCCTAGCATATGAATGAACACAAAAAGGATTAGAATGAACAGAGTAAATGGTAATTAG	9817
+Rattus_norvegicus      TGGCCTAAGCTACGAATGAACACAAAAAGGACTAGAATGAACAGAATAATTGGTAATTAG	9809
+                        ******   ** ****************** ************* *** **********
+
+Mus_musculus           TTTAAAAAAAATTAATGATTTCGACTCATTAGATTATGATGATGTTCATAATTACCAAT-	9876
+Rattus_norvegicus      TTTAAATAAAATTAATGATTTCGACTCATTAGATTATGATAATAATCATAATTACCAACA	9869
+                       ****** ********************************* **  *************  
+
+Mus_musculus           ATGCCATCTACCTTCTTCAACCTCACCATAGCCTTCTCACTATCACTTCTAGGGACACTT	9936
+Rattus_norvegicus      ATGACATCTGCTTTCCTAAATTTAACTATAGCCTTTACATTATCTCTACTAGGTACTTTT	9929
+                       *** ***** * *** * **  * ** ********  ** **** ** ***** **  **
+
+Mus_musculus           ATATTTCGCTCTCACCTAATATCCACATTACTATGCCTGGAAGGCATAGTATTATCCTTA	9996
+Rattus_norvegicus      ATATTTCGCTCCCACTTAATATCTACTCTCCTCTGCCTAGAAGGAATAATACTATCACTA	9989
+                       *********** *** ******* **  * ** ***** ***** *** ** ****  **
+
+Mus_musculus           TTTATTATAACTTCAGTAACTTCCCTAAACTCCAACTCCATAAGCTCCATACCAATCCCC	10056
+Rattus_norvegicus      TTTGTCATAACTTCAACATCCACATTAAACTCCAACTCCATAATCTCCATAACCATCCCA	10049
+                       *** * *********  * *  *  ****************** ******* * ***** 
+
+Mus_musculus           ATCACCATCTTAGTTTTCGCAGCCTGCGAAGCAGCTGTAGGACTAGCCCTACTAGTAAAA	10116
+Rattus_norvegicus      ATTACCATTCTAGTTTTTGCAGCCTGCGAAGCAGCAGTAGGTTTAGCCTTACTAGTAAAA	10109
+                       ** *****  ******* ***************** *****  ***** ***********
+
+Mus_musculus           GTTTCAAACACGTACGGAACAGATTACGTCCAAAATCTCAACCTACTACAATGCTAAAAA	10176
+Rattus_norvegicus      ATTTCAAATACTTACGGAACAGACTACGTACAAAACCTCAACCTTCTACAATGTTAAAAA	10169
+                        ******* ** *********** ***** ***** ******** ******** ******
+
+Mus_musculus           TTATTCTTCCCTCACTAATGCTACTACCACTAACCTGACTATCAAGCCCTAAAAAAACCT	10236
+Rattus_norvegicus      TTATTTTCCCATCTATCATACTCCTCCCACTAACATGACTCTCAGCCAACAAAAAAATCT	10229
+                       ***** * ** **  * ** ** ** ******** ***** ***  *   ******* **
+
+Mus_musculus           GAACAAACGTAACCTCATATAGTTTTCTAATTAGTTTAACCAGCCTAACACTTCTATGAC	10296
+Rattus_norvegicus      GAACCAATGTCACCTCCTACAGCTTTCTAGTGAGCCTATTAAGCTTATCACTCCTATGAC	10289
+                       **** ** ** ***** ** ** ****** * **  **   *** ** **** *******
+
+Mus_musculus           AAACCGACGAAAATTATAAAAACTTTTCAAATATATTCTCCTCAGACCCCCTATCCACAC	10356
+Rattus_norvegicus      AAAATGACGAAAATTACCTAAATTTCTCAGTTATATTCTCCTCCGATCCATTATCCACCC	10349
+                       ***  ***********   *** ** ***  ************ ** **  ******* *
+
+Mus_musculus           CATTAATTATTTTAACAGCCTGATTACTGCCACTAATATTAATAGCTAGCCAAAACCACC	10416
+Rattus_norvegicus      CACTAATCATTCTAACAACTTGACTCCTCCCACTAATAATGCTCGCTAGCCAAAATCACA	10409
+                       ** **** *** ***** * *** * ** ********* *  * *********** *** 
+
+Mus_musculus           TAAAAAAAGATAATAACGTACTACAAAAACTCTACATCTCAATACTAATCAGCTTACAAA	10476
+Rattus_norvegicus      TAAAAAAAGAAAATATAATGCATCAAAAACTTTACATCTCAATACTTATTAGCCTCCAAA	10469
+                       ********** ****   * *  ******** ************** ** *** * ****
+
+Mus_musculus           TTCTCCTAATCATAACCTTTTCAGCAACTGAACtaattatattttatattttatttGAAG	10536
+Rattus_norvegicus      TTTTACTCATCATAACATTCTCCGCAACAGAACTAATTTTATTTTATATCCTGTTCGAAG	10529
+                       ** * ** ******** ** ** ***** ********* **********  * ** ****
+
+Mus_musculus           CAACCTTAATCCCAACACTTATTATTATTACCCGATGAGGGAACCAAACTGAACGCCTAA	10596
+Rattus_norvegicus      CCACTCTAATCCCAACACTAATTATCATTACACGATGAGGCAACCAAACAGAACGCTTAA	10589
+                       * **  ************* ***** ***** ******** ******** ****** ***
+
+Mus_musculus           ACGCAGGGATTTATTTCCTATTTTATACCCTAATCGGTTCTATTCCACTGCTAATTGCCC	10656
+Rattus_norvegicus      ATGCAGGAATTTATTTCCTATTTTATACACTAATTGGCTCCATCCCACTCTTAATTGCCC	10649
+                       * ***** ******************** ***** ** ** ** *****  *********
+
+Mus_musculus           TCATCTTAATCCAAAACCATGTAGGAACCCTAAACCTCATAATTTTATCATTCACAACAC	10716
+Rattus_norvegicus      TCATTTCAATCCAAAACTCAATAGGAACACTCAACTTCCTAATCCTCTCCCTCACAACAC	10709
+                       **** * **********    ******* ** *** ** ****  * **  *********
+
+Mus_musculus           ACACCTTAGACGCTTCATGATCTAACAACTTACTATGGTTGGCATGCATAATAGCATTTC	10776
+Rattus_norvegicus      ACCCCCTACCCTCAACATGATCCAACACCATTCTATGACTAGCATGTATAATAGCATTTA	10769
+                       ** ** **  * *  ******* **** * * *****  * ***** ************ 
+
+Mus_musculus           TTATTAAAATACCATTATATGGAGTTCACCTATGACTACCAAAAGCCCATGTTGAAGCTC	10836
+Rattus_norvegicus      TAATCAAAATACCATTATACGGAGTCCATCTATGATTACCAAAAGCCCACGTAGAAGCTC	10829
+                       * ** ************** ***** ** ****** ************* ** *******
+
+Mus_musculus           CAATTGCTGGGTCAATAATTCTAGCAGCTATTCTTCTAAAATTAGGTAGTTACGGAATAA	10896
+Rattus_norvegicus      CAATTGCAGGCTCTATAATTTTAGCAGCAATTCTCCTAAAGCTAGGGGGTTATGGGATAA	10889
+                       ******* ** ** ****** ******* ***** *****  ****  **** ** ****
+
+Mus_musculus           TTCGCATCTCCATTATTCTAGACCCACTAACAAAATATATAGCATACCCCTTCATCCTTC	10956
+Rattus_norvegicus      TACGAGTTTCCATCATTCTAGACCCCCTAACAAAATCTTTAGCCTACCCATTCATCATCC	10949
+                       * **  * ***** *********** ********** * **** ***** ****** * *
+
+Mus_musculus           TCTCCCTATGAGGAATAATTATAACTAGCTCAATCTGCTTACGCCAAACAGATTTAAAAT	11016
+Rattus_norvegicus      TCTCATTATGAGGCATAATTATAACTAGCTCAATCTGCCTACGCCAAACAGATCTAAAAT	11009
+                       ****  ******* ************************ ************** ******
+
+Mus_musculus           CACTAATCGCCTACTCCTCAGTTAGCCACATAGCACTTGTTATTGCATCAATCATAATCC	11076
+Rattus_norvegicus      CATTAATTGCTTACTCATCAGTAAGCCATATAGCCCTAGTCATCACAGCCATTATAATCC	11069
+                       ** **** ** ***** ***** ***** ***** ** ** **  ** * ** *******
+
+Mus_musculus           AAACTCCATGAAGCTTCATAGGAGCAACAATACTAATAATCGCACATGGCCTCACATCAT	11136
+Rattus_norvegicus      AGACACCATGAAGCTTCATGGGAGCTACAATACTAATAATCGCCCACGGCTTAACCTCCT	11129
+                       * ** ************** ***** ***************** ** *** * ** ** *
+
+Mus_musculus           CACTCCTATTCTGCCTAGCAAACTCCAACTACGAACGGATCCACAGCCGTACTATAATCA	11196
+Rattus_norvegicus      CACTCTTATTCTGCCTAGCAAACACCAACTACGAACGAATTCACAGCCGAACTATAATTA	11189
+                       ***** ***************** ************* ** ******** ******** *
+
+Mus_musculus           TGGCCCGAGGACTTCAAATGGTCTTCCCACTTATAGCCACATGATGACTGATAGCAAGTC	11256
+Rattus_norvegicus      TAGCTCGAGGATTACAAATAATCTTTCCATTGATAGCAACATGATGACTATTAGCAAGCT	11249
+                       * ** ****** * *****  **** *** * ***** ***********  *******  
+
+Mus_musculus           TAGCTAATCTAGCTCTACCCCCTTCAATCAATCTAATAGGAGAATTATTCATTACCATAT	11316
+Rattus_norvegicus      TAGCCAACCTAGCACTACCACCCCTAATTAACCTCATAGGCGAGTTATTCATTGTTATAG	11309
+                       **** ** ***** ***** **   *** ** ** ***** ** *********   *** 
+
+Mus_musculus           CATTATTTTCTTGATCAAACTTTACCATTATTCTTATAGGAATTAACATTATTATTACAG	11376
+Rattus_norvegicus      CAACATTTTCCTGATCGAACCCCTCTATCATCCTTATAGCAACTAACATTGTCATCACAG	11369
+                       **  ****** ***** ***    * ** ** ******* ** ******* * ** ****
+
+Mus_musculus           GTATATACTCAATATACATAATTATTACCACCCAACGCGGCAAACTAACCAACCATATAA	11436
+Rattus_norvegicus      GAATCTACTCAATATATATAATTATCACAACCCAACGAGGAAAACTAACCAGCCACATAA	11429
+                       * ** *********** ******** ** ******** ** ********** *** ****
+
+Mus_musculus           TTAACCTCCAACCCTCACACACACGAGAACTAACACTAATAGCCCTTCACATAATTCCAC	11496
+Rattus_norvegicus      ACAACCTCCAACCTTCCCACACACGAGAATTAACACTCATAGCTCTACACATTATTCCCC	11489
+                         *********** ** ************ ******* ***** ** ***** ***** *
+
+Mus_musculus           TTATTCTTCTAACTACCAGTCCAAAACTAATTACAGGCCTGACAATATGTGAATATAGTT	11556
+Rattus_norvegicus      TCATACTATTAACAATCAACCCTAAACTCATCACAGGCCTAACAATATGTAGGTATAGTT	11549
+                       * ** **  **** * **  ** ***** ** ******** *********   *******
+
+Mus_musculus           TACAAAAAACATTAGACTGTGAATCTGACAACAGGAAATAAACCTCCTTATTCACCAAGA	11616
+Rattus_norvegicus      TACAAAAAACATTAGACTGTGAATCTAACAACAGGAAATCAAATTCCTTATTTACCAAGA	11609
+                       ************************** ************ **  ******** *******
+
+Mus_musculus           AAGATTGCAAGAACTGCTAATTCATGCTTCCATGTTTAAAA-ACATGGCTTTCTTACTTT	11675
+Rattus_norvegicus      AAGTATGCAAGAACTGCTAATTCATGCACCCATACCTAAAACATATGGCTTTCTTACTTT	11669
+                       ***  **********************  ****   ***** * ****************
+
+Mus_musculus           TATAGGATAATAGTAATCCATTGGTCTTAGGAACCAAAAACCTTGGTGCAAATCCAAATA	11735
+Rattus_norvegicus      TATAGGATAGAAGTAATCCATTGGTCTTAGGAACCAAAAACCTTGGTGCAACTCCAAATA	11729
+                       *********  **************************************** ********
+
+Mus_musculus           AAAGTAATCAATATTTTCACAACCTCAATCTTATTAATCTTCATTCTTCTACTATCCCCA	11795
+Rattus_norvegicus      AAAGTAATAAATATAATAACATCCTCAATCCTCATAATCTTGATTTTACTTACAACACCA	11789
+                       ******** *****  * *** ******** *  ******* *** * **   * * ***
+
+Mus_musculus           ATCCTAATTTCAATATCAAACCTAATTAAACACATCAACTTCCCACTGTACACCACCACA	11855
+Rattus_norvegicus      ATCATCATTTCCATAACCAACCTACCAAAACTTATTGACTTTCCGTCATATGCTACTTCA	11849
+                       *** * ***** *** * ******   ****  **  **** **    **  * **  **
+
+Mus_musculus           TCAATCAAATTCTCCTTCATTATTAGCCTCTTACCCCTATTAATATTTTTCCACAATAAT	11915
+Rattus_norvegicus      TCAATTAAATTCTCATTCCTCCTTAGCCTCTTACCTTTACTACTATTCTTCCACCACAAC	11909
+                       ***** ******** *** *  *************  ** ** **** ****** * ** 
+
+Mus_musculus           ATAGAATATATAATTACAACCTGGCACTGAGTCACCATAAATTCAATAGAACTTAAAATA	11975
+Rattus_norvegicus      ACAGAATATATAATTACTAACTGACATTGACTAACTATTAATTCTATTAAACTTACTATA	11969
+                       * *************** * *** ** *** * ** ** ***** **  ******  ***
+
+Mus_musculus           AGCTTCAAAACTGACTTTTTCTCTATCCTGTTTACATCTGTAGCCCTTTTTGTCACATGA	12035
+Rattus_norvegicus      AGTTTCAAAATTGACTATTTCTCAATCCTATTCCTATCAGTAGCCCTATTCGTAACATGA	12029
+                       ** ******* ***** ****** ***** **   *** ******** ** ** ******
+
+Mus_musculus           TCAATTATACAATTCTCTTCATGATATATACACTCAGACCCAAACATCAATCGATTCATT	12095
+Rattus_norvegicus      TCAATCATACAATTCTCTTCATGATATATACACTCTGATCCCCACATTAACCGATTCATT	12089
+                       ***** ***************************** ** **  **** ** *********
+
+Mus_musculus           AAATATCTTACACTATTCCTGATTACCATGCTTATCCTCACCTCAGCCAACAACATATTT	12155
+Rattus_norvegicus      AAGTACTTAATAATATTCCTAATTACTATACTAATTCTAACCTCAGCTAACAATCTATTC	12149
+                       ** **  * * * ******* ***** ** ** ** ** ******** *****  **** 
+
+Mus_musculus           CAACTTTTCATTGGCTGAGAAGGGGTGGGAATTATATCTTTCCTACTAATTGGATGATGG	12215
+Rattus_norvegicus      CAACTCTTTATTGGATGAGAAGGAGTAGGAATTATATCCTTCTTATTAATCGGATGATGA	12209
+                       ***** ** ***** ******** ** *********** *** ** **** ******** 
+
+Mus_musculus           TACGGACGAACAGACGCAAATACTGCAGCCCTACAAGCAATCCTCTATAACCGCATCGGA	12275
+Rattus_norvegicus      TATGGCCGTGCAGACGCCAACACAGCGGCCCTCCAAGCAATCCTCTACAACCGAGTCGGA	12269
+                       ** ** **  ******* ** ** ** ***** ************** *****  *****
+
+Mus_musculus           GACATCGGATTCATTTTAGCTATAGTTTGATTTTCCCTAAACATAAACTCATGAGAACTT	12335
+Rattus_norvegicus      GACATTGGTTTCATCCTAGCTATAACCTGATTCTGCCTAAACATAAACTCCTGAGAACTC	12329
+                       ***** ** *****  ********   ***** * *************** ******** 
+
+Mus_musculus           CAACAGATTATATTCTCCAACAACAACGACAATCTAATTCCACTTATAGGCCTATTAATC	12395
+Rattus_norvegicus      CAACAAATT---TTCTTAACCAATACCAACAATCTAGTCCCTCTCACAGGACTACTAATT	12386
+                       ***** ***   ****  * *** * * ******** * ** ** * *** *** **** 
+
+Mus_musculus           GCAGCTACAGGAAAATCAGCACAATTTGGCCTCCACCCATGACTACCATCAGCAATAGAA	12455
+Rattus_norvegicus      GCAGCCACAGGAAAATCCGCCCAATTCGGACTTCATCCATGACTCCCATCAGCTATAGAA	12446
+                       ***** *********** ** ***** ** ** ** ******** ******** ******
+
+Mus_musculus           GGCCCTACACCAGTTTCAGCACTACTACACTCAAGTACAATAGTAGTTGCAGGAATTTTC	12515
+Rattus_norvegicus      GGCCCAACTCCCGTCTCTGCCCTACTACACTCAAGCACAATAGTTGTGGCAGGGATCTTC	12506
+                       ***** ** ** ** ** ** ************** ******** ** ***** ** ***
+
+Mus_musculus           CTACTGGTCCGATTCCACCCCCTCACGACTAATAATAACTTTATTTTAACAACTATACTT	12575
+Rattus_norvegicus      CTAATAATCCGATTCCACCCCCTAACCTCAAACAATAGTACTATTATAACAGCCATACTA	12566
+                       *** *  **************** **  * ** ****    **** ***** * ***** 
+
+Mus_musculus           TGCCTCGGAGCCCTAACCACATTATTTACAGCTATTTGTGCTCTCACCCAAAACGACATC	12635
+Rattus_norvegicus      TGTCTTGGTGCAATCACCACATTATTCACAGCAATCTGTGCTCTCACCCAAAACGACATC	12626
+                       ** ** ** **  * *********** ***** ** ************************
+
+Mus_musculus           AAAAAAATCATTGCCTTCTCTACATCAAGCCAACTAGGCCTGATAATAGTGACGCTAGGA	12695
+Rattus_norvegicus      AAAAAAATTGTAGCTTTCTCAACATCCAGCCAACTAGGCCTTATAATAGTCACATTAGGG	12686
+                       ********  * ** ***** ***** ************** ******** **  **** 
+
+Mus_musculus           ATAAACCAACCACACCTAGCATTCCTACACATCTGTACCCACGCATTCTTCAAAGCTATA	12755
+Rattus_norvegicus      ATTAACCAACCCTACCTTGCTTTCCTCCACATTTGCACCCATGCATTCTTCAAAGCCATA	12746
+                       ** ********  **** ** ***** ***** ** ***** ************** ***
+
+Mus_musculus           CTCTTTATATGCTCTGGCTCAATCATTCATAGCCTGGCAGACGAACAAGACATCCGAAAA	12815
+Rattus_norvegicus      TTATTCATATGCTCCGGATCAATCATCCATAGCCTCAACGATGAACAAGACATTCGAAAA	12806
+                        * ** ******** ** ******** ********    ** *********** ******
+
+Mus_musculus           ATAGGAAACATCACAAAAATCATACCATTCACATCATCATGCCTAGTAATCGGAAGCCTC	12875
+Rattus_norvegicus      ATAGGCAATATAATAAAAGCAATACCATTCACATCATCTTGTCTCATTATCGGGAGCCTA	12866
+                       ***** ** ** * ****   ***************** ** **  * ***** ***** 
+
+Mus_musculus           GCCCTCACAGGAATACCATTCCTAACAGGGTTCTACTCAAAAGACCTAATTATTGAAGCA	12935
+Rattus_norvegicus      GCCCTTACCGGAATACCTTTCCTCACAGGATTCTATTCAAAAGATCTCATCATCGAAGCC	12926
+                       ***** ** ******** ***** ***** ***** ******** ** ** ** ***** 
+
+Mus_musculus           ATTAATACCTGCAACACCAACGCCTGAGCCCTACTAATTACACTAATCGCCACTTCTATA	12995
+Rattus_norvegicus      ATCAACACGTGTAACACCAACGCCTGAGCCCTAATAATCACTTTAATCGCCACATCCATA	12986
+                       ** ** ** ** ********************* **** **  ********** ** ***
+
+Mus_musculus           ACAGCTATGTACAGCATACGAATCATTTACTTCGTAACAATAACAAAACCGCGTTTTCCC	13055
+Rattus_norvegicus      ACTGCTGTGTACAGTATACGCATCATCTACTTCGTCACCATGACAAAACCACGATACTCC	13046
+                       ** *** ******* ***** ***** ******** ** ** ******** ** *   **
+
+Mus_musculus           CCCCTAATCTCCATTAACGAAAATGACCCAGACCTCATAAACCCAATCAAACGCCTAGCA	13115
+Rattus_norvegicus      CCACTAATTACTATTAATGAAAACAACCCAAACCTCATTAATCCAATCAAACGCCTAGCA	13106
+                       ** *****  * ***** *****  ***** ******* ** ******************
+
+Mus_musculus           TTCGGAAGCATCTTTGCAGGATTTGTCATCTCATATAATATTCCACCAACCAGCATTCCA	13175
+Rattus_norvegicus      TTAGGAAGCATCCTAGCAGGCTTCCTTATCTCACTAAATATTCCTCCAACTAACATTCAA	13166
+                       ** ********* * ***** **  * ******   ******** ***** * ***** *
+
+Mus_musculus           GTCCTCACAATACCATGATTTTTAAAAACCACAGCCCTAATTATTTCAGTATTAGGATTC	13235
+Rattus_norvegicus      ATTCTCACAATACCCTGACATTTAAAAATAACAGCCCTACTCATTACAATCCTAGGATTT	13226
+                        * *********** ***  ********  ********* * *** ** *  ******* 
+
+Mus_musculus           CTAATCGCACTAGAACTAAACAACCTAACCATAAAACTATCAATAAATAAAGCAAATCCA	13295
+Rattus_norvegicus      GCCATTGCCCTAGAACTTAACAATTTAACACTAAATCTATCAATAAGCAAACCCACCAAA	13286
+                          ** ** ******** *****  ****  **** **********  *** * *    *
+
+Mus_musculus           TATTCATCCTTCTCAACTTTACTGGGGTTTTTCCCATCTATTATTCACCGCATTACACCC	13355
+Rattus_norvegicus      CTATCATCATTCTCAACCTCCCTAGGCTACTACCCACCAATTATACACCGAATTATTCCT	13346
+                          ***** ******** *  ** ** *  * **** * ***** ***** ****  ** 
+
+Mus_musculus           ATAAAATCTCTCAACCTAAGCCTAAAAACATCCCTAACTCTCCTAGACTTGATCTGGTTA	13415
+Rattus_norvegicus      CAAAAAACTCTAAATTCTAGCTACAAATTATCCTTAAACCTACTAGACCTAATCTGACTA	13406
+                         **** **** **    ***   ***  **** ***  ** ****** * *****  **
+
+Mus_musculus           GAAAAAACCATCCCAAAATCCACCTCAACTCTTCACACAAACATAACCACTTTAACAACC	13475
+Rattus_norvegicus      GAAAAGACAATCCCAAAATCAACCTCAATCACCCAAACCCAACTATCTAAAATAATATCC	13466
+                       ***** ** *********** *******     ** **  *  ** * *   *** * **
+
+Mus_musculus           AACCAAAAAGGCTTAATTAAATTGTACTTTATATCATTCCTAATTAACATCATCTTAATT	13535
+Rattus_norvegicus      AACCAAAAAGGGCTAATCAAACTATATTTCCTATCATTTCTCATCACTATTTCACTAATT	13526
+                       ***********  **** *** * ** **  ******* ** ** *  **     *****
+
+Mus_musculus           ATTATCTTATACTCAATTAATCTCGAGTAATCTCGATAATAATAAAAATACCCGCAAACA	13595
+Rattus_norvegicus      TTTATCTTACACACACTTAATCCCGAGTGATTTCAATAATAATAAAAATCCCCGCAAACA	13586
+                        ******** ** ** ****** ***** ** ** ************** **********
+
+Mus_musculus           AAGATCACCCAGCTACTACCATCATTCAAGTAGCACAACTATATATTGCCGCTACCCCAA	13655
+Rattus_norvegicus      ATGACCACCCAGCCACCACTATCATTCAAGTAGCACAACTATAAATAGCCGCAACCCCAA	13646
+                       * ** ******** ** ** *********************** ** ***** *******
+
+Mus_musculus           TCCCTCCTTCCAACATAACTCCAACATCATCAACCTCATACATCAACCAATCTCCCAAAC	13715
+Rattus_norvegicus      TCCCCCCCTCCAACATAACCCCAACATCATCAATCTCATACATTAATCAATCGCCTAGAC	13706
+                       **** ** *********** ************* ********* ** ***** ** * **
+
+Mus_musculus           CATCAAGATTAATTACTCCAACTTCATCATAATAATTAAGCACACAAATTAAAAAAACCT	13775
+Rattus_norvegicus      TATCAAAATCAACTAACTCCACCTTATTATTCAAACTAAACAAGTAGAACACTACCAACT	13766
+                        ***** ** ** **   * ** * ** **   ** *** **   * *  *  *  * **
+
+Mus_musculus           CTATAATCACCCCCAATACTAAAAAACCCAAAATTAATCAGTTAGATCCCCAAGTCTCTG	13835
+Rattus_norvegicus      CCATAAAAAGCCCTAAAACAAAAAAACTAAAAATAAACCAATTAGACCCTCAAGTCTCCG	13826
+                       * ****  * *** ** ** *******  ***** ** ** ***** ** ******** *
+
+Mus_musculus           GATATTCCTCAGTAGCTATAGCAGTCGTATATCCAAACACAACCAACATCCCCCCTAAAT	13895
+Rattus_norvegicus      GGTACTCCTCAGTAGCCATAGCAGTTGTATACCCAAATACAACCAACATCCCCCCCAAAT	13886
+                       * ** *********** ******** ***** ***** ***************** ****
+
+Mus_musculus           AAATTAAAAAAACTATTAAACCTAAAAACGATCCACCAAACCCTAAAACCATTAAACAAC	13955
+Rattus_norvegicus      AAATTAAAAATACTATTAAACCTAAAAACGAACCCCCAAACCCTAAAACTATTAAGCACC	13946
+                       ********** ******************** ** ************** ***** ** *
+
+Mus_musculus           CAACAAACCCACTAACAATTAAACCTAAACCTCCATAAATAGGTGAAGGCTTTAATGCTA	14015
+Rattus_norvegicus      CAATACATCCACTAACAATCAATCCAAGCCCACCATAAATAGGTGAAGGCTTCAACGCCA	14006
+                       *** * * *********** ** ** *  ** ******************** ** ** *
+
+Mus_musculus           ACCCAAGACAACCAACCAAAAATAATGAACTTAAAACAAAAATATAATTATTCATTATTT	14075
+Rattus_norvegicus      ACCCTAGACAACCAGTCAAAAACAGTAAACTTAAAATAAACATATAATTTGTCATTATTT	14066
+                       **** *********  ****** * * ********* *** ********  *********
+
+Mus_musculus           CTACACAGCATTCAACTGCGACCAATGACATGAAAAATCATCGTTGTAATTCAACTACAG	14135
+Rattus_norvegicus      CTACACAGCATTTAACTGTGACTAATGACATGAAAAATCATCGTTGTAATTCAACTATAG	14126
+                       ************ ***** *** ********************************** **
+
+Mus_musculus           AAACACCTAATGACAAACATACGAAAAACACACCCATTATTTAAAATTATTAACCACTCA	14195
+Rattus_norvegicus      AAACATCTAATGACAAACATCCGAAAATCTCACCCCCTATTCAAAATCATCAACCACTCC	14186
+                       ***** ************** ****** * *****  **** ***** ** ******** 
+
+Mus_musculus           TTCATTGACCTACCTGCCCCATCCAACATTTCATCATGATGAAACTTTGGGTCCCTTCTA	14255
+Rattus_norvegicus      TTTATCGACCTCCCCGCCCCATCTAACATCTCATCATGATGAAACTTCGGTTCTCTACTA	14246
+                       ** ** ***** ** ******** ***** ***************** ** ** ** ***
+
+Mus_musculus           GGAGTCTGCCTAATAGTCCAAATCATTACAGGTCTTTTCTTAGCCATACACTACACATCA	14315
+Rattus_norvegicus      GGAGTATGCCTCATAGTACAAATCCTCACAGGCTTATTCCTAGCAATACACTACACGTCT	14306
+                       ***** ***** ***** ****** * *****  * *** **** *********** ** 
+
+Mus_musculus           GATACAATAACAGCCTTTTCATCAGTAACACACATTTGTCGAGACGTAAATTACGGGTGA	14375
+Rattus_norvegicus      GATACCATAACAGCATTTTCATCAGTCACCCACATCTGCCGAGACGTAAACTACGGCTGA	14366
+                       ***** ******** *********** ** ***** ** *********** ***** ***
+
+Mus_musculus           CTAATCCGATATATACACGCAAACGGAGCCTCAATATTTTTTATTTGCTTATTCCTTCAT	14435
+Rattus_norvegicus      CTAATCCGATACCTACACGCCAACGGCGCCTCAATATTTTTCATCTGCCTATTCCTCCAT	14426
+                       ***********  ******* ***** ************** ** *** ******* ***
+
+Mus_musculus           GTCGGACGAGGCTTATATTATGGATCATATACATTTATAGAAACCTGAAACATTGGAGTA	14495
+Rattus_norvegicus      GTGGGACGAGGACTATACTATGGATCCTACACTTTCCTAGAAACCTGAAACATTGGGATC	14486
+                       ** ********  **** ******** ** ** **  *******************  * 
+
+Mus_musculus           CTTCTACTGTTCGCAGTCATAGCCACAGCATTTATAGGCTACGTCCTTCCATGAGGACAA	14555
+Rattus_norvegicus      ATTCTACTATTTGCAGTCATAGCAACTGCATTCATGGGCTATGTACTCCCATGAGGACAA	14546
+                        ******* ** *********** ** ***** ** ***** ** ** ************
+
+Mus_musculus           ATATCATTCTGAGGTGCCACAGTTATTACAAACCTCCTATCAGCCATCCCATATATTGGA	14615
+Rattus_norvegicus      ATATCATTCTGAGGAGCTACAGTAATTACAAACCTATTATCTGCTATCCCTTACATTGGG	14606
+                       ************** ** ***** ***********  **** ** ***** ** ***** 
+
+Mus_musculus           ACAACCCTAGTCGAATGAATTTGAGGGGGCTTCTCAGTAGACAAAGCCACCTTGACCCGA	14675
+Rattus_norvegicus      ACTACCCTAGTCGAATGAATCTGAGGAGGCTTCTCAGTAGACAAAGCAACCCTAACACGC	14666
+                       ** ***************** ***** ******************** *** * ** ** 
+
+Mus_musculus           TTCTTCGCTTTCCACTTCATCTTACCATTTATTATCGCGGCCCTAGCAATCGTTCACCTC	14735
+Rattus_norvegicus      TTCTTCGCATTCCACTTCATCCTCCCATTCATTATCGCCGCCCTTGCAATTGTACATCTT	14726
+                       ******** ************ * ***** ******** ***** ***** ** ** ** 
+
+Mus_musculus           CTCTTCCTCCACGAAACAGGATCAAACAACCCAACAGGATTAAACTCAGATGCAGATAAA	14795
+Rattus_norvegicus      CTTTTCCTCCACGAAACAGGATCAAATAACCCCACAGGATTAAACTCCGACGCAGACAAA	14786
+                       ** *********************** ***** ************** ** ***** ***
+
+Mus_musculus           ATTCCATTTCACCCCTACTATACAATCAAAGATATCCTAGGTATCCTAATCATATTCTTA	14855
+Rattus_norvegicus      ATCCCATTCCATCCATATTATACAATTAAAGACCTCCTAGGTGTATTTATATTACTATTA	14846
+                       ** ***** ** ** ** ******** *****  ******** *  * **  ** * ***
+
+Mus_musculus           ATTCTCATAACCCTAGTATTATTTTTCCCAGACATACTAGGAGACCCAGACAACTACATA	14915
+Rattus_norvegicus      TTCCTAATAACCCTAGTACTATTCTTCCCAGACCTACTAGGAGACCCAGACAATTATACA	14906
+                        * ** ************ **** ********* ******************* ** * *
+
+Mus_musculus           CCAGCTAATCCACTAAACACCCCACCCCATATTAAACCCGAATGATATTTCCTATTTGCA	14975
+Rattus_norvegicus      CCCGCTAACCCCCTCAACACCCCACCCCACATCAAACCAGAATGATATTTTCTCTTTGCC	14966
+                       ** ***** ** ** ************** ** ***** *********** ** ***** 
+
+Mus_musculus           TACGCCATTCTACGCTCAATCCCCAATAAACTAGGAGGTGTCCTAGCCTTAATCTTATCT	15035
+Rattus_norvegicus      TACGCTATTCTACGCTCCATTCCCAACAAACTAGGAGGAGTCGTAGCCCTAATCTTATCA	15026
+                       ***** *********** ** ***** *********** *** ***** ********** 
+
+Mus_musculus           ATCCTAATTTTAGCCCTAATACCTTTCCTTCATACCTCAAAGCAACGAAGCCTAATATTC	15095
+Rattus_norvegicus      ATCCTAATCTTAGCCTTCCTACCATTCCTGCATACTTCAAAACAACGCAGCTTAACATTC	15086
+                       ******** ****** *  **** ***** ***** ***** ***** *** *** ****
+
+Mus_musculus           CGCCCAATCACACAAATTTTGTACTGAATCCTAGTAGCCAACCTACTTATCTTAACCTGA	15155
+Rattus_norvegicus      CGCCCAATCACCCAAATCCTTTACTGAATCCTAGTAGCCAACCTCCTAATCTTAACATGA	15146
+                       *********** *****  * *********************** ** ******** ***
+
+Mus_musculus           ATTGGGGGCCAACCAGTAGAACACCCATTTATTATCATTGGCCAACTAGCCTCCATCTCA	15215
+Rattus_norvegicus      ATCGGAGGCCAACCAGTAGAACACCCATTTATCATTATTGGCCAACTAGCCTCCATCAGC	15206
+                       ** ** ************************** ** *********************   
+
+Mus_musculus           TACTTCTCAATCATCTTAATTCTTATACCAATCTCAGGAATTATCGAAGACAAAATACTA	15275
+Rattus_norvegicus      TACTTTTCAATTATCCTCATTCTCATACCAATCTCTGGAATTGTTGAAGACAAAATGTTA	15266
+                       ***** ***** *** * ***** *********** ****** * ***********  **
+
+Mus_musculus           AAATTATATCCATGTCTTGATAGTATAAACATTACTCTGGTCTTGTAAACCTGAAATGAA	15335
+Rattus_norvegicus      AAATGAAATTAATGTCCCGATAGTATAAAAATTACTCTGGTCTTGTAAACCAAAAATGAA	15326
+                       **** * **  *****  *********** *********************  *******
+
+Mus_musculus           GATCTTCTCTTCTCAAGAC-ATCAAGAAGAAGGAGCTA-CTCCCCACCACCAGCACCCAA	15393
+Rattus_norvegicus      GAGTCAATCTTCTCAGGACAATCAAGAAGAAGGAACTACCTCCCCACCATCAACACCCAA	15386
+                       **     ******** *** ************** *** ********** ** *******
+
+Mus_musculus           AGCTGGTATTCTAATTAAACTACTTCTTG--AGTACATAAATTTACATAGTACAACAGTA	15451
+Rattus_norvegicus      AGCTGATATTCTATTTAAACTACTTCTTGTCAGTACATAAAATGATATAGGACATTAAAA	15446
+                       ***** ******* ***************  ********** * * **** ***  *  *
+
+Mus_musculus           CATTTATGTATATCGTACATTAAACTATTTTCCCCAAGCATATAAGCTAGTAC-ATTAAA	15510
+Rattus_norvegicus      CATTTATGTATATCGTACATTAAATTATTTTCCCCAAGCATATAAGCATGTAATATATAT	15506
+                       ************************ **********************  ***  **  * 
+
+Mus_musculus           TCAATGGTTCAGGTCATAAAATAATCATCAAC-ATAAATCAATATATATACCATGAATAT	15569
+Rattus_norvegicus      TTAATGATTTAGGACATACATTTAAACTCAACTATAAATTCATA-----ACAACATGTCT	15561
+                       * **** ** *** **** * * *   ***** ******  ***     ** *    * *
+
+Mus_musculus           TATCTTAAACACATTAAACTAATGTTATAAGGACATATCTGTGTTATCTGACATACACCA	15629
+Rattus_norvegicus      ATTCTCGAATACATTAAAATAATGCTTATTAGACATATCTGTGTTATTAGACATGCACCA	15621
+                         ***  ** ******** ***** *     ****************  ***** *****
+
+Mus_musculus           TACAGTCATAAACTCTTCTCTTCCATATGACTATCCCCTTCCCCATTTGGTCTATTAATC	15689
+Rattus_norvegicus      TTAAGTCATAAACCTTTCTCTTCCATATGACTATCCCTGTCCCCAATTGGTCTCTATTTC	15681
+                       *  **********  **********************  ****** ******* *   **
+
+Mus_musculus           TACCATCCTCCGTGAAACCAACAACCCGCCCACCAATGCCCCTCTTCTCGCTCCGGGCCC	15749
+Rattus_norvegicus      TACCATCCTCCGTGAAATCAACAACCCGCCCACTCGTCCCCCTCTTCTCGCTCCGGGCCC	15741
+                       ***************** ***************   * **********************
+
+Mus_musculus           ATTAAACTTGGGGGTAGCTAAACTGAAACTTTATCAGACATCTGGTTCTTACTTCAGGGC	15809
+Rattus_norvegicus      ATTCGTCCTGGGGGTGACTATACTGAAACTTTACCAGGCATCTGGTTCTTACTTCAGGGC	15801
+                       ***   * *******  *** ************ *** **********************
+
+Mus_musculus           CATCAAATGCGTTATCGCCCATACGTTCCCCTTAAATAAGACATCTCGATGGTATCGGGT	15869
+Rattus_norvegicus      CATCAATTGGTTTATCGTCCATACGTTCCCCTTAAATAAGACATCTCGATGGTAACGGGT	15861
+                       ****** **  ****** ************************************ *****
+
+Mus_musculus           CTAATCAGCCCATGACCAACATAACTGTGGTGTCATGCATTTGGTATCTTTTTATTTTGG	15929
+Rattus_norvegicus      CTAATCAGCCCATGATCAACATAACTGTGGTGATATACATTTGGTATTTTTTAATTTTCG	15921
+                       *************** ****************  ** ********** **** ***** *
+
+Mus_musculus           CCTACTTTCATCAACATAGCCGTCAAGGCATGAAAGGACAGCACACAGTCTAGACGCACC	15989
+Rattus_norvegicus      GATGCCTTCCTCAACATAGCCGTCAAGGCATG-AAGGTCAGCACAAAGTCCTGTGGAACC	15980
+                         * * *** ********************** **** ******* ****  *  * ***
+
+Mus_musculus           -TACGGTGAAGAATCATTAGTCCGCAAAACCCAATCACCTAAGGCTA-ATTATTCATGCT	16047
+Rattus_norvegicus      TTTTAGTTAAGGGTCATTTATCCTCATAGACAAAGCTCGAAAGACTATTTTATTCATGTT	16040
+                        *   ** ***  *****  *** ** *  * ** * *  *** ***  ********* *
+
+Mus_musculus           TGTTAGACATAAATGCTACTCAATACCAAATTTTAACTCTCCAAA-CCCCCCACCCCCTC	16106
+Rattus_norvegicus      TGTAAGACATAAATATTTATAAATACTGAAAAATCTGTCAACAAACCCCCCCACCCCCTA	16100
+                       *** **********  *  * *****  **   *   **  **** ************* 
+
+Mus_musculus           CTC--------TTAATGCCAAACCCCAAAAACACTAAGAACTTGAAAGACATATAATATT	16158
+Rattus_norvegicus      CACCTGAAACTTCAATGCCAAACCCCAAAAACATTAAAGCAAGAATTAAATAAAACAAAA	16160
+                       * *        * ******************** ***       *   *   * *  *  
+
+Mus_musculus           AACTATCAAACCCT--ATGTCCTGATCAATTCTAGTAGTTCCCAAAA-TATGACTTATAT	16215
+Rattus_norvegicus      AGCTACTTAATTCTTAAAAGGCTTCTCCATTCTAGTAGACCACAAAATTTTAACTTAAAT	16220
+                       * ***   **  **  *    **  ** **********  * ***** * * ***** **
+
+Mus_musculus           TTTAGTACTTGTAAAAATT--TTACAAAATCATGTTCCGTGAACCAAAACTCTAATCATA	16273
+Rattus_norvegicus      CTTAGCATTGGTAAAATTTCCCGACACAAAATCTTTCCTTCTAACTAAACCCTCTT--TA	16278
+                        **** * * ****** **    *** **     **** *  * * **** **  *  **
+
+Mus_musculus           CTCTATTACGCAATAAACATTAACAA---------	16299
+Rattus_norvegicus      CTTGCCTACCCTCAGAAAATTCCACATACACCAAA	16313
+                       **    *** *    ** ***    *         
