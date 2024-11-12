@@ -89,7 +89,6 @@ dev.off()
 highdepth_qcfltd <- fread("Report/SNVs/filter/basediffperc_cutdemux_sub500k_q30_unstranded_highdepth_qcfltd.csv.gz")
 highdepth_qcfltd[, alt := factor(alt, levels = c("A", "C", "G", "T", "del"))]
 highdepth_qcfltd[, mut := factor(paste0(ref, ">", alt), levels = paste0(rep(c("A", "C", "G", "T"), each = 5), ">", c("A", "C", "G", "T", "del")))]
-randed_highdepth_qcfltd, pos, alt)
 highdepth_qcfltd[, posmut := paste0(pos, ":", mut)]
 highdepth_qcfltd[, posmut := factor(posmut, levels = unique(posmut))]
 dim(highdepth_qcfltd)
