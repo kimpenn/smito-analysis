@@ -615,7 +615,7 @@ dev.off()
 ##         dloop
 ##   0.001920203
 
-inherited_noctrl_titv_bygene <- fread(file = "Report/SNVs/impact/inherited_noctrl_titv_bygene.csv")
+nherited_noctrl_titv_bygene <- fread(file = "Report/SNVs/impact/inherited_noctrl_titv_bygene.csv")
 somatic_noctrl_titv_bygene <- fread(file = "Report/SNVs/impact/somatic_noctrl_titv_bygene.csv")
 inherited_noctrl_titv_bygene[, origin := "inherited"]
 somatic_noctrl_titv_bygene[, origin := "somatic"]
