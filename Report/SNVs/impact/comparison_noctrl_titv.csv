@@ -1,0 +1,14 @@
+class,ti,tv,r,origin
+average,117,39,3,inherited
+nonsyn,44,14,3.14285714285714,inherited
+syn,22,2,11,inherited
+tRNA,26,2,13,inherited
+rRNA,17,0,Inf,inherited
+D-loop,8,21,0.380952380952381,inherited
+average,425,196,2.16836734693878,somatic
+nonsyn,161,104,1.54807692307692,somatic
+syn,101,14,7.21428571428571,somatic
+tRNA,74,28,2.64285714285714,somatic
+rRNA,57,34,1.67647058823529,somatic
+D-loop,31,16,1.9375,somatic
+intergenic,1,0,Inf,somatic
