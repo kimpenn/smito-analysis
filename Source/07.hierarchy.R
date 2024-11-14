@@ -54,7 +54,7 @@ rownames(MouseInfo_df) <- MouseInfo_df$MouseID
 ###########################################################################
 ## Load the data
 ###########################################################################
-inherited_altperc_bymito_byposmut <- fread(file = "Report/SNVs/filter/basediffperc_cutdemux_sub500k_q30_unstranded_highdepth_inherited_altperc_bymito_byposmut.csv.gz")
+inherited_altperc_bymito_byposmut <- fread(file = "Report/SNVs/origin/highdepth_inherited_altperc_bymito_byposmut.csv.gz")
 
 inherited_noctrl_altperc_bymito_byposmut <- inherited_altperc_bymito_byposmut[IsCtrl == "N"]
 inherited_noctrl_altperc_bymito_byposmut[, CellTypeID := paste0(CellType, "_", CellID)]
