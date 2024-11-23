@@ -10,3 +10,4 @@
 source("Source/functions/Graphics.R")
 source("Source/functions/Genetics.R")
 source("Source/functions/Tools.R")
+source("Source/functions/Stats.R")
