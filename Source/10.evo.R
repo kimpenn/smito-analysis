@@ -12,8 +12,15 @@ library("data.table")
 library("ggplot2")
 
 chrmbases_properties <- fread("Report/artifact/chrmbases_properties.csv.gz")
-chrmgenes <- fread(chrmbases <- chrmbases_properties[, ref]
-nchrmbases <- length(chrmbases)
+chrmgenes <- fread("Report/artifact/chrmgenes.csv")
+chrmgenes <- rbind(chrmgenes,
+    chrmbases_properties[is_in_range == "Y" & is_in_primer == "N" & SNVID == "SNV8", list(symbol = "D-loop", start = min(pos), end = max(pos), strand = "*", nbases_covered = .N)], 
+    chrmbases_properties[pos %in% 3843:3844, list(symbol = "intergenic", start = min(pos), end = max(pos), strand = "*", nbases_covered = .N)]
+)
+chrmgenes_cds <- chrmgenes[c(6, 10, 16, 19, 21, 22, 23, 25, 27, 28, 32, 33, 35), ]
+chrmbases_properties[, is_cds := ifelse(sapply(pos, function(p) { any(sapply(1:chrmgenes_cds[,.N], function(x) { b <- chrmgenes_cds[x]; p >= b[, start] & p <= b[, end] })) }), "Y", "N")]
+chrmbases_properties[, proteins := sapply(pos, function(p) { x <- sapply(1:chrmgenes_cds[,.N], function(x) { b <- chrmgenes_cds[x]; ifelse(p >= b[, start] & p <= b[, end], b[, symbol], "") }); x <- x[x!=""]; paste0(x, collapse = ",") })]
+
 chrmbases_assayed <- chrmbases_properties[is_in_range == "Y" & is_in_primer == "N"]
 
 
