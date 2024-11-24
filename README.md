@@ -18,3 +18,6 @@ Copyright (c) 2021-2023, Zijian Yang, Yasemin Atiyas, Nishal Shah and David Issa
 
 ## Reference
 * Parnika Kadam, Zijian Yang, Youtao Lu, Hua Zhu, Yasemin Atiyas, Nishal Shah, Stephen Fisher, Erik Nordgren, Junhyong Kim, David Issadore and James Eberwine. "Single-Mitochondrion Sequencing Uncovers Distinct Mutational Patterns and Heteroplasmy Landscape in Mouse Astrocytes and Neurons" ([BMC Biology 22, 162 (2024)](https://doi.org/10.1186/s12915-024-01953-7))
+
+## Erratum
+* We cited `circlize` by the Research Resource Identifier ([RRID:SCR_002141](https://scicrunch.org/resolver/SCR_002141)) but forgot to cite the original publication: Gu, Zuguang, Lei Gu, Roland Eils, Matthias Schlesner, and Benedikt Brors. "Circlize Implements and Enhances Circular Visualization in R" ([Bioinformatics 30(19), 2811–2812 (2014)](https://doi.org/10.1093/bioinformatics/btu393)) per authors' instruction in the software startup message. We apologize for the oversight. 
